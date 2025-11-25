@@ -13,7 +13,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (CDN for simplicity in this setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -39,10 +39,10 @@
       }
     </script>
 
-    <!-- Custom CSS for specific effects not easily done with Tailwind utilities alone -->
+    <!-- Custom CSS -->
     <style>
       body {
-        background-color: #F2E6D8;
+        background-color: #0a0a0a;
         overflow-x: hidden;
       }
       
@@ -63,6 +63,19 @@
       .vertical-text {
         writing-mode: vertical-rl;
         text-orientation: upright;
+      }
+
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #1a110d;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #3e2b20;
+        border-radius: 3px;
       }
 
       /* Glitch Effect */
@@ -108,28 +121,21 @@
         80% { clip-path: inset(55% 0 10% 0); transform: translate(2px, 1px); }
         100% { clip-path: inset(40% 0 30% 0); transform: translate(-2px, -1px); }
       }
-
-      /* Vine Drawing Animation */
-      .vine-path {
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        transition: stroke-dashoffset 2s ease-out;
-      }
-      .vine-active .vine-path {
-        stroke-dashoffset: 0;
-      }
     </style>
   <script type="importmap">
 {
   "imports": {
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

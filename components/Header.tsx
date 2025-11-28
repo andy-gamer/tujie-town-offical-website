@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${
         isScrolled || mobileMenuOpen
-          ? 'bg-[#1c2329]/90 backdrop-blur-md py-3 md:py-4 border-mist-grey/10 shadow-lg' 
+          ? 'bg-[#1c2329]/95 backdrop-blur-md py-3 md:py-4 border-mist-grey/10 shadow-lg' 
           : 'bg-transparent py-4 md:py-8 border-transparent'
       }`}
     >
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
                <button 
                  key={section}
                  onClick={() => scrollToSection(section)} 
-                 className="text-sm font-bold text-mist-grey hover:text-moon-silver transition-colors tracking-[0.15em] relative group font-sans uppercase"
+                 className="text-base font-bold text-mist-grey hover:text-moon-silver transition-colors tracking-[0.15em] relative group font-sans uppercase"
                >
                  {section === 'town' ? '世界觀' : section === 'news' ? '最新消息' : '核心玩法'}
                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-lantern-red transition-all group-hover:w-full opacity-0 group-hover:opacity-100"></span>
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             href="https://store.steampowered.com/" 
             target="_blank" 
             rel="noreferrer" 
-            className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 text-sm font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] hover:shadow-[0_0_30px_rgba(192,53,43,0.6)] transition-all tracking-widest flex items-center gap-3 rounded-none border border-red-400/20 group transform hover:-translate-y-0.5"
+            className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] hover:shadow-[0_0_30px_rgba(192,53,43,0.6)] transition-all tracking-widest flex items-center gap-3 rounded-none border border-red-400/20 group transform hover:-translate-y-0.5"
           >
             <i className="fa-brands fa-steam text-lg group-hover:scale-110 transition-transform"></i>
             加入願望清單

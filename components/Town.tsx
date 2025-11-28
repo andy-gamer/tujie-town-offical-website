@@ -55,9 +55,9 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   鎮民從不說明原因，只會提醒：
                 </p>
                 
-                {/* Revised Quote Design: Horizontal, Ghostly Effect, Misty Silver */}
+                {/* Revised Quote Design: Dark Ink Color for visibility on light paper */}
                 <div className="mt-8 self-center relative py-6 w-full">
-                   <div className="text-center font-display font-black text-xl md:text-3xl text-moon-silver tracking-[0.2em] animate-ghost leading-relaxed">
+                   <div className="text-center font-display font-black text-xl md:text-3xl text-valley-teal tracking-[0.2em] animate-ghost-dark leading-relaxed">
                      「遵守規矩，你就能平安。」
                    </div>
                 </div>
@@ -78,28 +78,34 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   <span className="font-mono text-xs md:text-base text-ui-dim-red font-bold tracking-widest">VER. 2.0</span>
                 </div>
                 
-                {/* Rules List */}
-                <ol className="space-y-4 md:space-y-6 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
+                {/* Rules List - Custom styling to prevent line breaks on number */}
+                <ul className="space-y-4 md:space-y-6 font-display text-valley-teal text-base md:text-2xl pl-1 md:pl-2">
                   {rules.map((rule, idx) => (
                     <li 
                       key={idx}
                       onClick={() => handleRuleInteraction(idx)}
                       onMouseEnter={() => setActiveRule(idx)} 
                       onMouseLeave={() => setActiveRule(null)} 
-                      className={`relative p-2 md:p-3 transition-all duration-300 cursor-pointer tap-highlight-transparent
+                      className={`relative p-2 md:p-3 transition-all duration-300 cursor-pointer tap-highlight-transparent flex items-start gap-3 md:gap-4
                         ${idx === 3 ? 'group' : 'hover:text-lantern-red'}
                       `}
                     >
+                      <span className="font-black opacity-60 font-mono text-lg md:text-2xl mt-[-2px]">{idx + 1}.</span>
+                      
                       {idx === 3 ? (
                           <div className="relative inline-block w-full">
                             {/* Base text with hover interactions */}
-                            <span className="transition-all duration-300">
-                               絕對不要把
+                            <div className="transition-all duration-300 flex flex-wrap items-center">
+                               <span>絕對不要把</span>
                                <span className={`mx-1 px-1 transition-all duration-300 relative inline-block ${activeRule === 3 ? 'text-lantern-red font-black scale-110 drop-shadow-red-glow' : ''}`}>
                                  「九姑娘花」
                                </span>
-                               帶出鎮外。
-                            </span>
+                               <span>帶出鎮外。</span>
+                               {/* Hover Hint */}
+                               <span className={`ml-3 text-sm md:text-base text-lantern-red opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse flex items-center gap-1`}>
+                                 <i className="fa-solid fa-hand-pointer"></i>
+                               </span>
+                            </div>
                             
                             {/* Overlay Interaction (SHE IS WATCHING YOU) */}
                             <div className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-200 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
@@ -119,7 +125,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                       )}
                     </li>
                   ))}
-                </ol>
+                </ul>
 
                 {/* Wishlist CTA inside Survival Guide */}
                 <div className="mt-8 md:mt-auto pt-6 md:pt-8 border-t border-mist-grey/30 flex flex-col items-center justify-center text-center">

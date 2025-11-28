@@ -24,6 +24,24 @@ export default function App() {
     }
   }, [foundItems]);
 
+  // Scroll Reveal Observer
+  useEffect(() => {
+    if (!loaded) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [loaded]);
+
   return (
     <div className="font-sans text-moon-silver min-h-screen bg-midnight-fog selection:bg-lantern-red selection:text-white">
       {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
@@ -32,11 +50,11 @@ export default function App() {
         <main className="animate-fade-in">
           <Header />
           <Hero foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
-          <Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
-          <LatestNews />
-          <Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
-          <MonsterIndex foundItems={foundItems} />
-          <Footer />
+          <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
+          <div className="scroll-reveal"><LatestNews /></div>
+          <div className="scroll-reveal"><Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
+          <div className="scroll-reveal"><MonsterIndex foundItems={foundItems} /></div>
+          <div className="scroll-reveal"><Footer /></div>
           <FloatingControls />
         </main>
       )}
@@ -54,15 +72,26 @@ export default function App() {
         .glitch-hover:hover { animation: glitch-text 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
         @keyframes glitch-text { 0% { transform: translate(0) } 20% { transform: translate(-2px, 2px) } 40% { transform: translate(-2px, -2px) } 60% { transform: translate(2px, 2px) } 80% { transform: translate(2px, -2px) } 100% { transform: translate(0) } }
         
-        /* Ghostly Afterimage Effect */
-        @keyframes ghostPulse {
-          0% { text-shadow: 2px 0 0px rgba(240, 245, 255, 0.1); opacity: 0.7; transform: translateX(0); filter: blur(0px); }
-          25% { text-shadow: -4px 0 4px rgba(240, 245, 255, 0.4); opacity: 0.9; transform: translateX(-1px); filter: blur(0.5px); }
-          50% { text-shadow: 4px 0 8px rgba(240, 245, 255, 0.6); opacity: 0.6; transform: translateX(1px); filter: blur(1px); }
-          75% { text-shadow: -2px 0 4px rgba(240, 245, 255, 0.4); opacity: 0.9; transform: translateX(0); filter: blur(0.5px); }
-          100% { text-shadow: 2px 0 0px rgba(240, 245, 255, 0.1); opacity: 0.7; transform: translateX(0); filter: blur(0px); }
+        /* Ghostly Afterimage Effect (Dark Version) */
+        @keyframes ghostPulseDark {
+          0% { text-shadow: 2px 0 0px rgba(46, 62, 67, 0.1); opacity: 0.8; transform: translateX(0); filter: blur(0px); }
+          25% { text-shadow: -4px 0 4px rgba(46, 62, 67, 0.2); opacity: 0.6; transform: translateX(-1px); filter: blur(0.5px); }
+          50% { text-shadow: 4px 0 8px rgba(46, 62, 67, 0.3); opacity: 0.9; transform: translateX(1px); filter: blur(1px); }
+          75% { text-shadow: -2px 0 4px rgba(46, 62, 67, 0.2); opacity: 0.6; transform: translateX(0); filter: blur(0.5px); }
+          100% { text-shadow: 2px 0 0px rgba(46, 62, 67, 0.1); opacity: 0.8; transform: translateX(0); filter: blur(0px); }
         }
-        .animate-ghost { animation: ghostPulse 5s ease-in-out infinite; }
+        .animate-ghost-dark { animation: ghostPulseDark 4s ease-in-out infinite; }
+
+        /* Scroll Reveal */
+        .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .scroll-reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
       `}</style>
     </div>
   );

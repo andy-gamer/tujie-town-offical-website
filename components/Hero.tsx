@@ -39,9 +39,9 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
 
         {/* --- LOGO SECTION (Moved to Right Area) --- */}
         {ASSETS.logo && (
-           <div className="absolute top-24 right-6 md:top-1/3 md:right-32 z-20 flex flex-col items-end pointer-events-none mix-blend-screen opacity-90 transform md:-translate-y-1/2">
-               {/* Container for Logo with Animation */}
-               <div className="relative w-32 md:w-64 animate-float">
+           <div className="absolute top-24 right-6 md:top-[30%] md:right-16 z-20 flex flex-col items-end pointer-events-none mix-blend-screen opacity-90 transform md:-translate-y-1/2">
+               {/* Container for Logo - Increased size, removed float animation */}
+               <div className="relative w-52 md:w-[550px]">
                    <img 
                       src={ASSETS.logo} 
                       alt="Logo" 

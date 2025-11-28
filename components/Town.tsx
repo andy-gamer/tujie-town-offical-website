@@ -45,16 +45,24 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   <div className="absolute bottom-2 md:bottom-3 right-4 text-forgotten-ink font-mono font-bold text-[10px] md:text-xs tracking-widest opacity-70">FIG. 1: THE TEA HOUSE</div>
                 </div>
              </div>
-             <div className="relative z-10 mt-2 md:mt-4">
+             <div className="relative z-10 mt-2 md:mt-4 flex flex-col h-full">
                 <h3 className="text-2xl md:text-4xl font-display font-bold text-valley-teal mb-6 md:mb-8 border-b-2 border-lantern-red/50 pb-4 inline-block tracking-widest">關於「土界鎮」</h3>
-                <p className="font-serif text-forgotten-ink leading-[2] md:leading-[2.4] text-justify text-base md:text-xl font-medium">
+                <p className="font-serif text-forgotten-ink leading-loose text-justify text-base md:text-lg font-medium">
                   土界鎮是一座被山霧包住的小鎮。<br/>
                   三面環山，一面臨河，老街與廢鐵道交錯在谷地裡。<br/>
                   白天一切都顯得過於平靜；<br/>
                   到了夜晚，整個小鎮彷彿變了模樣。<br/>
-                  鎮民從不說明原因，只會提醒：<br/>
-                  <span className="font-bold font-display text-ui-dim-red text-lg md:text-2xl mt-6 block border-l-4 border-ui-dim-red pl-4 md:pl-6 py-2 bg-ui-dim-red/5">「遵守規矩，你就能平安。」</span>
+                  鎮民從不說明原因，只會提醒：
                 </p>
+                <div className="mt-8 relative self-center transform -rotate-2">
+                   <div className="border-[3px] border-lantern-red px-6 py-3 bg-lantern-red/5 backdrop-blur-sm shadow-sm relative overflow-hidden group">
+                      <div className="absolute inset-0 bg-texture-paper opacity-50 mix-blend-multiply"></div>
+                      <span className="relative font-black font-display text-lantern-red text-lg md:text-2xl tracking-widest">
+                         「遵守規矩，你就能平安。」
+                      </span>
+                   </div>
+                   <div className="absolute -bottom-2 -right-2 w-full h-full border border-lantern-red/20 -z-10"></div>
+                </div>
              </div>
           </div>
 
@@ -73,36 +81,27 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                 </div>
                 
                 {/* Rules List - Adjusted spacing */}
-                <ol className="space-y-2 md:space-y-4 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
+                <ol className="space-y-3 md:space-y-5 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
                   {rules.map((rule, idx) => (
                     <li 
                       key={idx}
                       onClick={() => handleRuleInteraction(idx)}
                       onMouseEnter={() => setActiveRule(idx)} 
                       onMouseLeave={() => setActiveRule(null)} 
-                      className={`relative p-2 md:p-3 transition-all duration-700 cursor-pointer tap-highlight-transparent
-                        ${idx === 3 ? 'hover:text-lantern-red text-valley-teal' : 'hover:text-valley-teal/70'}
-                        ${idx === 3 && activeRule === 3 ? 'bg-lantern-red/5 shadow-[inset_0_0_20px_rgba(192,53,43,0.1)]' : ''}
+                      className={`relative p-2 md:p-3 transition-all duration-300 cursor-pointer tap-highlight-transparent border-b border-transparent
+                        ${idx === 3 ? 'hover:bg-black/5' : 'hover:bg-valley-teal/5'}
                       `}
                     >
                       {idx === 3 ? (
-                          <div className="relative inline-block w-full group">
-                            {/* Rule 4 with specific hints: No Wrap, Underline, Shake */}
-                            <span className={`relative z-10 transition-all duration-700 whitespace-nowrap border-b-2 border-lantern-red/50 hover:border-lantern-red animate-[pulse_2s_infinite] ${activeRule === 3 ? 'blur-[1px] opacity-70 text-lantern-red border-transparent animate-none' : ''}`}>
+                          <div className="relative inline-block w-full h-8 md:h-10 align-middle overflow-hidden">
+                            {/* Original Text - Translates OUT when active */}
+                            <span className={`absolute top-0 left-0 w-full h-full transition-transform duration-300 whitespace-nowrap flex items-center ${activeRule === 3 ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'} border-b-2 border-lantern-red/30`}>
                               {rule}
                             </span>
                             
-                            {/* Visual Hint for Rule 4 (Fingerprint/Smudge) */}
-                            <span className={`absolute -right-2 top-1/2 -translate-y-1/2 text-lantern-red/20 text-xl md:text-3xl transition-opacity duration-500 ${activeRule === 3 ? 'opacity-0' : 'opacity-100 animate-pulse'}`}>
-                                <i className="fa-solid fa-fingerprint"></i>
-                            </span>
-
-                            {/* Refined Horror Effect */}
-                            <div className={`absolute inset-0 flex items-center pointer-events-none transition-opacity duration-1000 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
-                               <span className="text-xl md:text-4xl text-lantern-red/20 font-black font-display tracking-[0.5em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap blur-sm scale-110 hidden md:block">
-                                 SHE IS WATCHING YOU
-                               </span>
-                               <span className="text-base md:text-xl text-lantern-red font-black font-display tracking-[0.2em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center break-words leading-tight animate-pulse md:whitespace-nowrap">
+                            {/* Horror Text - Translates IN when active */}
+                            <div className={`absolute top-0 left-0 w-full h-full flex items-center transition-transform duration-200 ${activeRule === 3 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
+                               <span className="text-lantern-red font-black font-display tracking-[0.2em] md:tracking-[0.5em] animate-pulse whitespace-nowrap drop-shadow-red-glow">
                                  SHE IS WATCHING YOU
                                </span>
                             </div>

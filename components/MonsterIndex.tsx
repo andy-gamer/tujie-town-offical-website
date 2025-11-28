@@ -17,12 +17,6 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
            <p className="text-white/60 font-serif text-base md:text-xl max-w-3xl mx-auto leading-loose mb-8 md:mb-10 opacity-70 px-4">
              蒐集散落在土界鎮的記憶碎片，揭開那些被遺忘的異界生物真面目...
            </p>
-           {!allFound && (
-             <div className="inline-block bg-lantern-red border-2 border-white/20 px-6 py-2 md:px-8 md:py-3 text-white text-sm md:text-base font-bold animate-pulse tracking-wide font-sans shadow-lg">
-               <i className="fa-solid fa-lock mr-3"></i>
-               檔案加密中：請尋找散落的 3 個記憶碎片
-             </div>
-           )}
         </div>
 
         {/* File Folder Container - Darker, Older Paper Look */}
@@ -36,14 +30,33 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
               <div className="absolute inset-0 bg-orange-900/10 mix-blend-multiply pointer-events-none"></div>
 
               {!allFound && (
-                 // Updated Locked State: Dark Frosted Glass + Secret Stamp
-                 <div className="absolute inset-0 bg-[#0f1112]/95 z-40 flex flex-col items-center justify-center text-center backdrop-blur-md p-6 md:p-8">
-                    <div className="w-full h-full absolute inset-0 opacity-10" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}></div>
-                    <i className="fa-solid fa-file-shield text-5xl md:text-8xl text-mist-grey/10 mb-6 md:mb-10"></i>
-                    <div className="border-4 md:border-8 border-lantern-red/80 px-8 py-4 md:px-12 md:py-8 text-lantern-red/80 font-display font-black text-2xl md:text-6xl tracking-[0.2em] shadow-2xl uppercase transform -rotate-12 mix-blend-multiply opacity-90 border-double">
-                       Top Secret
+                 // Updated Locked State: Blurred Folder Color + Explicit Hint
+                 <div className="absolute inset-0 z-40 flex flex-col items-center justify-center text-center backdrop-blur-xl bg-[#c2b59b]/60 p-6 md:p-8">
+                    <div className="max-w-3xl border-4 border-lantern-red/60 p-8 md:p-12 bg-white/10 shadow-2xl backdrop-blur-sm relative">
+                       {/* Tape effects */}
+                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/40 rotate-1 shadow-sm"></div>
+                       <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/40 -rotate-1 shadow-sm"></div>
+
+                       <h3 className="text-2xl md:text-4xl font-display font-black text-lantern-red tracking-[0.3em] mb-8 uppercase drop-shadow-md">
+                         檔案加密中
+                       </h3>
+                       <p className="text-[#4a443b] font-serif text-lg md:text-xl font-bold mb-8">
+                         請在網站中尋找以下 3 個散落的記憶碎片以解鎖內容：
+                       </p>
+                       
+                       <div className="flex justify-center gap-8 md:gap-12">
+                          {ITEMS.map((item, idx) => (
+                            <div key={idx} className={`flex flex-col items-center gap-3 ${foundItems.includes(item.id) ? 'opacity-30 grayscale' : 'animate-bounce'}`}>
+                               <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center border-2 shadow-lg ${foundItems.includes(item.id) ? 'bg-gray-300 border-gray-400' : 'bg-lantern-red text-white border-white'}`}>
+                                  <i className={`fa-solid ${item.icon} text-2xl md:text-3xl`}></i>
+                               </div>
+                               <span className={`text-xs md:text-sm font-bold font-mono uppercase tracking-widest ${foundItems.includes(item.id) ? 'text-gray-500 line-through' : 'text-lantern-red'}`}>
+                                 {foundItems.includes(item.id) ? 'FOUND' : 'MISSING'}
+                               </span>
+                            </div>
+                          ))}
+                       </div>
                     </div>
-                    <div className="mt-8 font-mono text-mist-grey/40 tracking-[0.2em] md:tracking-[0.5em] text-xs md:text-sm">ACCESS DENIED // MISSING FRAGMENTS</div>
                  </div>
               )}
 

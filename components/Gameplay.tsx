@@ -34,8 +34,11 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
                       </div>
                    </div>
                    
-                   {/* Gradient for text readability */}
-                   <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 bg-gradient-to-t from-[#0c0d0e] via-[#0c0d0e]/90 to-transparent pointer-events-none">
+                   {/* Gradient Mask - Only bottom half */}
+                   <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-[#0c0d0e] via-[#0c0d0e]/95 to-transparent pointer-events-none"></div>
+
+                   {/* Content */}
+                   <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 pointer-events-none">
                       {/* Icon: Hidden on mobile by default to save space, shown on desktop hover */}
                       <div className="mb-auto opacity-40 group-hover:opacity-100 transition-opacity duration-500 transform -translate-y-4 group-hover:translate-y-0 hidden md:block">
                          <i className={`fa-solid ${card.icon} text-6xl text-lantern-red drop-shadow-lg`}></i>
@@ -44,7 +47,7 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
                       <h3 className="text-2xl md:text-3xl font-bold tracking-[0.2em] mb-2 md:mb-4 font-display text-lily-pale drop-shadow-md">{card.title}</h3>
                       <span className="text-[10px] md:text-xs font-mono text-lantern-red tracking-[0.3em] mb-4 md:mb-8 block font-bold border-l-2 border-lantern-red pl-3">{card.sub}</span>
                       
-                      {/* Description: Always visible on mobile, faint on desktop until hover */}
+                      {/* Description */}
                       <p className="text-mist-grey text-base md:text-lg font-sans leading-loose border-t border-gray-700/50 pt-4 md:pt-8 group-hover:border-lantern-red/50 transition-colors text-shadow-sm opacity-90 md:opacity-70 md:group-hover:opacity-100">
                         {card.desc}
                       </p>

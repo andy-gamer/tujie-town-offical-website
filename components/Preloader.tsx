@@ -7,11 +7,12 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const { t } = useLanguage();
 
   useEffect(() => {
+    // Reduced timing for faster loading
     const sequence = [
-      { time: 1000, action: () => setStep(1) },
-      { time: 3000, action: () => setStep(2) },
-      { time: 5000, action: () => setStep(3) },
-      { time: 5500, action: onComplete },
+      { time: 500, action: () => setStep(1) },
+      { time: 1500, action: () => setStep(2) },
+      { time: 2500, action: () => setStep(3) },
+      { time: 3000, action: onComplete },
     ];
 
     let timeouts: ReturnType<typeof setTimeout>[] = [];
@@ -64,7 +65,7 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
         </p>
       </div>
       
-      <div className={`absolute bottom-20 transition-opacity duration-1000 delay-500 ${step === 2 ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`absolute bottom-20 transition-opacity duration-1000 delay-200 ${step === 2 ? 'opacity-100' : 'opacity-0'}`}>
          <p className="text-mist-grey/60 font-serif text-sm md:text-xl tracking-widest border-l-2 border-lantern-red pl-4 italic">
            {t.preloader.line1}
          </p>

@@ -88,11 +88,12 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                       onClick={() => handleRuleInteraction(idx)}
                       onMouseEnter={() => setActiveRule(idx)} 
                       onMouseLeave={() => setActiveRule(null)} 
-                      className={`relative p-2 md:p-3 transition-all duration-300 cursor-pointer tap-highlight-transparent flex items-start gap-3 md:gap-4
+                      className={`relative p-2 md:p-3 transition-all duration-300 ease-out cursor-pointer tap-highlight-transparent flex items-start gap-3 md:gap-4
+                        hover:scale-[1.02] origin-left
                         ${idx === 3 ? 'group' : 'hover:text-lantern-red'}
                       `}
                     >
-                      <span className="font-black opacity-60 font-mono text-lg md:text-2xl mt-[-2px]">{idx + 1}.</span>
+                      <span className={`font-black font-mono text-lg md:text-2xl mt-[-2px] transition-colors duration-300 ${activeRule === idx ? 'text-lantern-red opacity-100' : 'opacity-60'}`}>{idx + 1}.</span>
                       
                       {idx === 3 ? (
                           <div className="relative inline-block w-full">
@@ -114,9 +115,9 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                                {/* Background Eye */}
                                <i className="fa-solid fa-eye absolute right-0 md:right-10 text-lantern-red/10 text-8xl animate-pulse transform rotate-12"></i>
                                
-                               {/* Glitchy Text Overlay */}
-                               <div className="absolute top-0 right-0 md:top-auto md:right-auto md:left-[60%] -mt-4 md:-mt-8 z-20">
-                                  <div className="bg-black text-lantern-red text-xs md:text-sm font-mono font-bold px-3 py-1 tracking-widest glitch border border-lantern-red shadow-[0_0_15px_rgba(192,53,43,0.5)] transform -rotate-2" data-text={t.town.rule4_hover}>
+                               {/* Glitchy Text Overlay - Left Aligned & No Wrap */}
+                               <div className="absolute top-0 left-12 md:top-auto md:left-20 -mt-5 md:-mt-10 z-20">
+                                  <div className="bg-black text-lantern-red text-xs md:text-sm font-mono font-bold px-3 py-1 tracking-widest glitch border border-lantern-red shadow-[0_0_15px_rgba(192,53,43,0.5)] transform -rotate-2 whitespace-nowrap" data-text={t.town.rule4_hover}>
                                      {t.town.rule4_hover}
                                   </div>
                                </div>

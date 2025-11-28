@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700&family=Zen+Old+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Zen+Old+Mincho:wght@400;700;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,19 +20,39 @@
         theme: {
           extend: {
             colors: {
-              'dust-green': '#5A665A',
-              'paper-yellow': '#F2E6D8',
-              'alert-red': '#C21C1C',
-              'moonlight-blue': '#1C2541',
-              'deep-black': '#0a0a0a',
+              // Primary
+              'midnight-fog': '#4A5964', // Backgrounds
+              'valley-teal': '#2E3E43', // Header, Footer, Dark blocks
+              
+              // Secondary
+              'mist-grey': '#D4D9DD', // Dividers, Subtitles
+              'lily-shadow': '#1D1F21', // Overlays, Darkest areas
+              
+              // Accent
+              'lantern-red': '#C0352B', // Buttons, CTA
+              'moon-silver': '#F0F5FF', // Headings, Icons
+              
+              // Lore
+              'lily-pale': '#F4F2EF', // Paper backgrounds, Cards
+              'forgotten-ink': '#645E55', // Body text on light
+              
+              // UI
+              'ui-light-grey': '#E8EBEF',
+              'ui-dim-red': '#7A2321', // Warnings
+              'ui-blue-grey': '#4F5D63', // Card shadows
             },
             fontFamily: {
               serif: ['"Noto Serif TC"', 'serif'],
               display: ['"Zen Old Mincho"', 'serif'],
               sans: ['"Noto Sans TC"', 'sans-serif'],
+              mono: ['"Courier New"', 'monospace'], // More typewriter feel
             },
             backgroundImage: {
               'noise': "url('https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/examples/assets/texture/paper.png')",
+            },
+            dropShadow: {
+              'glow': '0 0 10px rgba(240, 245, 255, 0.5)',
+              'red-glow': '0 0 15px rgba(192, 53, 43, 0.4)',
             }
           }
         }
@@ -42,7 +62,8 @@
     <!-- Custom CSS -->
     <style>
       body {
-        background-color: #0a0a0a;
+        background-color: #4A5964;
+        color: #F0F5FF;
         overflow-x: hidden;
       }
       
@@ -55,8 +76,9 @@
         height: 100%;
         pointer-events: none;
         z-index: 50;
-        opacity: 0.15;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.08;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
       }
 
       /* Vertical Writing Mode */
@@ -71,11 +93,11 @@
         height: 6px;
       }
       .custom-scrollbar::-webkit-scrollbar-track {
-        background: #1a110d;
+        background: #2E3E43;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #3e2b20;
-        border-radius: 3px;
+        background: #645E55;
+        border-radius: 0px;
       }
 
       /* Glitch Effect */
@@ -94,13 +116,13 @@
       }
       .glitch-active::before {
         opacity: 0.8;
-        color: #C21C1C;
+        color: #C0352B;
         z-index: -1;
         animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
       }
       .glitch-active::after {
         opacity: 0.8;
-        color: #1C2541;
+        color: #2E3E43;
         z-index: -2;
         animation: glitch-anim-2 0.4s infinite linear alternate-reverse;
       }

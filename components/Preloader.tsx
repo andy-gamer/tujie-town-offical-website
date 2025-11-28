@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const [step, setStep] = useState(0);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const sequence = [
@@ -64,7 +66,7 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
       
       <div className={`absolute bottom-20 transition-opacity duration-1000 delay-500 ${step === 2 ? 'opacity-100' : 'opacity-0'}`}>
          <p className="text-mist-grey/60 font-serif text-sm md:text-xl tracking-widest border-l-2 border-lantern-red pl-4 italic">
-           「起風了……該回家了。」
+           {t.preloader.line1}
          </p>
       </div>
       

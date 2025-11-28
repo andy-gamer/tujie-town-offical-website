@@ -1,10 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { ASSETS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
+import { Language } from '../translations';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +23,20 @@ const Header: React.FC = () => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const handleLangChange = (l: Language) => {
+    setLang(l);
+    setLangMenuOpen(false);
+    setMobileMenuOpen(false);
+  };
+
+  const languages: { code: Language; label: string }[] = [
+    { code: 'zh-TW', label: '繁體中文' },
+    { code: 'zh-CN', label: '简体中文' },
+    { code: 'en', label: 'English' },
+    { code: 'ja', label: '日本語' },
+    { code: 'ko', label: '한국어' },
+  ];
 
   return (
     <>
@@ -49,7 +67,7 @@ const Header: React.FC = () => {
                  onClick={() => scrollToSection(section)} 
                  className="text-base font-bold text-mist-grey hover:text-moon-silver transition-colors tracking-[0.15em] relative group font-sans uppercase"
                >
-                 {section === 'town' ? '世界觀' : section === 'news' ? '最新消息' : '核心玩法'}
+                 {section === 'town' ? t.nav.world : section === 'news' ? t.nav.news : t.nav.gameplay}
                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-lantern-red transition-all group-hover:w-full opacity-0 group-hover:opacity-100"></span>
                </button>
              ))}
@@ -62,8 +80,32 @@ const Header: React.FC = () => {
             className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] hover:shadow-[0_0_30px_rgba(192,53,43,0.6)] transition-all tracking-widest flex items-center gap-3 rounded-none border border-red-400/20 group transform hover:-translate-y-0.5"
           >
             <i className="fa-brands fa-steam text-lg group-hover:scale-110 transition-transform"></i>
-            加入願望清單
+            {t.nav.wishlist}
           </a>
+
+          {/* Language Switcher Desktop */}
+          <div className="relative">
+             <button 
+               className="text-mist-grey hover:text-moon-silver transition-colors flex items-center gap-2 font-mono text-sm uppercase tracking-wider"
+               onClick={() => setLangMenuOpen(!langMenuOpen)}
+             >
+               <i className="fa-solid fa-globe"></i>
+               {lang === 'zh-TW' ? '繁中' : lang === 'zh-CN' ? '简中' : lang === 'en' ? 'EN' : lang === 'ja' ? 'JP' : 'KO'}
+             </button>
+             {langMenuOpen && (
+               <div className="absolute top-full right-0 mt-4 w-32 bg-valley-teal border border-mist-grey/20 shadow-xl flex flex-col py-2 animate-fade-in">
+                 {languages.map((l) => (
+                   <button 
+                     key={l.code} 
+                     onClick={() => handleLangChange(l.code)}
+                     className={`px-4 py-2 text-left hover:bg-lantern-red/20 hover:text-white transition-colors text-sm ${lang === l.code ? 'text-lantern-red font-bold' : 'text-mist-grey'}`}
+                   >
+                     {l.label}
+                   </button>
+                 ))}
+               </div>
+             )}
+          </div>
         </div>
 
         {/* Mobile Hamburger */}
@@ -86,17 +128,31 @@ const Header: React.FC = () => {
                  onClick={() => scrollToSection(section)} 
                  className="text-xl font-display font-bold text-mist-grey hover:text-lantern-red transition-colors tracking-[0.2em] border-b border-white/10 pb-4 w-full"
                >
-                 {section === 'town' ? '世界觀' : section === 'news' ? '最新消息' : '核心玩法'}
+                 {section === 'town' ? t.nav.world : section === 'news' ? t.nav.news : t.nav.gameplay}
                </button>
              ))}
+             
+             {/* Mobile Language Switcher */}
+             <div className="grid grid-cols-3 gap-4 border-b border-white/10 pb-4 w-full">
+               {languages.map((l) => (
+                   <button 
+                     key={l.code} 
+                     onClick={() => handleLangChange(l.code)}
+                     className={`text-sm py-2 ${lang === l.code ? 'text-lantern-red font-bold border border-lantern-red/30 bg-lantern-red/10' : 'text-mist-grey border border-transparent'}`}
+                   >
+                     {l.label}
+                   </button>
+               ))}
+             </div>
+
              <a 
                 href="https://store.steampowered.com/" 
                 target="_blank" 
                 rel="noreferrer" 
-                className="mt-8 bg-lantern-red text-moon-silver px-8 py-4 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] tracking-widest flex items-center justify-center gap-3 w-full"
+                className="mt-4 bg-lantern-red text-moon-silver px-8 py-4 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] tracking-widest flex items-center justify-center gap-3 w-full"
               >
                 <i className="fa-brands fa-steam text-xl"></i>
-                加入願望清單
+                {t.nav.wishlist}
               </a>
         </div>
     </div>

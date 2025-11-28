@@ -1,10 +1,12 @@
 
 import React from 'react';
 import { ASSETS, ITEMS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
   const allFound = foundItems.length === ITEMS.length;
   const progress = Math.round((foundItems.length / ITEMS.length) * 100);
+  const { t } = useLanguage();
   
   return (
     <section id="collection" className="py-24 md:py-40 bg-[#151719] relative overflow-hidden border-t border-lily-shadow flex justify-center">
@@ -13,9 +15,9 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
 
       <div className="w-full max-w-[95%] md:max-w-[90%] relative z-10">
         <div className="text-center mb-12 md:mb-20">
-           <h2 className="text-2xl md:text-5xl font-display font-bold tracking-[0.2em] text-lily-pale mb-6 md:mb-8 drop-shadow-lg">機密卷宗：失蹤者 No.01 ／ 林晴</h2>
+           <h2 className="text-2xl md:text-5xl font-display font-bold tracking-[0.2em] text-lily-pale mb-6 md:mb-8 drop-shadow-lg">{t.monster.title}</h2>
            <p className="text-white/60 font-serif text-base md:text-xl max-w-3xl mx-auto leading-loose mb-8 md:mb-10 opacity-70 px-4">
-             蒐集散落在土界鎮的記憶碎片，揭開那些被遺忘的異界生物真面目...
+             {t.monster.subtitle}
            </p>
         </div>
 
@@ -23,7 +25,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
         <div className="relative bg-[#5c554b] p-1 md:p-2 rounded-sm shadow-[0_50px_100px_rgba(0,0,0,0.9)] mx-auto w-full max-w-[1200px] transform md:rotate-[0.5deg]">
            {/* Tab */}
            <div className="absolute -top-8 md:-top-10 left-4 md:left-10 bg-[#5c554b] px-8 md:px-12 py-2 md:py-3 rounded-t-md border-t border-l border-r border-[#4a443b] shadow-sm z-0">
-              <span className="text-red-900/60 font-mono font-bold tracking-widest text-sm md:text-lg">CASE #001970</span>
+              <span className="text-red-900/60 font-mono font-bold tracking-widest text-sm md:text-lg">{t.monster.caseId}</span>
            </div>
            
            <div className="bg-[#c2b59b] p-6 md:p-12 relative overflow-hidden min-h-[auto] md:min-h-[700px] shadow-[inset_0_0_100px_rgba(0,0,0,0.3)] border border-[#4a443b]" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}>
@@ -44,15 +46,15 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                         {/* Top Secret Stamp */}
                         <div className="mb-10 border-4 border-lantern-red p-4 transform -rotate-2 opacity-90 mix-blend-screen shadow-[0_0_20px_rgba(192,53,43,0.3)]">
                             <h3 className="text-3xl md:text-5xl font-display font-black text-lantern-red tracking-[0.2em] uppercase">
-                                TOP SECRET
+                                {t.monster.lockedOverlay.topSecret}
                             </h3>
                             <div className="text-lantern-red font-mono text-center text-xs tracking-[0.5em] mt-2 border-t border-lantern-red pt-1">
-                                DO NOT OPEN
+                                {t.monster.lockedOverlay.doNotOpen}
                             </div>
                         </div>
 
                         <p className="text-mist-grey font-serif text-lg md:text-xl mb-12 tracking-widest opacity-60">
-                           此檔案已被封存。請尋回所有記憶碎片以解鎖內容。
+                           {t.monster.lockedOverlay.desc}
                         </p>
                        
                         <div className="flex justify-center gap-8 md:gap-12 mb-12 w-full">
@@ -71,7 +73,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                         {/* Progress Bar - Minimal */}
                         <div className="w-full max-w-md mx-auto">
                            <div className="flex justify-between text-mist-grey/40 font-mono text-xs font-bold mb-2 tracking-widest">
-                             <span>DECRYPTION STATUS</span>
+                             <span>{t.monster.lockedOverlay.status}</span>
                              <span>{progress}%</span>
                            </div>
                            <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
@@ -94,12 +96,12 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                           <img src={ASSETS.monsterSketch} className="w-full h-64 md:h-80 object-contain mix-blend-multiply grayscale contrast-125" alt="Subject" />
                           <div className="absolute top-4 right-4 w-16 h-16 md:w-20 md:h-20 border-4 border-lantern-red rounded-full opacity-30"></div>
                           <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 font-handwriting text-forgotten-ink text-lg md:text-xl font-bold">
-                             最後目擊：自家窗口
+                             {t.monster.lastSeen}
                           </div>
                       </div>
 
                       <div className="bg-[#b0a48f]/50 p-4 md:p-6 border border-[#9c917e]">
-                          <h4 className="text-[#4a443b] font-mono font-bold tracking-widest mb-4 border-b border-[#9c917e] pb-2 text-sm md:text-base">EVIDENCE LOG</h4>
+                          <h4 className="text-[#4a443b] font-mono font-bold tracking-widest mb-4 border-b border-[#9c917e] pb-2 text-sm md:text-base">{t.monster.evidenceLog}</h4>
                           <div className="grid grid-cols-3 gap-2 md:gap-4">
                              {ITEMS.map((item, i) => (
                                <div key={i} className={`aspect-square border border-[#9c917e] flex items-center justify-center shadow-inner ${foundItems.includes(item.id) ? 'bg-[#f0eadd]' : 'bg-[#a39985]'}`}>
@@ -121,34 +123,31 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                       </div>
 
                       <div className="mb-6 md:mb-10">
-                          <span className="bg-[#2b2520] text-[#c2b59b] px-2 py-1 text-xs md:text-sm font-mono tracking-widest mb-2 inline-block">SUBJECT</span>
-                          <h2 className="text-3xl md:text-5xl font-display font-black text-[#1a1714] tracking-widest border-b-4 border-[#2b2520] pb-2 md:pb-4 mb-4 md:mb-6">林晴</h2>
+                          <span className="bg-[#2b2520] text-[#c2b59b] px-2 py-1 text-xs md:text-sm font-mono tracking-widest mb-2 inline-block">{t.monster.subjectTag}</span>
+                          <h2 className="text-3xl md:text-5xl font-display font-black text-[#1a1714] tracking-widest border-b-4 border-[#2b2520] pb-2 md:pb-4 mb-4 md:mb-6">{t.monster.subjectName}</h2>
                           <p className="text-base md:text-xl leading-relaxed italic opacity-90">
-                             13 歲少女，個性開朗，疼愛妹妹。常穿藍色碎花洋裝，自幼習武。
+                             {t.monster.subjectDesc}
                           </p>
                       </div>
 
                       <div className="space-y-6 md:space-y-8 flex-grow">
                           <div>
                               <h4 className="text-lantern-red font-bold text-base md:text-lg tracking-widest mb-2 md:mb-3 flex items-center gap-2">
-                                <i className="fa-solid fa-caret-right"></i> 事件摘要 SUMMARY
+                                <i className="fa-solid fa-caret-right"></i> {t.monster.summaryTitle}
                               </h4>
                               <p className="text-base md:text-lg leading-loose text-justify pl-4 md:pl-6 border-l-2 border-[#8c8273]/50">
-                                暑假外出時妹妹曾短暫失蹤，隔日平安尋回。<br/>
-                                當日下午，有目擊指出她獨自前往 <span className="bg-[#2b2520] text-transparent px-2 mx-1 font-mono select-none">████</span> 祈願。<br/>
-                                原始紀錄遭塗銷，無法辨識。<br/>
-                                深夜因窗外異常聲響出門查看後失去行蹤。
+                                {t.monster.summaryDesc}
                               </p>
                           </div>
 
                           <div>
                               <h4 className="text-lantern-red font-bold text-base md:text-lg tracking-widest mb-2 md:mb-3 flex items-center gap-2">
-                                <i className="fa-solid fa-caret-right"></i> 疑似相關物件 OBJECTS
+                                <i className="fa-solid fa-caret-right"></i> {t.monster.objectsTitle}
                               </h4>
                               <ul className="text-base md:text-lg leading-loose pl-8 md:pl-10 list-disc space-y-2 marker:text-lantern-red">
-                                <li>布偶（右眼反光異常）</li>
-                                <li>票根（兒童類型，年份不明）</li>
-                                <li>相片碎片（背後留字遭刮除）</li>
+                                <li>{t.monster.object1}</li>
+                                <li>{t.monster.object2}</li>
+                                <li>{t.monster.object3}</li>
                               </ul>
                           </div>
                       </div>
@@ -159,15 +158,15 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
               <div className="mt-12 pt-8 border-t-2 border-[#4a443b] border-dashed flex flex-col md:flex-row items-center justify-between gap-6 opacity-90 relative z-20">
                   <div className="flex flex-col gap-2 text-center md:text-left">
                       <span className="font-mono font-bold text-[#4a443b] tracking-widest text-xs md:text-sm uppercase flex items-center justify-center md:justify-start">
-                          <i className="fa-solid fa-triangle-exclamation mr-2"></i> Action Required
+                          <i className="fa-solid fa-triangle-exclamation mr-2"></i> {t.monster.actionRequired}
                       </span>
                       <p className="font-serif text-[#2b2520] font-bold text-lg md:text-xl">
-                          持續追蹤目標動態，請立即加入願望清單。
+                          {t.monster.actionDesc}
                       </p>
                   </div>
                   <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer" className="bg-[#1a1714] text-[#c2b59b] hover:bg-lantern-red hover:text-white px-6 py-3 font-bold tracking-widest transition-all shadow-lg flex items-center gap-3 group">
                       <i className="fa-brands fa-steam text-xl group-hover:rotate-12 transition-transform"></i>
-                      <span>ADD TO WISHLIST</span>
+                      <span>{t.monster.addToWishlist}</span>
                   </a>
               </div>
            </div>

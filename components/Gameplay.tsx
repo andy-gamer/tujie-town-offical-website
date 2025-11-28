@@ -1,21 +1,23 @@
 
 import React from 'react';
 import { ASSETS, ITEMS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }> = ({ foundItems, onFindItem }) => {
   const item = ITEMS.find(i => i.section === 'gameplay');
   const isFound = item && foundItems.includes(item.id);
+  const { t } = useLanguage();
 
   const cards = [
-    { title: '懷舊探索', sub: 'EXPLORATION', desc: '穿梭於 1970 年代的台灣街景、廢棄糖廠與老式車站。', icon: 'fa-map-location-dot', img: ASSETS.gameplayExplore },
-    { title: '看取能力', sub: 'THE SIGHT', desc: '觸摸舊物讀取殘留的記憶碎片，還原被掩蓋的真相。', icon: 'fa-eye', img: ASSETS.gameplaySight },
-    { title: '異界生存', sub: 'SURVIVAL', desc: '當月亮變色，面對擬態成人類的「花倀」，利用弱點求生。', icon: 'fa-person-running', img: ASSETS.gameplaySurvival },
+    { ...t.gameplay.card1, icon: 'fa-map-location-dot', img: ASSETS.gameplayExplore },
+    { ...t.gameplay.card2, icon: 'fa-eye', img: ASSETS.gameplaySight },
+    { ...t.gameplay.card3, icon: 'fa-person-running', img: ASSETS.gameplaySurvival },
   ];
 
   return (
     <section id="gameplay" className="py-20 md:py-32 bg-[#0c0d0e] text-moon-silver relative border-t border-lily-shadow shadow-[inset_0_0_100px_black]">
        <div className="container mx-auto px-6 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-center mb-16 md:mb-24 text-lily-pale tracking-[0.3em] drop-shadow-lg opacity-90">核心玩法</h2>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-center mb-16 md:mb-24 text-lily-pale tracking-[0.3em] drop-shadow-lg opacity-90">{t.gameplay.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
              {cards.map((card, idx) => (
                 <div key={idx} className="group relative h-[450px] md:h-[600px] bg-valley-teal border border-ui-blue-grey/20 overflow-hidden hover:border-lantern-red/50 transition-colors duration-500 flex flex-col shadow-2xl">
@@ -48,7 +50,7 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
                    <div className="absolute inset-0 border-2 border-lantern-red rounded-full opacity-60 animate-pulse"></div>
                    <i className={`fa-solid ${item.icon} text-3xl md:text-5xl -rotate-12 drop-shadow-[0_0_10px_rgba(192,53,43,0.8)] relative z-10 text-lily-pale`}></i>
                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-lantern-red font-bold tracking-widest bg-black/80 px-2 py-1 rounded backdrop-blur-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                      點擊拾取
+                      {t.gameplay.pickupLabel}
                    </div>
                 </button>
              </div>

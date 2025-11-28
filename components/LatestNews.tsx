@@ -1,13 +1,11 @@
 
 import React from 'react';
 import { ASSETS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const LatestNews: React.FC = () => {
-  const news = [
-    { date: '2025.10.31', category: 'EVENT', title: '萬聖節特別活動：尋找隱藏的南瓜燈' },
-    { date: '2025.09.15', category: 'DEVLOG', title: '開發日誌 #04：關於「花倀」的設計理念' },
-    { date: '2025.08.01', category: 'UPDATE', title: 'Ver 0.5.2 更新公告 - 修正部分光影異常' },
-  ];
+  const { t } = useLanguage();
+  const news = t.news.items;
 
   return (
     <section id="news" className="py-16 md:py-24 relative border-t border-lily-shadow/30 bg-midnight-fog">
@@ -17,10 +15,10 @@ const LatestNews: React.FC = () => {
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 border-b border-mist-grey/20 pb-8">
           <h2 className="text-3xl md:text-5xl font-display font-bold text-moon-silver tracking-[0.2em] drop-shadow-md">
-            最新消息
+            {t.news.title}
           </h2>
           <a href="#" className="text-mist-grey hover:text-lantern-red transition-colors text-sm md:text-base font-bold tracking-widest mt-4 md:mt-0 font-mono">
-            VIEW ALL NEWS <i className="fa-solid fa-arrow-right ml-2"></i>
+            {t.news.viewAll} <i className="fa-solid fa-arrow-right ml-2"></i>
           </a>
         </div>
 
@@ -35,7 +33,7 @@ const LatestNews: React.FC = () => {
                 {item.title}
               </h3>
               <p className="text-mist-grey/60 text-sm md:text-base font-sans line-clamp-3 mt-auto leading-relaxed group-hover:text-mist-grey transition-colors">
-                點擊查看更多關於此更新的詳細內容。土界鎮的秘密正在逐漸揭開...
+                {t.news.readMore}
               </p>
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-lantern-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
             </div>

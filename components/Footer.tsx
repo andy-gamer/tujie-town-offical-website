@@ -7,29 +7,7 @@ const Footer: React.FC = () => {
 
   return (
     <>
-    {/* Wishlist CTA Section */}
-    <div className="bg-lantern-red text-moon-silver py-12 md:py-16 text-center relative overflow-hidden border-t border-lily-shadow">
-        <div className="absolute inset-0 bg-black/10 mix-blend-multiply"></div>
-        <div className="relative z-10 container mx-auto px-6">
-            <h3 className="text-2xl md:text-4xl font-display font-black tracking-[0.2em] mb-4 md:mb-6">
-                準備好進入土界鎮了嗎？
-            </h3>
-            <p className="text-white/80 font-serif text-lg mb-8 tracking-wide">
-                現在就將遊戲加入 Steam 願望清單，掌握第一手消息。
-            </p>
-            <a 
-                href="https://store.steampowered.com/" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="inline-flex items-center gap-3 bg-black/80 hover:bg-black text-white px-8 py-4 text-lg font-bold tracking-widest transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,0,0,0.5)] border border-white/20"
-            >
-                <i className="fa-brands fa-steam text-2xl"></i>
-                加入願望清單
-            </a>
-        </div>
-    </div>
-
-    <footer className="bg-[#0b0c0d] py-12 md:py-20 text-center relative overflow-hidden">
+    <footer className="bg-[#0b0c0d] py-12 md:py-20 text-center relative overflow-hidden border-t border-lily-shadow">
       
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         

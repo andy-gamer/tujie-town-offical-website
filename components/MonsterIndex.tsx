@@ -115,7 +115,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                   </div>
 
                   {/* Right Column: Text Report */}
-                  <div className="md:col-span-7 font-serif text-[#2b2520] relative">
+                  <div className="md:col-span-7 font-serif text-[#2b2520] relative flex flex-col h-full">
                       <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 border-4 border-lantern-red rounded-full flex items-center justify-center opacity-20 transform rotate-12 pointer-events-none mix-blend-multiply">
                           <span className="text-lantern-red font-black text-sm md:text-xl uppercase transform -rotate-12">CONFIDENTIAL</span>
                       </div>
@@ -128,7 +128,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                           </p>
                       </div>
 
-                      <div className="space-y-6 md:space-y-8">
+                      <div className="space-y-6 md:space-y-8 flex-grow">
                           <div>
                               <h4 className="text-lantern-red font-bold text-base md:text-lg tracking-widest mb-2 md:mb-3 flex items-center gap-2">
                                 <i className="fa-solid fa-caret-right"></i> 事件摘要 SUMMARY
@@ -153,6 +153,22 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                           </div>
                       </div>
                   </div>
+              </div>
+
+              {/* Added Integrated Wishlist CTA at bottom of file */}
+              <div className="mt-12 pt-8 border-t-2 border-[#4a443b] border-dashed flex flex-col md:flex-row items-center justify-between gap-6 opacity-90 relative z-20">
+                  <div className="flex flex-col gap-2 text-center md:text-left">
+                      <span className="font-mono font-bold text-[#4a443b] tracking-widest text-xs md:text-sm uppercase flex items-center justify-center md:justify-start">
+                          <i className="fa-solid fa-triangle-exclamation mr-2"></i> Action Required
+                      </span>
+                      <p className="font-serif text-[#2b2520] font-bold text-lg md:text-xl">
+                          持續追蹤目標動態，請立即加入願望清單。
+                      </p>
+                  </div>
+                  <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer" className="bg-[#1a1714] text-[#c2b59b] hover:bg-lantern-red hover:text-white px-6 py-3 font-bold tracking-widest transition-all shadow-lg flex items-center gap-3 group">
+                      <i className="fa-brands fa-steam text-xl group-hover:rotate-12 transition-transform"></i>
+                      <span>ADD TO WISHLIST</span>
+                  </a>
               </div>
            </div>
         </div>

@@ -55,9 +55,9 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   鎮民從不說明原因，只會提醒：
                 </p>
                 
-                {/* Revised Quote Design: Dark Ink Color for visibility on light paper */}
-                <div className="mt-8 self-center relative py-6 w-full">
-                   <div className="text-center font-display font-black text-xl md:text-3xl text-valley-teal tracking-[0.2em] animate-ghost-dark leading-relaxed">
+                {/* Revised Quote Design: Left aligned, smaller text to fit without wrapping */}
+                <div className="mt-6 self-start relative py-2 w-full">
+                   <div className="text-left font-display font-bold text-lg md:text-2xl text-valley-teal tracking-[0.2em] animate-ghost-dark leading-relaxed">
                      「遵守規矩，你就能平安。」
                    </div>
                 </div>

@@ -6,7 +6,6 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
   const allFound = foundItems.length === ITEMS.length;
   const progress = Math.round((foundItems.length / ITEMS.length) * 100);
   
-  // Consistent dark theme, removed brown
   return (
     <section id="collection" className="py-24 md:py-40 bg-[#151719] relative overflow-hidden border-t border-lily-shadow flex justify-center">
       <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply" style={{ backgroundImage: `url(${ASSETS.textureWood})` }}></div>
@@ -31,45 +30,51 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
               <div className="absolute inset-0 bg-orange-900/10 mix-blend-multiply pointer-events-none"></div>
 
               {!allFound && (
-                 // Updated Locked State: Blurred Folder Color + Explicit Hint + Progress Bar
-                 <div className="absolute inset-0 z-40 flex flex-col items-center justify-center text-center backdrop-blur-xl bg-[#c2b59b]/60 p-6 md:p-8">
-                    <div className="max-w-3xl border-4 border-lantern-red/60 p-8 md:p-12 bg-white/10 shadow-2xl backdrop-blur-sm relative w-full">
-                       {/* Tape effects */}
-                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/40 rotate-1 shadow-sm"></div>
-                       <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-yellow-200/40 -rotate-1 shadow-sm"></div>
+                 // Updated Locked State: Dark High Contrast "Classified" Theme
+                 <div className="absolute inset-0 z-40 flex flex-col items-center justify-center text-center backdrop-blur-sm bg-[#151719]/95 p-6 md:p-8 transition-all duration-500">
+                    <div className="max-w-3xl border-2 border-lantern-red/20 p-8 md:p-12 bg-[#0b0c0d] shadow-[0_0_60px_rgba(0,0,0,0.9)] relative w-full rounded-sm overflow-hidden group">
+                       
+                       {/* Background Stripes */}
+                       <div className="absolute inset-0 opacity-5 pointer-events-none bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_25%,rgba(255,255,255,0.1)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.1)_75%,rgba(255,255,255,0.1)_100%)] bg-[length:20px_20px]"></div>
 
-                       <h3 className="text-2xl md:text-4xl font-display font-black text-lantern-red tracking-[0.3em] mb-8 uppercase drop-shadow-md">
+                       {/* Decorative Lines */}
+                       <div className="absolute top-0 left-0 w-full h-1 bg-lantern-red/50 shadow-[0_0_10px_rgba(192,53,43,0.5)]"></div>
+                       <div className="absolute bottom-0 left-0 w-full h-1 bg-lantern-red/50 shadow-[0_0_10px_rgba(192,53,43,0.5)]"></div>
+
+                       <h3 className="text-2xl md:text-4xl font-display font-black text-lantern-red tracking-[0.3em] mb-8 uppercase drop-shadow-[0_0_15px_rgba(192,53,43,0.4)] animate-pulse flex items-center justify-center gap-4">
+                         <i className="fa-solid fa-lock text-2xl md:text-3xl"></i>
                          檔案加密中
                        </h3>
-                       <p className="text-[#4a443b] font-serif text-lg md:text-xl font-bold mb-8">
-                         請在網站中尋找以下 3 個散落的記憶碎片以解鎖內容：
+                       
+                       <p className="text-moon-silver font-mono text-sm md:text-lg mb-8 tracking-widest opacity-80 border-b border-white/10 pb-6">
+                         ACCESS DENIED. RECOVER MEMORY FRAGMENTS TO DECRYPT.
                        </p>
                        
-                       <div className="flex justify-center gap-8 md:gap-12 mb-8">
+                       <div className="flex justify-center gap-8 md:gap-16 mb-10">
                           {ITEMS.map((item, idx) => (
-                            <div key={idx} className={`flex flex-col items-center gap-3 ${foundItems.includes(item.id) ? 'opacity-30 grayscale' : 'opacity-100'}`}>
-                               <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center border-2 shadow-lg transition-transform hover:scale-105 ${foundItems.includes(item.id) ? 'bg-gray-300 border-gray-400' : 'bg-lantern-red text-white border-white'}`}>
+                            <div key={idx} className={`flex flex-col items-center gap-3 transition-all duration-500 relative group/item`}>
+                               <div className={`w-16 h-16 md:w-20 md:h-20 rounded-sm flex items-center justify-center border-2 transition-transform hover:scale-105 ${foundItems.includes(item.id) ? 'bg-valley-teal/50 border-mist-grey text-mist-grey' : 'bg-lantern-red/10 text-lantern-red border-lantern-red shadow-[0_0_20px_rgba(192,53,43,0.2)]'}`}>
                                   <i className={`fa-solid ${item.icon} text-2xl md:text-3xl`}></i>
                                </div>
-                               <span className={`text-xs md:text-sm font-bold font-mono uppercase tracking-widest ${foundItems.includes(item.id) ? 'text-gray-500 line-through' : 'text-lantern-red'}`}>
-                                 {foundItems.includes(item.id) ? 'FOUND' : 'MISSING'}
+                               <span className={`text-[10px] md:text-xs font-bold font-mono uppercase tracking-widest ${foundItems.includes(item.id) ? 'text-mist-grey' : 'text-lantern-red animate-pulse'}`}>
+                                 {foundItems.includes(item.id) ? 'DECRYPTED' : 'LOCKED'}
                                </span>
                             </div>
                           ))}
                        </div>
 
                        {/* Progress Bar */}
-                       <div className="w-full max-w-md mx-auto">
-                          <div className="flex justify-between text-[#4a443b] font-mono text-xs font-bold mb-2 tracking-widest">
+                       <div className="w-full max-w-lg mx-auto bg-black/50 p-4 border border-white/10">
+                          <div className="flex justify-between text-moon-silver font-mono text-xs font-bold mb-2 tracking-widest">
                              <span>DECRYPTION PROGRESS</span>
-                             <span>{progress}%</span>
+                             <span className="text-lantern-red">{progress}%</span>
                           </div>
-                          <div className="w-full h-3 bg-black/20 border border-black/10">
+                          <div className="w-full h-1 bg-white/10">
                              <div 
-                               className="h-full bg-lantern-red transition-all duration-700 ease-out relative"
+                               className="h-full bg-lantern-red shadow-[0_0_10px_rgba(192,53,43,0.8)] transition-all duration-700 ease-out relative"
                                style={{ width: `${progress}%` }}
                              >
-                                <div className="absolute top-0 right-0 w-[2px] h-full bg-white opacity-50"></div>
+                                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-white rounded-full shadow-[0_0_5px_white]"></div>
                              </div>
                           </div>
                        </div>

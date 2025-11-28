@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ITEMS } from './constants';
 import Preloader from './components/Preloader';
 import Header from './components/Header';
@@ -53,6 +53,16 @@ export default function App() {
         .animate-float { animation: float 3s ease-in-out infinite; }
         .glitch-hover:hover { animation: glitch-text 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
         @keyframes glitch-text { 0% { transform: translate(0) } 20% { transform: translate(-2px, 2px) } 40% { transform: translate(-2px, -2px) } 60% { transform: translate(2px, 2px) } 80% { transform: translate(2px, -2px) } 100% { transform: translate(0) } }
+        
+        /* Ghostly Afterimage Effect */
+        @keyframes ghostPulse {
+          0% { text-shadow: 2px 0 0px rgba(240, 245, 255, 0.1); opacity: 0.7; transform: translateX(0); filter: blur(0px); }
+          25% { text-shadow: -4px 0 4px rgba(240, 245, 255, 0.4); opacity: 0.9; transform: translateX(-1px); filter: blur(0.5px); }
+          50% { text-shadow: 4px 0 8px rgba(240, 245, 255, 0.6); opacity: 0.6; transform: translateX(1px); filter: blur(1px); }
+          75% { text-shadow: -2px 0 4px rgba(240, 245, 255, 0.4); opacity: 0.9; transform: translateX(0); filter: blur(0.5px); }
+          100% { text-shadow: 2px 0 0px rgba(240, 245, 255, 0.1); opacity: 0.7; transform: translateX(0); filter: blur(0px); }
+        }
+        .animate-ghost { animation: ghostPulse 5s ease-in-out infinite; }
       `}</style>
     </div>
   );

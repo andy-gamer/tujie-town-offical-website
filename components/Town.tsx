@@ -55,12 +55,10 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   鎮民從不說明原因，只會提醒：
                 </p>
                 
-                {/* Revised Quote Design: Vertical Traditional Style */}
-                <div className="mt-8 self-center relative py-2">
-                   <div className="flex flex-col items-center">
-                     <div className="vertical-text font-display font-black text-2xl md:text-4xl text-lantern-red tracking-[0.3em] leading-tight opacity-90 drop-shadow-sm border-r-2 border-lantern-red/30 pr-4">
-                       「遵守規矩，你就能平安。」
-                     </div>
+                {/* Revised Quote Design: Horizontal, Ghostly Effect, Misty Silver */}
+                <div className="mt-8 self-center relative py-6 w-full">
+                   <div className="text-center font-display font-black text-xl md:text-3xl text-moon-silver tracking-[0.2em] animate-ghost leading-relaxed">
+                     「遵守規矩，你就能平安。」
                    </div>
                 </div>
              </div>
@@ -81,7 +79,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                 </div>
                 
                 {/* Rules List */}
-                <ol className="space-y-2 md:space-y-4 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
+                <ol className="space-y-4 md:space-y-6 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
                   {rules.map((rule, idx) => (
                     <li 
                       key={idx}
@@ -93,21 +91,27 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                       `}
                     >
                       {idx === 3 ? (
-                          <div className="relative inline-block whitespace-nowrap">
-                            <span className={`relative z-10 transition-all duration-300 ${activeRule === 3 ? 'text-lantern-red tracking-widest blur-[0.5px]' : ''}`}>
+                          <div className="relative inline-block w-full">
+                            {/* Base text with hover interactions */}
+                            <span className="transition-all duration-300">
                                絕對不要把
-                               <span className={`inline-block mx-1 transition-all duration-100 ${activeRule === 3 ? 'text-red-600 scale-110 font-black animate-pulse' : 'text-valley-teal'}`}>
+                               <span className={`mx-1 px-1 transition-all duration-300 relative inline-block ${activeRule === 3 ? 'text-lantern-red font-black scale-110 drop-shadow-red-glow' : ''}`}>
                                  「九姑娘花」
                                </span>
                                帶出鎮外。
                             </span>
                             
-                            {/* Visual Strike-through / Blood effect on hover */}
-                            <div className={`absolute top-1/2 left-0 w-full h-[2px] bg-red-800 transition-all duration-500 origin-left ${activeRule === 3 ? 'scale-x-100 opacity-80' : 'scale-x-0 opacity-0'}`}></div>
-                            
-                            {/* "Watching" subtitle that appears below */}
-                            <div className={`absolute -bottom-6 left-0 text-xs md:text-sm text-red-700 font-mono font-bold tracking-[0.3em] transition-opacity duration-300 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
-                               SHE IS WATCHING YOU
+                            {/* Overlay Interaction (SHE IS WATCHING YOU) */}
+                            <div className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-200 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
+                               {/* Background Eye */}
+                               <i className="fa-solid fa-eye absolute right-0 md:right-10 text-lantern-red/10 text-8xl animate-pulse transform rotate-12"></i>
+                               
+                               {/* Glitchy Text Overlay */}
+                               <div className="absolute top-0 right-0 md:top-auto md:right-auto md:left-[60%] -mt-4 md:-mt-8 z-20">
+                                  <div className="bg-black text-lantern-red text-xs md:text-sm font-mono font-bold px-3 py-1 tracking-widest glitch border border-lantern-red shadow-[0_0_15px_rgba(192,53,43,0.5)] transform -rotate-2" data-text="SHE IS WATCHING YOU">
+                                     SHE IS WATCHING YOU
+                                  </div>
+                               </div>
                             </div>
                           </div>
                       ) : (

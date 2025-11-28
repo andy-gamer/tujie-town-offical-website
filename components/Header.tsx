@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${
         isScrolled || mobileMenuOpen
-          ? 'bg-[#0a0c10]/95 backdrop-blur-md py-3 md:py-4 border-mist-grey/10 shadow-lg' 
+          ? 'bg-[#1c2329]/90 backdrop-blur-md py-3 md:py-4 border-mist-grey/10 shadow-lg' 
           : 'bg-transparent py-4 md:py-8 border-transparent'
       }`}
     >
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <h1 className="text-xl md:text-3xl font-display font-black text-moon-silver tracking-[0.2em] drop-shadow-md group-hover:text-lantern-red transition-colors flex items-center gap-2">
-            土界鎮 <span className="text-[10px] md:text-xs font-sans text-lantern-red border border-lantern-red px-2 py-0.5 tracking-widest opacity-80">DEMO</span>
+            土界鎮
           </h1>
         </div>
         

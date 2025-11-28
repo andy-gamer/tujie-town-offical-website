@@ -47,21 +47,21 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
              </div>
              <div className="relative z-10 mt-2 md:mt-4 flex flex-col h-full">
                 <h3 className="text-2xl md:text-4xl font-display font-bold text-valley-teal mb-6 md:mb-8 border-b-2 border-lantern-red/50 pb-4 inline-block tracking-widest">關於「土界鎮」</h3>
-                <p className="font-serif text-forgotten-ink leading-loose text-justify text-base md:text-lg font-medium">
+                <p className="font-serif text-forgotten-ink leading-relaxed text-justify text-base md:text-lg font-medium">
                   土界鎮是一座被山霧包住的小鎮。<br/>
                   三面環山，一面臨河，老街與廢鐵道交錯在谷地裡。<br/>
                   白天一切都顯得過於平靜；<br/>
                   到了夜晚，整個小鎮彷彿變了模樣。<br/>
                   鎮民從不說明原因，只會提醒：
                 </p>
-                <div className="mt-8 relative self-center transform -rotate-2">
-                   <div className="border-[3px] border-lantern-red px-6 py-3 bg-lantern-red/5 backdrop-blur-sm shadow-sm relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-texture-paper opacity-50 mix-blend-multiply"></div>
-                      <span className="relative font-black font-display text-lantern-red text-lg md:text-2xl tracking-widest">
-                         「遵守規矩，你就能平安。」
-                      </span>
+                
+                {/* Revised Quote Design: Vertical Traditional Style */}
+                <div className="mt-8 self-center relative py-2">
+                   <div className="flex flex-col items-center">
+                     <div className="vertical-text font-display font-black text-2xl md:text-4xl text-lantern-red tracking-[0.3em] leading-tight opacity-90 drop-shadow-sm border-r-2 border-lantern-red/30 pr-4">
+                       「遵守規矩，你就能平安。」
+                     </div>
                    </div>
-                   <div className="absolute -bottom-2 -right-2 w-full h-full border border-lantern-red/20 -z-10"></div>
                 </div>
              </div>
           </div>
@@ -80,30 +80,34 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   <span className="font-mono text-xs md:text-base text-ui-dim-red font-bold tracking-widest">VER. 2.0</span>
                 </div>
                 
-                {/* Rules List - Adjusted spacing */}
-                <ol className="space-y-3 md:space-y-5 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
+                {/* Rules List */}
+                <ol className="space-y-2 md:space-y-4 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
                   {rules.map((rule, idx) => (
                     <li 
                       key={idx}
                       onClick={() => handleRuleInteraction(idx)}
                       onMouseEnter={() => setActiveRule(idx)} 
                       onMouseLeave={() => setActiveRule(null)} 
-                      className={`relative p-2 md:p-3 transition-all duration-300 cursor-pointer tap-highlight-transparent border-b border-transparent
-                        ${idx === 3 ? 'hover:bg-black/5' : 'hover:bg-valley-teal/5'}
+                      className={`relative p-2 md:p-3 transition-all duration-300 cursor-pointer tap-highlight-transparent
+                        ${idx === 3 ? 'group' : 'hover:text-lantern-red'}
                       `}
                     >
                       {idx === 3 ? (
-                          <div className="relative inline-block w-full h-8 md:h-10 align-middle overflow-hidden">
-                            {/* Original Text - Translates OUT when active */}
-                            <span className={`absolute top-0 left-0 w-full h-full transition-transform duration-300 whitespace-nowrap flex items-center ${activeRule === 3 ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'} border-b-2 border-lantern-red/30`}>
-                              {rule}
+                          <div className="relative inline-block whitespace-nowrap">
+                            <span className={`relative z-10 transition-all duration-300 ${activeRule === 3 ? 'text-lantern-red tracking-widest blur-[0.5px]' : ''}`}>
+                               絕對不要把
+                               <span className={`inline-block mx-1 transition-all duration-100 ${activeRule === 3 ? 'text-red-600 scale-110 font-black animate-pulse' : 'text-valley-teal'}`}>
+                                 「九姑娘花」
+                               </span>
+                               帶出鎮外。
                             </span>
                             
-                            {/* Horror Text - Translates IN when active */}
-                            <div className={`absolute top-0 left-0 w-full h-full flex items-center transition-transform duration-200 ${activeRule === 3 ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
-                               <span className="text-lantern-red font-black font-display tracking-[0.2em] md:tracking-[0.5em] animate-pulse whitespace-nowrap drop-shadow-red-glow">
-                                 SHE IS WATCHING YOU
-                               </span>
+                            {/* Visual Strike-through / Blood effect on hover */}
+                            <div className={`absolute top-1/2 left-0 w-full h-[2px] bg-red-800 transition-all duration-500 origin-left ${activeRule === 3 ? 'scale-x-100 opacity-80' : 'scale-x-0 opacity-0'}`}></div>
+                            
+                            {/* "Watching" subtitle that appears below */}
+                            <div className={`absolute -bottom-6 left-0 text-xs md:text-sm text-red-700 font-mono font-bold tracking-[0.3em] transition-opacity duration-300 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
+                               SHE IS WATCHING YOU
                             </div>
                           </div>
                       ) : (
@@ -130,7 +134,6 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                 </div>
 
                 {!isFound && townItem && (
-                  // Made hidden item more obvious: Ring, Higher Opacity, Pulsing
                   <button onClick={() => onFindItem(townItem.id)} className="absolute bottom-4 right-4 md:bottom-32 md:right-10 transform rotate-12 hover:rotate-0 hover:scale-105 transition-all z-30 group" title="撿起車票">
                     <div className="relative">
                       <div className="absolute inset-0 rounded-full bg-lantern-red/30 animate-ping opacity-75"></div>

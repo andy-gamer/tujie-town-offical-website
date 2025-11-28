@@ -15,30 +15,53 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
       <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden bg-midnight-fog select-none">
         {/* Background Image - Optimized for full color art */}
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-           {/* Removed grayscale and mix-blend-overlay to let the red lanterns and moon shine */}
+           {/* Image Layer */}
            <img 
              src={ASSETS.heroBg} 
-             className="w-full h-full object-cover opacity-80 animate-ken-burns" 
+             className="w-full h-full object-cover opacity-90 animate-ken-burns" 
              alt="Concept Art" 
            />
            
+           {/* Dark Vignette - Shrouded Feel */}
+           <div className="absolute inset-0 shadow-[inset_0_0_300px_rgba(5,6,7,0.9)] mix-blend-multiply pointer-events-none"></div>
+           
            {/* Gradient Overlay for Text Readability - Adjusted to be darker at bottom/left */}
            <div className="absolute inset-0 bg-gradient-to-t from-[#1D1F21] via-[#1D1F21]/40 to-transparent mix-blend-multiply"></div>
-           <div className="absolute inset-0 bg-gradient-to-r from-[#1D1F21]/80 via-transparent to-transparent"></div>
+           <div className="absolute inset-0 bg-gradient-to-r from-[#1D1F21]/90 via-transparent to-transparent"></div>
            
-           {/* Fog Layers - Reduced opacity slightly to not wash out the art */}
-           <div className="absolute inset-0 bg-repeat-x animate-fog opacity-30 mix-blend-hard-light" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
-           <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-20 mix-blend-screen" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
+           {/* Fog Layers - Enhanced for "Fog Shrouded" Feel */}
+           <div className="absolute inset-0 bg-repeat-x animate-fog opacity-50 mix-blend-hard-light" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
+           <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-40 mix-blend-screen" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
            
-           {/* Vignette */}
-           <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.8)]"></div>
+           {/* Additional Fog Mist at bottom */}
+           <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white/10 to-transparent opacity-30 mix-blend-overlay"></div>
         </div>
 
-        {/* Content */}
-        <div className="absolute bottom-20 md:bottom-32 left-0 w-full px-6 md:px-24 pointer-events-auto z-10 flex justify-center md:justify-start">
-           <div className="p-6 md:p-12 border-l-0 md:border-l-4 border-lantern-red/60 bg-[#1D1F21]/60 backdrop-blur-sm max-w-2xl w-full shadow-2xl">
-              <div className="mb-4 md:mb-8">
-                <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-4xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
+        {/* --- LOGO SECTION (Moved to Right Area) --- */}
+        {ASSETS.logo && (
+           <div className="absolute top-24 right-6 md:top-1/3 md:right-32 z-20 flex flex-col items-end pointer-events-none mix-blend-screen opacity-90 transform md:-translate-y-1/2">
+               {/* Container for Logo with Animation */}
+               <div className="relative w-32 md:w-64 animate-float">
+                   <img 
+                      src={ASSETS.logo} 
+                      alt="Logo" 
+                      className="w-full h-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] filter brightness-110 contrast-125" 
+                   />
+                   {/* Glitch/Breath Effect Overlay */}
+                   <div className="absolute inset-0 bg-lantern-red/20 mix-blend-color-dodge opacity-0 animate-ping"></div>
+                   <div className="absolute -inset-4 bg-white/5 blur-2xl rounded-full opacity-20 animate-pulse"></div>
+               </div>
+           </div>
+        )}
+
+        {/* Content Box (Left Aligned) */}
+        <div className="absolute bottom-24 md:bottom-32 left-0 w-full px-6 md:px-24 pointer-events-auto z-10 flex justify-center md:justify-start">
+           <div className="p-6 md:p-12 border-l-0 md:border-l-4 border-lantern-red/60 bg-[#1D1F21]/60 backdrop-blur-sm max-w-2xl w-full shadow-2xl relative overflow-hidden group">
+              {/* Subtle sheen effect on the container */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+              <div className="mb-4 md:mb-8 relative">
+                <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-5xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
                   2026
                 </span>
                 <span className="block text-mist-grey font-mono font-bold tracking-[0.4em] md:tracking-[0.6em] text-sm md:text-3xl mt-2 ml-1 opacity-80">

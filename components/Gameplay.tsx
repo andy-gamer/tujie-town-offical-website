@@ -35,7 +35,8 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
                    </div>
                    
                    {/* Gradient for text readability */}
-                   <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 bg-gradient-to-t from-[#0c0d0e] via-[#0c0d0e]/80 to-transparent pointer-events-none">
+                   <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-12 bg-gradient-to-t from-[#0c0d0e] via-[#0c0d0e]/90 to-transparent pointer-events-none">
+                      {/* Icon: Hidden on mobile by default to save space, shown on desktop hover */}
                       <div className="mb-auto opacity-40 group-hover:opacity-100 transition-opacity duration-500 transform -translate-y-4 group-hover:translate-y-0 hidden md:block">
                          <i className={`fa-solid ${card.icon} text-6xl text-lantern-red drop-shadow-lg`}></i>
                       </div>
@@ -43,7 +44,8 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
                       <h3 className="text-2xl md:text-3xl font-bold tracking-[0.2em] mb-2 md:mb-4 font-display text-lily-pale drop-shadow-md">{card.title}</h3>
                       <span className="text-[10px] md:text-xs font-mono text-lantern-red tracking-[0.3em] mb-4 md:mb-8 block font-bold border-l-2 border-lantern-red pl-3">{card.sub}</span>
                       
-                      <p className="text-mist-grey text-base md:text-lg font-sans leading-loose border-t border-gray-700/50 pt-4 md:pt-8 group-hover:border-lantern-red/50 transition-colors text-shadow-sm">
+                      {/* Description: Always visible on mobile, faint on desktop until hover */}
+                      <p className="text-mist-grey text-base md:text-lg font-sans leading-loose border-t border-gray-700/50 pt-4 md:pt-8 group-hover:border-lantern-red/50 transition-colors text-shadow-sm opacity-90 md:opacity-70 md:group-hover:opacity-100">
                         {card.desc}
                       </p>
                    </div>
@@ -52,7 +54,7 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
           </div>
           
           {!isFound && item && (
-             <div className="absolute right-10 bottom-20 md:right-20 md:bottom-40 z-20">
+             <div className="absolute right-6 bottom-12 md:right-20 md:bottom-40 z-20">
                 <button onClick={() => onFindItem(item.id)} className="text-mist-grey hover:text-white transition-colors p-4 md:p-6 transform hover:scale-110 opacity-90 hover:opacity-100 relative group" title="發現碎片">
                    <div className="absolute inset-0 bg-lantern-red/20 rounded-full animate-ping blur-md"></div>
                    <div className="absolute inset-0 border-2 border-lantern-red rounded-full opacity-60 animate-pulse"></div>

@@ -38,30 +38,30 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                      <div className="absolute inset-0 opacity-20 pointer-events-none bg-repeat" style={{ backgroundImage: `url(${ASSETS.textureCork})` }}></div>
                      
                      {/* Sealed Content Box */}
-                     <div className="relative max-w-2xl w-full border-4 border-dashed border-white/10 p-12 bg-[#0b0c0d] shadow-2xl flex flex-col items-center">
+                     <div className="relative max-w-2xl w-full border-4 border-dashed border-white/10 p-6 md:p-12 bg-[#0b0c0d] shadow-2xl flex flex-col items-center">
                         <div className="absolute -top-6 -right-6 w-32 h-32 opacity-20 pointer-events-none">
                             <i className="fa-solid fa-stamp text-8xl text-white transform -rotate-12"></i>
                         </div>
 
                         {/* Top Secret Stamp */}
-                        <div className="mb-10 border-4 border-lantern-red p-4 transform -rotate-2 opacity-90 mix-blend-screen shadow-[0_0_20px_rgba(192,53,43,0.3)]">
+                        <div className="mb-8 md:mb-10 border-4 border-lantern-red p-3 md:p-4 transform -rotate-2 opacity-90 mix-blend-screen shadow-[0_0_20px_rgba(192,53,43,0.3)]">
                             <h3 className="text-3xl md:text-5xl font-display font-black text-lantern-red tracking-[0.2em] uppercase">
                                 {t.monster.lockedOverlay.topSecret}
                             </h3>
-                            <div className="text-lantern-red font-mono text-center text-xs tracking-[0.5em] mt-2 border-t border-lantern-red pt-1">
+                            <div className="text-lantern-red font-mono text-center text-[10px] md:text-xs tracking-[0.5em] mt-2 border-t border-lantern-red pt-1">
                                 {t.monster.lockedOverlay.doNotOpen}
                             </div>
                         </div>
 
-                        <p className="text-mist-grey font-serif text-lg md:text-xl mb-12 tracking-widest opacity-60">
+                        <p className="text-mist-grey font-serif text-base md:text-xl mb-8 md:mb-12 tracking-widest opacity-60">
                            {t.monster.lockedOverlay.desc}
                         </p>
                        
-                        <div className="flex justify-center gap-8 md:gap-12 mb-12 w-full">
+                        <div className="flex justify-center gap-6 md:gap-12 mb-10 md:mb-12 w-full">
                           {ITEMS.map((item, idx) => (
                             <div key={idx} className={`flex flex-col items-center gap-4 transition-all duration-500 relative group/item`}>
-                               <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center border-2 transition-transform hover:scale-105 ${foundItems.includes(item.id) ? 'bg-valley-teal border-mist-grey text-mist-grey' : 'bg-black/50 text-lantern-red/50 border-lantern-red/30 dashed-border'}`}>
-                                  <i className={`fa-solid ${item.icon} text-2xl md:text-3xl`}></i>
+                               <div className={`w-14 h-14 md:w-20 md:h-20 rounded-full flex items-center justify-center border-2 transition-transform hover:scale-105 ${foundItems.includes(item.id) ? 'bg-valley-teal border-mist-grey text-mist-grey' : 'bg-black/50 text-lantern-red/50 border-lantern-red/30 dashed-border'}`}>
+                                  <i className={`fa-solid ${item.icon} text-xl md:text-3xl`}></i>
                                </div>
                                <div className="h-1 w-full bg-gray-800 rounded-full overflow-hidden mt-1">
                                    <div className={`h-full ${foundItems.includes(item.id) ? 'bg-white' : 'bg-transparent'} transition-all duration-500`}></div>
@@ -164,7 +164,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                           {t.monster.actionDesc}
                       </p>
                   </div>
-                  <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer" className="bg-[#1a1714] text-[#c2b59b] hover:bg-lantern-red hover:text-white px-6 py-3 font-bold tracking-widest transition-all shadow-lg flex items-center gap-3 group">
+                  <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer" className="bg-[#1a1714] text-[#c2b59b] hover:bg-lantern-red hover:text-white px-6 py-3 font-bold tracking-widest transition-all shadow-lg flex items-center gap-3 group w-full md:w-auto justify-center">
                       <i className="fa-brands fa-steam text-xl group-hover:rotate-12 transition-transform"></i>
                       <span>{t.monster.addToWishlist}</span>
                   </a>

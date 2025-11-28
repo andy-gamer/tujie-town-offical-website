@@ -4,6 +4,7 @@ import { HiddenItemData } from './types';
 // --- Local Assets Configuration ---
 export const ASSETS = {
   // Core Art
+  logo: './assets/logo.png',
   heroBg: './assets/hero-main.jpg',
   townImage: './assets/town-teahouse.jpg',
   character: './assets/character.jpg',

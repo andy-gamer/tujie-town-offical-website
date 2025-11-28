@@ -27,8 +27,12 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
 
   return (
     <section id="town" className="relative py-12 md:py-48 bg-valley-teal overflow-hidden">
-      {/* Texture Overlay */}
+      {/* Texture Overlay - Wood (Existing) */}
       <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-multiply" style={{ backgroundImage: `url(${ASSETS.textureWood})` }}></div>
+      
+      {/* Texture Overlay - Paper (New) */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay bg-repeat" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}></div>
+
       <div className="absolute inset-0 bg-gradient-to-b from-midnight-fog via-valley-teal to-midnight-fog/90 mix-blend-overlay"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center">
@@ -57,7 +61,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   {t.town.aboutDesc_5}
                 </p>
                 
-                {/* Revised Quote Design: Left aligned, smaller text to fit without wrapping */}
+                {/* Revised Quote Design: Left aligned */}
                 <div className="mt-6 self-start relative py-2 w-full">
                    <div className="text-left font-display font-bold text-lg md:text-2xl text-valley-teal tracking-[0.2em] animate-ghost-dark leading-relaxed">
                      {t.town.quote}
@@ -67,7 +71,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
           </div>
 
           {/* Right Panel: Survival Guide */}
-          <div className="w-full lg:w-7/12 bg-[#F9F7F5] p-6 md:p-16 relative border-t lg:border-t-0 lg:border-l border-mist-grey shadow-[inset_0_0_80px_rgba(0,0,0,0.05)]" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}>
+          <div className="w-full lg:w-7/12 bg-[#F9F7F5] p-6 md:p-16 relative border-t lg:border-t-0 lg:border-l border-mist-grey shadow-[inset_0_0_80px_rgba(0,0,0,0.05)] animate-survival-glow" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}>
              <div className="absolute top-0 right-4 md:right-10 w-24 h-24 md:w-32 md:h-32 opacity-10 pointer-events-none mix-blend-multiply">
                  <div className="w-full h-full border-4 border-ui-dim-red rounded-full flex items-center justify-center transform rotate-12">
                      <span className="text-ui-dim-red font-display font-black text-base md:text-xl text-center" dangerouslySetInnerHTML={{ __html: t.town.taboo.replace('\n', '<br/>') }}></span>
@@ -80,7 +84,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   <span className="font-mono text-xs md:text-base text-ui-dim-red font-bold tracking-widest">{t.town.guideVer}</span>
                 </div>
                 
-                {/* Rules List - Custom styling to prevent line breaks on number */}
+                {/* Rules List */}
                 <ul className="space-y-4 md:space-y-6 font-display text-valley-teal text-base md:text-2xl pl-1 md:pl-2">
                   {rules.map((rule, idx) => (
                     <li 
@@ -112,12 +116,12 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                             
                             {/* Overlay Interaction (SHE IS WATCHING YOU) */}
                             <div className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-200 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
-                               {/* Background Eye */}
-                               <i className="fa-solid fa-eye absolute right-0 md:right-10 text-lantern-red/10 text-8xl animate-pulse transform rotate-12"></i>
+                               {/* Background Eye - Adjusted for mobile */}
+                               <i className="fa-solid fa-eye absolute right-0 md:right-10 text-lantern-red/10 text-6xl md:text-8xl animate-pulse transform rotate-12"></i>
                                
-                               {/* Glitchy Text Overlay - Left Aligned & No Wrap */}
-                               <div className="absolute top-0 left-12 md:top-auto md:left-20 -mt-5 md:-mt-10 z-20">
-                                  <div className="bg-black text-lantern-red text-xs md:text-sm font-mono font-bold px-3 py-1 tracking-widest glitch border border-lantern-red shadow-[0_0_15px_rgba(192,53,43,0.5)] transform -rotate-2 whitespace-nowrap" data-text={t.town.rule4_hover}>
+                               {/* Glitchy Text Overlay - Fixed Mobile Positioning */}
+                               <div className="absolute top-[-10px] left-0 md:top-auto md:left-20 md:-mt-10 z-20 w-full">
+                                  <div className="inline-block bg-black text-lantern-red text-[10px] md:text-sm font-mono font-bold px-2 py-1 md:px-3 tracking-widest glitch border border-lantern-red shadow-[0_0_15px_rgba(192,53,43,0.5)] transform -rotate-2 whitespace-nowrap" data-text={t.town.rule4_hover}>
                                      {t.town.rule4_hover}
                                   </div>
                                </div>
@@ -139,7 +143,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                      href="https://store.steampowered.com/" 
                      target="_blank" 
                      rel="noreferrer" 
-                     className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all tracking-widest flex items-center gap-2 md:gap-3 rounded-sm group"
+                     className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all tracking-widest flex items-center gap-2 md:gap-3 rounded-sm group w-full md:w-auto justify-center"
                    >
                      <i className="fa-brands fa-steam text-lg md:text-xl group-hover:scale-110 transition-transform"></i>
                      {t.nav.wishlist}
@@ -165,6 +169,21 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
           </div>
         </div>
       </div>
+      <style>{`
+        @keyframes survivalGlow {
+          0%, 100% {
+            box-shadow: inset 0 0 80px rgba(0,0,0,0.05), 0 0 0 rgba(192,53,43,0);
+            border-color: rgba(212, 217, 221, 0.3);
+          }
+          50% {
+            box-shadow: inset 0 0 80px rgba(0,0,0,0.05), 0 0 25px rgba(192,53,43,0.2);
+            border-color: rgba(192,53,43,0.4);
+          }
+        }
+        .animate-survival-glow {
+          animation: survivalGlow 4s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };

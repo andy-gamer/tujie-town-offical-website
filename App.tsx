@@ -400,14 +400,15 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   <span className="font-mono text-xs md:text-base text-ui-dim-red font-bold tracking-widest">VER. 2.0</span>
                 </div>
                 
-                <ol className="space-y-4 md:space-y-6 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2 flex-grow">
+                {/* Rules List - Adjusted spacing */}
+                <ol className="space-y-2 md:space-y-4 font-display text-valley-teal text-base md:text-2xl list-decimal list-inside pl-1 md:pl-2">
                   {rules.map((rule, idx) => (
                     <li 
                       key={idx}
                       onClick={() => handleRuleInteraction(idx)}
                       onMouseEnter={() => setActiveRule(idx)} 
                       onMouseLeave={() => setActiveRule(null)} 
-                      className={`relative p-2 md:p-4 transition-all duration-700 cursor-pointer tap-highlight-transparent
+                      className={`relative p-2 md:p-3 transition-all duration-700 cursor-pointer tap-highlight-transparent
                         ${idx === 3 ? 'hover:text-lantern-red text-valley-teal' : 'hover:text-valley-teal/70'}
                         ${idx === 3 && activeRule === 3 ? 'bg-lantern-red/5 shadow-[inset_0_0_20px_rgba(192,53,43,0.1)]' : ''}
                       `}
@@ -423,12 +424,12 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                                 <i className="fa-solid fa-fingerprint"></i>
                             </span>
 
-                            {/* Refined Horror Effect */}
+                            {/* Refined Horror Effect - Fixed Mobile Layout */}
                             <div className={`absolute inset-0 flex items-center pointer-events-none transition-opacity duration-1000 ${activeRule === 3 ? 'opacity-100' : 'opacity-0'}`}>
                                <span className="text-xl md:text-4xl text-lantern-red/20 font-black font-display tracking-[0.5em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap blur-sm scale-110 hidden md:block">
                                  SHE IS WATCHING YOU
                                </span>
-                               <span className="text-base md:text-2xl text-lantern-red font-black font-display tracking-[0.2em] md:tracking-[0.3em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-normal md:whitespace-nowrap text-center animate-pulse w-full">
+                               <span className="text-base md:text-xl text-lantern-red font-black font-display tracking-[0.2em] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center break-words leading-tight animate-pulse md:whitespace-nowrap">
                                  SHE IS WATCHING YOU
                                </span>
                             </div>
@@ -440,8 +441,24 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   ))}
                 </ol>
 
+                {/* Wishlist CTA inside Survival Guide */}
+                <div className="mt-8 md:mt-auto pt-6 md:pt-8 border-t border-mist-grey/30 flex flex-col items-center justify-center text-center">
+                   <p className="font-serif text-valley-teal/80 text-sm md:text-base font-bold mb-3 md:mb-4">
+                     還沒準備好遵守這些規矩嗎？
+                   </p>
+                   <a 
+                     href="https://store.steampowered.com/" 
+                     target="_blank" 
+                     rel="noreferrer" 
+                     className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all tracking-widest flex items-center gap-2 md:gap-3 rounded-sm group"
+                   >
+                     <i className="fa-brands fa-steam text-lg md:text-xl group-hover:scale-110 transition-transform"></i>
+                     加入願望清單
+                   </a>
+                </div>
+
                 {!isFound && townItem && (
-                  <button onClick={() => onFindItem(townItem.id)} className="absolute bottom-4 right-4 md:bottom-10 md:right-10 transform rotate-12 hover:rotate-0 hover:scale-105 transition-all z-30 group" title="撿起車票">
+                  <button onClick={() => onFindItem(townItem.id)} className="absolute bottom-4 right-4 md:bottom-32 md:right-10 transform rotate-12 hover:rotate-0 hover:scale-105 transition-all z-30 group" title="撿起車票">
                     <div className="bg-[#e8e4dc] border border-forgotten-ink p-2 md:p-4 shadow-xl flex flex-col items-center gap-1 md:gap-2 w-24 h-16 md:w-32 md:h-20 justify-center group-hover:bg-white transition-colors relative overflow-hidden">
                        <div className="absolute top-0 left-0 w-full h-1 md:h-2 bg-valley-teal"></div>
                        <div className="flex items-center gap-2">
@@ -574,8 +591,8 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
              蒐集散落在土界鎮的記憶碎片，揭開那些被遺忘的異界生物真面目...
            </p>
            {!allFound && (
-             <div className="inline-block bg-valley-teal/80 border border-lantern-red/30 px-6 py-2 md:px-8 md:py-3 text-lantern-red text-sm md:text-base font-bold animate-pulse tracking-wide font-sans shadow-lg backdrop-blur-sm">
-               <i className="fa-solid fa-magnifying-glass mr-3"></i>
+             <div className="inline-block bg-lantern-red border-2 border-white/20 px-6 py-2 md:px-8 md:py-3 text-white text-sm md:text-base font-bold animate-pulse tracking-wide font-sans shadow-lg">
+               <i className="fa-solid fa-lock mr-3"></i>
                檔案加密中：請尋找散落的 3 個記憶碎片
              </div>
            )}
@@ -699,40 +716,35 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
         
         {/* Compact Logo Row */}
-        <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 mb-8 md:mb-12 opacity-60">
-            <h2 className="text-lg md:text-xl font-display font-bold text-moon-silver tracking-[0.2em]">源境創遊</h2>
-            <span className="hidden md:block w-[1px] h-4 bg-mist-grey/40"></span>
-            <p className="text-mist-grey text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase">Orzien Games</p>
-            <span className="hidden md:block w-[1px] h-4 bg-mist-grey/40"></span>
-            <p className="text-mist-grey text-[10px] md:text-xs tracking-widest">以「源」為始，稚心投入。</p>
+        <div className="flex flex-col items-center mb-8 md:mb-12 opacity-80">
+            <h2 className="text-xl md:text-3xl font-display font-bold text-moon-silver tracking-[0.2em] mb-3 md:mb-4">源境創遊 | OrzienGames</h2>
+            <p className="text-mist-grey font-serif text-sm md:text-base tracking-widest">以「源」為始，稚心投入。</p>
         </div>
 
-        {/* Main Emotional Copy - Emphasized */}
-        <p className="text-lily-pale font-serif text-lg md:text-2xl tracking-widest mb-10 md:mb-16 max-w-4xl mx-auto italic leading-[2] drop-shadow-lg px-4">
-          「白日凡人，夜裡追夢人。<br/>
-          一群朝九晚五的上班族，源於對遊戲的熱愛，<br/>
-          從玩家化為開發者，期盼也能作出有共鳴的作品。」
+        {/* Main Emotional Copy - Less Visible */}
+        <p className="text-mist-grey/40 font-serif text-xs md:text-sm tracking-widest mb-10 md:mb-16 max-w-2xl mx-auto leading-loose px-4">
+          “白日凡人，夜裡追夢人。一群朝九晚五的上班族，源於對遊戲的熱愛，從玩家化為開發者，期盼也能作出有共鳴的作品。”
         </p>
   
-        {/* Compact Credits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20 text-left w-full max-w-5xl mx-auto mb-10 md:mb-16 border-t border-white/5 pt-8 md:pt-12 px-4">
-           <div className="space-y-3">
+        {/* Detailed Credits */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-left w-full max-w-5xl mx-auto mb-10 md:mb-16 border-t border-white/5 pt-8 md:pt-12 px-4">
+           <div className="space-y-4">
              <div className="text-[10px] text-lantern-red font-bold tracking-[0.3em] mb-4 uppercase font-mono">Production & Narrative</div>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Game Director</span> 安迪</p>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Writer</span> Kooche</p>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Co-Writer</span> 晉子、西西</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">發起人 Game Director｜</span> 安迪</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">主編 Writer｜</span> Kooche</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">協力編劇 Co-Writer｜</span> 晉子、西西</p>
            </div>
-           <div className="space-y-3">
+           <div className="space-y-4">
              <div className="text-[10px] text-lantern-red font-bold tracking-[0.3em] mb-4 uppercase font-mono">Design & Art</div>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Game Design</span> DB、芝芝、安迪</p>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Artist</span> 阿鳳、PoG、宇琦</p>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Supporter</span> 腦鼠、御井、布丁、星光</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">遊戲設計 Game Design｜</span> DB、芝芝、安迪</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">美術設計 Artist｜</span> 阿鳳、PoG、宇琦</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">美術/技術支援 Supporter｜</span> 腦鼠、御井、布丁、星光</p>
            </div>
-           <div className="space-y-3">
+           <div className="space-y-4">
              <div className="text-[10px] text-lantern-red font-bold tracking-[0.3em] mb-4 uppercase font-mono">Tech & Audio</div>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">UIUX</span> Wunsang</p>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Programmer</span> 安迪、DB</p>
-             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">Music/Sound</span> Vicky</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">UIUX｜</span> Wunsang</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">程式 Programmer｜</span> 安迪、DB</p>
+             <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide"><span className="text-moon-silver/80 font-bold mr-2">音樂及音效 Music/Sound｜</span> Vicky</p>
            </div>
         </div>
   

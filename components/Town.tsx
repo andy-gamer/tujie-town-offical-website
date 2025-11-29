@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -25,6 +26,8 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
     }
   };
 
+  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
+
   return (
     <section id="town" className="relative py-12 md:py-48 bg-valley-teal overflow-hidden">
       {/* Texture Overlay - Wood (Existing) */}
@@ -36,6 +39,15 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
       <div className="absolute inset-0 bg-gradient-to-b from-midnight-fog via-valley-teal to-midnight-fog/90 mix-blend-overlay"></div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col items-center">
+        
+        {/* New World View Header */}
+        <div className="mb-12 md:mb-16 text-center">
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-lily-pale tracking-[0.2em] opacity-90 drop-shadow-lg">
+                {t.town.worldView}
+            </h2>
+            <div className="w-16 h-1 bg-lantern-red mx-auto mt-4"></div>
+        </div>
+
         <div className="relative w-full max-w-7xl flex flex-col lg:flex-row gap-0 shadow-[0_50px_100px_rgba(0,0,0,0.8)]">
           {/* Top Label */}
           <div className="absolute -top-8 md:-top-10 left-0 bg-lily-pale px-6 md:px-8 py-1 md:py-2 z-0 border border-mist-grey shadow-lg transform -rotate-1">
@@ -140,7 +152,7 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                      {t.town.notReady}
                    </p>
                    <a 
-                     href="https://store.steampowered.com/" 
+                     href={steamUrl}
                      target="_blank" 
                      rel="noreferrer" 
                      className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 md:px-8 md:py-3 text-sm md:text-base font-bold shadow-lg hover:shadow-xl transition-all tracking-widest flex items-center gap-2 md:gap-3 rounded-sm group w-full md:w-auto justify-center"

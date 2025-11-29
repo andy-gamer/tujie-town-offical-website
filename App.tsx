@@ -52,8 +52,8 @@ export default function App() {
           <main className="animate-fade-in">
             <Header />
             <Hero foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
-            <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
             <div className="scroll-reveal"><LatestNews /></div>
+            <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
             <div className="scroll-reveal"><Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
             <div className="scroll-reveal"><MonsterIndex foundItems={foundItems} /></div>
             <div className="scroll-reveal"><Footer /></div>

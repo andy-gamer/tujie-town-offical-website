@@ -1,4 +1,6 @@
 
+
+
 import React, { useState } from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import TrailerModal from './TrailerModal';
@@ -54,13 +56,13 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
            </div>
         )}
 
-        {/* Content Box (Left Aligned) */}
-        <div className="absolute bottom-24 md:bottom-32 left-0 w-full px-6 md:px-24 pointer-events-auto z-10 flex justify-center md:justify-start">
-           <div className="p-6 md:p-12 border-l-0 md:border-l-4 border-lantern-red/60 bg-[#1D1F21]/60 backdrop-blur-sm max-w-2xl w-full shadow-2xl relative overflow-hidden group">
+        {/* Content Box (Left Aligned) - Adjusted for mobile to be lower */}
+        <div className="absolute bottom-0 md:bottom-32 left-0 w-full px-4 md:px-24 pointer-events-auto z-10 flex justify-center md:justify-start">
+           <div className="p-6 md:p-12 border-t md:border-t-0 md:border-l-4 border-lantern-red/60 bg-gradient-to-t from-[#1D1F21] to-[#1D1F21]/80 md:bg-[#1D1F21]/60 backdrop-blur-sm max-w-2xl w-full shadow-2xl relative overflow-hidden group pb-12 md:pb-12">
               {/* Subtle sheen effect on the container */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
-              <div className="mb-4 md:mb-8 relative">
+              <div className="mb-2 md:mb-8 relative">
                 <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-5xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
                   2026
                 </span>
@@ -68,7 +70,7 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                   {t.hero.comingSoon}
                 </span>
               </div>
-              <p className="text-lily-pale font-serif leading-loose text-base md:text-2xl shadow-black drop-shadow-md mb-8 md:mb-12 font-medium tracking-wide">
+              <p className="text-lily-pale font-serif leading-loose text-base md:text-2xl shadow-black drop-shadow-md mb-6 md:mb-12 font-medium tracking-wide">
                 {t.hero.description_1}<br/>
                 {t.hero.description_2}<br/>
                 {t.hero.description_3}<br/>

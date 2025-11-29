@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -7,6 +8,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
   const allFound = foundItems.length === ITEMS.length;
   const progress = Math.round((foundItems.length / ITEMS.length) * 100);
   const { t } = useLanguage();
+  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
   
   return (
     <section id="collection" className="py-24 md:py-40 bg-[#151719] relative overflow-hidden border-t border-lily-shadow flex justify-center">
@@ -164,7 +166,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                           {t.monster.actionDesc}
                       </p>
                   </div>
-                  <a href="https://store.steampowered.com/" target="_blank" rel="noreferrer" className="bg-[#1a1714] text-[#c2b59b] hover:bg-lantern-red hover:text-white px-6 py-3 font-bold tracking-widest transition-all shadow-lg flex items-center gap-3 group w-full md:w-auto justify-center">
+                  <a href={steamUrl} target="_blank" rel="noreferrer" className="bg-[#1a1714] text-[#c2b59b] hover:bg-lantern-red hover:text-white px-6 py-3 font-bold tracking-widest transition-all shadow-lg flex items-center gap-3 group w-full md:w-auto justify-center">
                       <i className="fa-brands fa-steam text-xl group-hover:rotate-12 transition-transform"></i>
                       <span>{t.monster.addToWishlist}</span>
                   </a>

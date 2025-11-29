@@ -1,4 +1,6 @@
 
+
+
 import React, { useState, useEffect } from 'react';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -12,7 +14,8 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      // Threshold increased to 50 to clear the main hero logo area mostly
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -38,34 +41,38 @@ const Header: React.FC = () => {
     { code: 'ko', label: '한국어' },
   ];
 
+  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
+
   return (
     <>
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 border-b ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out border-b will-change-transform transform-gpu ${
         isScrolled || mobileMenuOpen
-          ? 'bg-[#1c2329]/95 backdrop-blur-md py-3 md:py-4 border-mist-grey/10 shadow-lg' 
-          : 'bg-transparent py-4 md:py-8 border-transparent'
+          ? 'bg-[#1c2329]/95 backdrop-blur-md shadow-lg border-mist-grey/10 py-3 md:py-4' 
+          : 'bg-transparent border-transparent py-4 md:py-6'
       }`}
     >
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
+      <div className="container mx-auto px-6 flex justify-between items-center pointer-events-auto">
+        {/* Logo Image - Only visible when scrolled */}
         <div 
-          className="flex flex-col cursor-pointer group z-50 relative" 
+          className={`flex flex-col cursor-pointer group z-50 relative transition-opacity duration-500 ${isScrolled ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <h1 className="text-xl md:text-3xl font-display font-black text-moon-silver tracking-[0.2em] drop-shadow-md group-hover:text-lantern-red transition-colors flex items-center gap-2">
-            土界鎮
-          </h1>
+          <img 
+            src={ASSETS.logo} 
+            alt="Logo" 
+            className="h-10 md:h-12 w-auto object-contain drop-shadow-md brightness-110"
+          />
         </div>
         
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-12">
           <div className="flex items-center gap-10">
-             {['town', 'news', 'gameplay'].map((section) => (
+             {['news', 'town', 'gameplay'].map((section) => (
                <button 
                  key={section}
                  onClick={() => scrollToSection(section)} 
-                 className="text-base font-bold text-mist-grey hover:text-moon-silver transition-colors tracking-[0.15em] relative group font-sans uppercase"
+                 className="text-base font-bold text-mist-grey hover:text-moon-silver transition-colors tracking-[0.15em] relative group font-sans uppercase shadow-black drop-shadow-md"
                >
                  {section === 'town' ? t.nav.world : section === 'news' ? t.nav.news : t.nav.gameplay}
                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-lantern-red transition-all group-hover:w-full opacity-0 group-hover:opacity-100"></span>
@@ -74,7 +81,7 @@ const Header: React.FC = () => {
           </div>
 
           <a 
-            href="https://store.steampowered.com/" 
+            href={steamUrl}
             target="_blank" 
             rel="noreferrer" 
             className="bg-lantern-red hover:bg-[#a02a21] text-moon-silver px-6 py-2 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] hover:shadow-[0_0_30px_rgba(192,53,43,0.6)] transition-all tracking-widest flex items-center gap-3 rounded-none border border-red-400/20 group transform hover:-translate-y-0.5"
@@ -86,7 +93,7 @@ const Header: React.FC = () => {
           {/* Language Switcher Desktop */}
           <div className="relative">
              <button 
-               className="text-mist-grey hover:text-moon-silver transition-colors flex items-center gap-2 font-mono text-sm uppercase tracking-wider"
+               className="text-mist-grey hover:text-moon-silver transition-colors flex items-center gap-2 font-mono text-sm uppercase tracking-wider drop-shadow-md"
                onClick={() => setLangMenuOpen(!langMenuOpen)}
              >
                <i className="fa-solid fa-globe"></i>
@@ -110,7 +117,7 @@ const Header: React.FC = () => {
 
         {/* Mobile Hamburger */}
         <button 
-          className="md:hidden z-50 text-moon-silver text-2xl hover:text-lantern-red transition-colors p-2"
+          className="md:hidden z-50 text-moon-silver text-2xl hover:text-lantern-red transition-colors p-2 touch-manipulation drop-shadow-md"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
@@ -122,7 +129,7 @@ const Header: React.FC = () => {
     <div className={`fixed inset-0 bg-midnight-fog z-40 flex flex-col items-center justify-center transition-opacity duration-300 md:hidden ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
         <div className="flex flex-col gap-8 text-center relative z-10 w-full px-6">
-             {['town', 'news', 'gameplay'].map((section) => (
+             {['news', 'town', 'gameplay'].map((section) => (
                <button 
                  key={section}
                  onClick={() => scrollToSection(section)} 
@@ -146,7 +153,7 @@ const Header: React.FC = () => {
              </div>
 
              <a 
-                href="https://store.steampowered.com/" 
+                href={steamUrl}
                 target="_blank" 
                 rel="noreferrer" 
                 className="mt-4 bg-lantern-red text-moon-silver px-8 py-4 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] tracking-widest flex items-center justify-center gap-3 w-full"

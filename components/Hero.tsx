@@ -12,49 +12,28 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
 
   return (
     <>
-      <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden bg-midnight-fog select-none flex flex-col md:block">
+      <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden bg-midnight-fog select-none">
         
-        {/* --- Background Image Section --- 
-            Mobile: Flex item taking up top space.
-            Desktop: Absolute full coverage.
-        */}
-        <div className="relative w-full flex-1 md:absolute md:inset-0 md:h-full overflow-hidden shrink-0 h-[60vh] md:h-auto">
-           {/* Image Layer */}
+        {/* --- Background Layer (Full Screen for both Mobile & Desktop) --- */}
+        <div className="absolute inset-0 w-full h-full z-0">
+           {/* Main Image */}
            <img 
              src={ASSETS.heroBg} 
-             className="w-full h-full object-cover md:opacity-90 animate-ken-burns object-top" 
+             className="w-full h-full object-cover md:opacity-90 animate-ken-burns object-top md:object-center" 
              alt="Concept Art" 
            />
            
-           {/* Dark Vignette - Shrouded Feel */}
-           <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(5,6,7,0.5)] md:shadow-[inset_0_0_300px_rgba(5,6,7,0.9)] mix-blend-multiply pointer-events-none"></div>
+           {/* Mobile Gradient Overlay (Bottom Up Fade) - Made significantly more transparent */}
+           <div className="absolute inset-0 bg-gradient-to-t from-[#050607] via-transparent to-transparent md:hidden mix-blend-multiply opacity-60"></div>
            
-           {/* Desktop Gradient Overlay */}
+           {/* Desktop Overlays */}
+           <div className="hidden md:block absolute inset-0 shadow-[inset_0_0_100px_rgba(5,6,7,0.5)] md:shadow-[inset_0_0_300px_rgba(5,6,7,0.9)] mix-blend-multiply pointer-events-none"></div>
            <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-[#1D1F21] via-[#1D1F21]/40 to-transparent mix-blend-multiply"></div>
            <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#1D1F21]/90 via-transparent to-transparent"></div>
            
-           {/* Fog Layers */}
-           <div className="absolute inset-0 bg-repeat-x animate-fog opacity-50 mix-blend-hard-light pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
-           <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-40 mix-blend-screen pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
-
-           {/* Mobile Only: Bottom fade to blend with text section */}
-           <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#08090a] to-transparent md:hidden"></div>
-           
-           {/* --- LOGO SECTION (Moved to Right Area) --- */}
-           {ASSETS.logo && (
-              <div className="absolute top-16 right-4 md:top-[30%] md:right-16 z-20 flex flex-col items-end pointer-events-none mix-blend-screen opacity-90 transform md:-translate-y-1/2">
-                  {/* Container for Logo */}
-                  <div className="relative w-40 md:w-[550px]">
-                      <img 
-                         src={ASSETS.logo} 
-                         alt="Logo" 
-                         className="w-full h-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] filter brightness-110 contrast-125" 
-                      />
-                      {/* Glitch/Breath Effect Overlay */}
-                      <div className="absolute inset-0 bg-lantern-red/20 mix-blend-color-dodge opacity-0 animate-ping"></div>
-                  </div>
-              </div>
-           )}
+           {/* Fog Layers - Reduced opacity on mobile to let image show through */}
+           <div className="absolute inset-0 bg-repeat-x animate-fog opacity-30 md:opacity-50 mix-blend-hard-light pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
+           <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-20 md:opacity-40 mix-blend-screen pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
 
             {/* Hidden Item */}
             {!isFound && heroItem && (
@@ -74,37 +53,63 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
             )}
         </div>
 
-        {/* --- Content Box ---
-            Mobile: Relative block below image (Solid background)
-            Desktop: Absolute overlay on bottom left
+        {/* --- LOGO SECTION --- 
+            Mobile: Centered Top
+            Desktop: Right Side
         */}
-        <div className="relative md:absolute md:bottom-32 md:left-0 w-full px-0 md:px-24 pointer-events-auto z-30 flex justify-center md:justify-start bg-[#08090a] md:bg-transparent shadow-2xl md:shadow-none border-t-2 border-lantern-red md:border-t-0">
-           <div className="p-8 md:p-12 md:border-l-4 md:border-lantern-red/60 bg-[#08090a] md:bg-[#1D1F21]/60 md:backdrop-blur-sm max-w-full md:max-w-2xl w-full relative overflow-hidden group pb-12 md:pb-12">
-              {/* Subtle sheen effect */}
-              <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-
-              <div className="mb-4 md:mb-8 relative flex items-baseline gap-2 md:block">
-                <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-4xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
-                  2026
-                </span>
-                <span className="block text-mist-grey font-mono font-bold tracking-[0.2em] md:tracking-[0.6em] text-xs md:text-3xl md:mt-2 md:ml-1 opacity-80">
-                  {t.hero.comingSoon}
-                </span>
+        {ASSETS.logo && (
+          <div className="absolute top-24 left-1/2 -translate-x-1/2 md:top-[30%] md:right-16 md:left-auto md:translate-x-0 z-20 flex flex-col items-center md:items-end pointer-events-none mix-blend-screen opacity-90 w-full md:w-auto px-4">
+              <div className="relative w-48 md:w-[550px]">
+                  <img 
+                      src={ASSETS.logo} 
+                      alt="Logo" 
+                      className="w-full h-auto drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] filter brightness-110 contrast-125" 
+                  />
+                  <div className="absolute inset-0 bg-lantern-red/20 mix-blend-color-dodge opacity-0 animate-ping"></div>
               </div>
-              <p className="text-lily-pale font-serif leading-loose text-sm md:text-2xl shadow-black drop-shadow-md mb-8 md:mb-12 font-medium tracking-wide">
-                {t.hero.description_1}<br/>
-                {t.hero.description_2}<br/>
-                {t.hero.description_3}<br/>
-                {t.hero.description_4}<br className="md:hidden" />
-                <span className="text-lantern-red font-bold font-display text-base md:text-3xl md:mx-2 border-b-2 border-lantern-red inline-block mt-2 md:mt-0">{t.hero.description_punchline}</span>
-              </p>
-              <div className="flex flex-col md:flex-row gap-8">
-                <button onClick={() => setShowTrailer(true)} className="group flex items-center gap-4 text-sm md:text-lg tracking-widest text-moon-silver hover:text-lantern-red transition-colors w-full md:w-auto justify-center md:justify-start">
-                  <span className="w-10 h-10 md:w-16 md:h-16 border border-mist-grey/50 flex items-center justify-center group-hover:border-lantern-red group-hover:bg-lantern-red/10 transition-all">
-                    <i className="fa-solid fa-play ml-1 text-lg md:text-2xl"></i>
-                  </span>
-                  <span className="border-b border-transparent group-hover:border-lantern-red pb-1 font-display font-bold">{t.hero.watchTrailer}</span>
-                </button>
+          </div>
+        )}
+
+        {/* --- Content Box ---
+            Mobile: Absolute Bottom, Centered, Natural Fade
+            Desktop: Absolute Bottom-Left, Boxed
+        */}
+        <div className="absolute bottom-0 left-0 w-full md:w-auto md:bottom-32 md:left-0 z-30 flex justify-center md:justify-start pointer-events-auto">
+           <div className="w-full md:max-w-2xl 
+                           bg-gradient-to-t from-[#050607]/95 via-[#050607]/40 to-transparent 
+                           md:bg-transparent md:from-transparent md:to-transparent
+                           pt-32 pb-16 px-6
+                           md:p-0
+                           flex flex-col items-center md:items-start text-center md:text-left">
+              
+              <div className="w-full md:p-12 md:border-l-4 md:border-lantern-red/60 md:bg-[#1D1F21]/60 md:backdrop-blur-sm relative group">
+                  <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+                  <div className="mb-6 md:mb-8 relative flex flex-col md:block items-center md:items-baseline">
+                    <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-6xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
+                      2026
+                    </span>
+                    <span className="block text-mist-grey font-mono font-bold tracking-[0.3em] md:tracking-[0.6em] text-sm md:text-3xl mt-3 md:mt-2 md:ml-1 opacity-80">
+                      {t.hero.comingSoon}
+                    </span>
+                  </div>
+                  
+                  <p className="text-lily-pale font-serif leading-loose text-sm md:text-2xl shadow-black drop-shadow-md mb-8 md:mb-12 font-medium tracking-wide max-w-sm md:max-w-full mx-auto md:mx-0">
+                    {t.hero.description_1}<br/>
+                    {t.hero.description_2}<br/>
+                    {t.hero.description_3}<br/>
+                    {t.hero.description_4}<br className="md:hidden" />
+                    <span className="text-lantern-red font-bold font-display text-base md:text-3xl md:mx-2 border-b-2 border-lantern-red inline-block mt-4 md:mt-0">{t.hero.description_punchline}</span>
+                  </p>
+                  
+                  <div className="flex flex-col md:flex-row gap-8 w-full md:w-auto items-center md:items-start">
+                    <button onClick={() => setShowTrailer(true)} className="group flex items-center gap-4 text-base md:text-lg tracking-widest text-moon-silver hover:text-lantern-red transition-colors">
+                      <span className="w-12 h-12 md:w-16 md:h-16 border border-mist-grey/50 flex items-center justify-center group-hover:border-lantern-red group-hover:bg-lantern-red/10 transition-all rounded-full md:rounded-none">
+                        <i className="fa-solid fa-play ml-1 text-xl md:text-2xl"></i>
+                      </span>
+                      <span className="border-b border-transparent group-hover:border-lantern-red pb-1 font-display font-bold">{t.hero.watchTrailer}</span>
+                    </button>
+                  </div>
               </div>
            </div>
         </div>

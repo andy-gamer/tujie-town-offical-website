@@ -46,21 +46,23 @@ export default function App() {
 
   return (
     <LanguageProvider>
-      <div className="font-sans text-moon-silver min-h-screen bg-midnight-fog selection:bg-lantern-red selection:text-white">
+      <div className="font-sans text-moon-silver min-h-screen bg-midnight-fog selection:bg-lantern-red selection:text-white overflow-x-hidden">
         {!loaded && <Preloader onComplete={() => setLoaded(true)} />}
         
         {loaded && (
-          <main className="animate-fade-in">
+          <>
             <Header />
-            <Hero foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
-            <div className="scroll-reveal"><LatestNews /></div>
-            <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
-            <div className="scroll-reveal"><Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
-            <div className="scroll-reveal"><MonsterIndex foundItems={foundItems} /></div>
-            <div className="scroll-reveal"><ContentWarning /></div>
-            <div className="scroll-reveal"><Footer /></div>
+            <main className="animate-fade-in w-full overflow-x-hidden">
+              <Hero foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
+              <div className="scroll-reveal"><LatestNews /></div>
+              <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
+              <div className="scroll-reveal"><Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
+              <div className="scroll-reveal"><MonsterIndex foundItems={foundItems} /></div>
+              <div className="scroll-reveal"><ContentWarning /></div>
+              <div className="scroll-reveal"><Footer /></div>
+            </main>
             <FloatingControls />
-          </main>
+          </>
         )}
 
         <style>{`

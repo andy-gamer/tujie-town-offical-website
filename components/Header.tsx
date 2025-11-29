@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -54,16 +55,18 @@ const Header: React.FC = () => {
   const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
 
   // Stabilize mobile padding: Always py-3 on mobile to prevent jumpiness on scroll
+  // Added transform-gpu and translate-z-0 to force hardware acceleration and prevent jitter
   const headerPadding = "py-3 md:transition-[padding] md:duration-500 " + (showLogo || mobileMenuOpen ? 'md:py-4' : 'md:py-6');
 
   return (
     <>
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ease-in-out border-b ${headerPadding} ${
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ease-in-out border-b transform-gpu translate-z-0 backface-hidden ${headerPadding} ${
         showLogo || mobileMenuOpen
           ? 'bg-[#1c2329]/95 backdrop-blur-md shadow-lg border-mist-grey/10' 
           : 'bg-transparent border-transparent'
       }`}
+      style={{ backfaceVisibility: 'hidden', WebkitFontSmoothing: 'antialiased' }}
     >
       <div className="container mx-auto px-6 flex justify-between items-center pointer-events-auto">
         {/* Logo Image - Only visible when scrolled to News */}
@@ -128,9 +131,9 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile Hamburger - Fixed width container to prevent flex jitter */}
         <button 
-          className="md:hidden z-50 text-moon-silver text-2xl hover:text-lantern-red transition-colors p-2 touch-manipulation drop-shadow-md"
+          className="md:hidden z-50 text-moon-silver text-2xl hover:text-lantern-red transition-colors w-10 h-10 flex items-center justify-center touch-manipulation drop-shadow-md transform-gpu"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>

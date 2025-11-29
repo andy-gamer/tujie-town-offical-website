@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -51,17 +50,20 @@ const LatestNews: React.FC = () => {
 
     {/* News Modal */}
     {selectedNews && (
-       <div className="fixed inset-0 z-[60] bg-midnight-fog/95 flex items-center justify-center p-4 animate-fade-in backdrop-blur-sm" onClick={() => setSelectedNews(null)}>
-          <div className="relative w-full max-w-2xl bg-[#1D1F21] border border-mist-grey/30 shadow-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
+       <div className="fixed inset-0 z-[70] bg-midnight-fog/95 flex items-end md:items-center justify-center p-0 md:p-4 animate-fade-in backdrop-blur-sm" onClick={() => setSelectedNews(null)}>
+          <div className="relative w-full h-[90dvh] md:h-auto md:max-h-[85vh] md:max-w-2xl bg-[#1D1F21] border-t md:border border-mist-grey/30 shadow-2xl flex flex-col rounded-t-lg md:rounded-none" onClick={e => e.stopPropagation()}>
              {/* Paper Texture */}
-             <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}></div>
+             <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay rounded-t-lg md:rounded-none" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}></div>
              
-             <div className="p-8 md:p-12 relative z-10">
-                 <button onClick={() => setSelectedNews(null)} className="absolute top-4 right-4 text-mist-grey hover:text-lantern-red transition-colors text-xl">
+             {/* Close Button - Sticky on Mobile */}
+             <div className="absolute top-0 right-0 p-4 z-50">
+                 <button onClick={() => setSelectedNews(null)} className="text-mist-grey hover:text-lantern-red transition-colors text-2xl w-10 h-10 flex items-center justify-center bg-[#1D1F21]/80 rounded-full md:bg-transparent md:rounded-none">
                    <i className="fa-solid fa-xmark"></i>
                  </button>
-                 
-                 <div className="flex items-center gap-4 mb-6">
+             </div>
+
+             <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12 relative z-10">
+                 <div className="flex items-center gap-4 mb-6 pt-2">
                     <span className="bg-lantern-red text-white text-xs font-bold px-2 py-1 tracking-widest">{selectedNews.category}</span>
                     <span className="text-mist-grey/60 font-mono text-sm">{selectedNews.date}</span>
                  </div>
@@ -70,40 +72,42 @@ const LatestNews: React.FC = () => {
                    {selectedNews.title}
                  </h3>
                  
-                 <div className="prose prose-invert prose-p:text-mist-grey prose-p:font-serif prose-p:leading-loose max-h-[50vh] overflow-y-auto custom-scrollbar pr-4">
-                     <p className="mb-6">
+                 {/* Content - Removed 'prose' class to avoid dependency issues, using direct styles */}
+                 <div className="text-mist-grey font-serif leading-loose text-base space-y-6">
+                     <p>
                         感謝大家來到土界鎮。官網現已開放，您可以自由探索這個充滿謎團的小鎮，並從中拼湊出關於失蹤案件的真相。
                      </p>
-                     <p className="mb-6">
+                     <p>
                         如果您喜歡我們的作品，歡迎追蹤以下社群平台以獲取第一手開發進度，或加入 Steam 願望清單給予我們支持：
                      </p>
-                     <ul className="space-y-4 list-none pl-0 mt-8">
-                        <li>
-                          <a href="https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown" target="_blank" rel="noreferrer" className="text-lantern-red hover:text-white font-bold flex items-center gap-3 transition-colors bg-white/5 p-3 border border-white/10 hover:bg-lantern-red/20 hover:border-lantern-red">
-                            <i className="fa-brands fa-steam text-xl"></i> 
-                            <span>Steam 商店頁面 (加入願望清單)</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.facebook.com/orizengames" target="_blank" rel="noreferrer" className="text-mist-grey hover:text-white flex items-center gap-3 transition-colors p-2 hover:translate-x-1">
-                            <i className="fa-brands fa-facebook text-xl w-6"></i> 
-                            <span>Facebook 粉絲專頁</span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="https://www.instagram.com/tujietown.offical" target="_blank" rel="noreferrer" className="text-mist-grey hover:text-white flex items-center gap-3 transition-colors p-2 hover:translate-x-1">
-                             <i className="fa-brands fa-instagram text-xl w-6"></i> 
-                             <span>Instagram 官方帳號</span>
-                          </a>
-                        </li>
-                      </ul>
+                     
+                     <div className="mt-8 space-y-4">
+                        <a href="https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown" target="_blank" rel="noreferrer" className="block text-lantern-red hover:text-white font-bold transition-colors bg-white/5 p-4 border border-white/10 hover:bg-lantern-red/20 hover:border-lantern-red">
+                            <div className="flex items-center gap-3">
+                                <i className="fa-brands fa-steam text-2xl"></i> 
+                                <span>Steam 商店頁面 (加入願望清單)</span>
+                            </div>
+                        </a>
+                        
+                        <div className="flex flex-col md:flex-row gap-4">
+                            <a href="https://www.facebook.com/orizengames" target="_blank" rel="noreferrer" className="flex-1 text-mist-grey hover:text-white flex items-center gap-3 transition-colors p-3 border border-transparent hover:border-white/10 bg-white/0 hover:bg-white/5">
+                                <i className="fa-brands fa-facebook text-xl w-6 text-center"></i> 
+                                <span>Facebook 粉絲專頁</span>
+                            </a>
+                            <a href="https://www.instagram.com/tujietown.offical" target="_blank" rel="noreferrer" className="flex-1 text-mist-grey hover:text-white flex items-center gap-3 transition-colors p-3 border border-transparent hover:border-white/10 bg-white/0 hover:bg-white/5">
+                                <i className="fa-brands fa-instagram text-xl w-6 text-center"></i> 
+                                <span>Instagram 官方帳號</span>
+                            </a>
+                        </div>
+                     </div>
                  </div>
-                 
-                 <div className="mt-8 pt-6 border-t border-white/10 text-right">
-                     <button onClick={() => setSelectedNews(null)} className="text-mist-grey hover:text-white text-sm tracking-widest font-bold">
-                        [ CLOSE ]
-                     </button>
-                 </div>
+             </div>
+             
+             {/* Bottom Footer in Modal */}
+             <div className="p-6 border-t border-white/10 text-right bg-[#1D1F21] relative z-20">
+                 <button onClick={() => setSelectedNews(null)} className="text-mist-grey hover:text-white text-sm tracking-widest font-bold w-full md:w-auto py-3 md:py-0 border md:border-0 border-white/10">
+                    [ 關閉 CLOSE ]
+                 </button>
              </div>
           </div>
        </div>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import TrailerModal from './TrailerModal';
@@ -37,7 +38,7 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
            <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-40 mix-blend-screen pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
 
            {/* Mobile Only: Bottom fade to blend with text section */}
-           <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#0e1012] to-transparent md:hidden"></div>
+           <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#08090a] to-transparent md:hidden"></div>
            
            {/* --- LOGO SECTION (Moved to Right Area) --- */}
            {ASSETS.logo && (
@@ -77,8 +78,8 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
             Mobile: Relative block below image (Solid background)
             Desktop: Absolute overlay on bottom left
         */}
-        <div className="relative md:absolute md:bottom-32 md:left-0 w-full px-0 md:px-24 pointer-events-auto z-30 flex justify-center md:justify-start bg-[#0e1012] md:bg-transparent shadow-2xl md:shadow-none border-t-2 border-lantern-red md:border-t-0">
-           <div className="p-8 md:p-12 md:border-l-4 md:border-lantern-red/60 bg-[#0e1012] md:bg-[#1D1F21]/60 md:backdrop-blur-sm max-w-full md:max-w-2xl w-full relative overflow-hidden group pb-12 md:pb-12">
+        <div className="relative md:absolute md:bottom-32 md:left-0 w-full px-0 md:px-24 pointer-events-auto z-30 flex justify-center md:justify-start bg-[#08090a] md:bg-transparent shadow-2xl md:shadow-none border-t-2 border-lantern-red md:border-t-0">
+           <div className="p-8 md:p-12 md:border-l-4 md:border-lantern-red/60 bg-[#08090a] md:bg-[#1D1F21]/60 md:backdrop-blur-sm max-w-full md:max-w-2xl w-full relative overflow-hidden group pb-12 md:pb-12">
               {/* Subtle sheen effect */}
               <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 

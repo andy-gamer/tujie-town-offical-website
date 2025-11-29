@@ -1,5 +1,4 @@
 
-
 import React from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -34,7 +33,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
               <div className="absolute inset-0 bg-orange-900/10 mix-blend-multiply pointer-events-none"></div>
 
               {!allFound && (
-                 // Updated Locked State: Archive / Sealed Document Aesthetic
+                 // Locked State: Archive / Sealed Document Aesthetic
                  <div className="absolute inset-0 z-40 flex flex-col items-center justify-center text-center bg-[#151719] p-6 md:p-8 transition-all duration-500 shadow-[inset_0_0_100px_black]">
                      {/* Paper Texture Overlay */}
                      <div className="absolute inset-0 opacity-20 pointer-events-none bg-repeat" style={{ backgroundImage: `url(${ASSETS.textureCork})` }}></div>
@@ -57,6 +56,10 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
 
                         <p className="text-mist-grey font-serif text-base md:text-xl mb-8 md:mb-12 tracking-widest opacity-60">
                            {t.monster.lockedOverlay.desc}
+                        </p>
+                        
+                        <p className="text-lantern-red/70 font-mono text-xs md:text-sm tracking-widest mb-8 animate-pulse">
+                           {t.monster.lockedOverlay.hint}
                         </p>
                        
                         <div className="flex justify-center gap-6 md:gap-12 mb-10 md:mb-12 w-full">
@@ -93,70 +96,83 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
               <div className={`transition-all duration-1000 w-full h-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 relative z-10 ${allFound ? 'opacity-100 blur-0' : 'opacity-10 blur-sm grayscale'}`}>
                   
                   {/* Left Column: Photo & Evidence Slots */}
-                  <div className="md:col-span-5 flex flex-col gap-6 md:gap-8">
+                  <div className="md:col-span-4 flex flex-col gap-6 md:gap-8">
+                      {/* Photo */}
                       <div className="bg-white p-3 md:p-4 pb-12 md:pb-16 shadow-md transform -rotate-1 md:-rotate-2 border border-gray-300 relative">
                           <img src={ASSETS.monsterSketch} className="w-full h-64 md:h-80 object-contain mix-blend-multiply grayscale contrast-125" alt="Subject" />
                           <div className="absolute top-4 right-4 w-16 h-16 md:w-20 md:h-20 border-4 border-lantern-red rounded-full opacity-30"></div>
-                          <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 font-handwriting text-forgotten-ink text-lg md:text-xl font-bold">
-                             {t.monster.lastSeen}
-                          </div>
                       </div>
 
+                      {/* Residual Items List */}
                       <div className="bg-[#b0a48f]/50 p-4 md:p-6 border border-[#9c917e]">
-                          <h4 className="text-[#4a443b] font-mono font-bold tracking-widest mb-4 border-b border-[#9c917e] pb-2 text-sm md:text-base">{t.monster.evidenceLog}</h4>
-                          <div className="grid grid-cols-3 gap-2 md:gap-4">
-                             {ITEMS.map((item, i) => (
-                               <div key={i} className={`aspect-square border border-[#9c917e] flex items-center justify-center shadow-inner ${foundItems.includes(item.id) ? 'bg-[#f0eadd]' : 'bg-[#a39985]'}`}>
-                                  {foundItems.includes(item.id) ? (
-                                    <i className={`fa-solid ${item.icon} text-lg md:text-2xl text-forgotten-ink opacity-70`}></i>
-                                  ) : (
-                                    <span className="text-[#8c8273] text-lg md:text-2xl font-bold">?</span>
-                                  )}
-                               </div>
+                          <h4 className="text-[#4a443b] font-mono font-bold tracking-widest mb-4 border-b border-[#9c917e] pb-2 text-sm md:text-base">
+                            {t.monster.file.items.title}
+                          </h4>
+                          <ul className="text-[#2b2520] text-sm md:text-base space-y-3 list-disc pl-5 font-serif">
+                             {t.monster.file.items.list.map((item, idx) => (
+                               <li key={idx} className={foundItems.length <= idx ? 'opacity-50 blur-[2px]' : ''}>{item}</li>
                              ))}
-                          </div>
+                          </ul>
+                          <p className="mt-4 text-[#7A2321] text-xs font-bold opacity-80">{t.monster.file.items.note}</p>
                       </div>
                   </div>
 
-                  {/* Right Column: Text Report */}
-                  <div className="md:col-span-7 font-serif text-[#2b2520] relative flex flex-col h-full">
+                  {/* Right Column: Detailed Report */}
+                  <div className="md:col-span-8 font-serif text-[#2b2520] relative flex flex-col h-full gap-6 md:gap-8">
+                      
+                      {/* Confidential Stamp */}
                       <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 border-4 border-lantern-red rounded-full flex items-center justify-center opacity-20 transform rotate-12 pointer-events-none mix-blend-multiply">
                           <span className="text-lantern-red font-black text-sm md:text-xl uppercase transform -rotate-12">CONFIDENTIAL</span>
                       </div>
 
-                      <div className="mb-6 md:mb-10">
-                          <span className="bg-[#2b2520] text-[#c2b59b] px-2 py-1 text-xs md:text-sm font-mono tracking-widest mb-2 inline-block">{t.monster.subjectTag}</span>
-                          <h2 className="text-3xl md:text-5xl font-display font-black text-[#1a1714] tracking-widest border-b-4 border-[#2b2520] pb-2 md:pb-4 mb-4 md:mb-6">{t.monster.subjectName}</h2>
-                          <p className="text-base md:text-xl leading-relaxed italic opacity-90">
-                             {t.monster.subjectDesc}
+                      {/* Basic Info */}
+                      <div>
+                          <h4 className="text-[#4a443b] font-bold text-lg md:text-xl border-b-2 border-[#4a443b] pb-2 mb-3 inline-block">
+                             {t.monster.file.basic.title}
+                          </h4>
+                          <p className="text-base md:text-lg leading-relaxed">
+                             {t.monster.file.basic.content}
                           </p>
                       </div>
 
-                      <div className="space-y-6 md:space-y-8 flex-grow">
-                          <div>
-                              <h4 className="text-lantern-red font-bold text-base md:text-lg tracking-widest mb-2 md:mb-3 flex items-center gap-2">
-                                <i className="fa-solid fa-caret-right"></i> {t.monster.summaryTitle}
-                              </h4>
-                              <p className="text-base md:text-lg leading-loose text-justify pl-4 md:pl-6 border-l-2 border-[#8c8273]/50">
-                                {t.monster.summaryDesc}
-                              </p>
-                          </div>
+                      {/* Event Summary */}
+                      <div className="bg-[#a39985]/20 p-4 border-l-4 border-[#4a443b]">
+                          <h4 className="text-[#4a443b] font-bold text-lg mb-2">
+                             {t.monster.file.event.title}
+                          </h4>
+                          <p className="text-base md:text-lg leading-loose text-justify">
+                             {t.monster.file.event.content}
+                          </p>
+                      </div>
 
-                          <div>
-                              <h4 className="text-lantern-red font-bold text-base md:text-lg tracking-widest mb-2 md:mb-3 flex items-center gap-2">
-                                <i className="fa-solid fa-caret-right"></i> {t.monster.objectsTitle}
-                              </h4>
-                              <ul className="text-base md:text-lg leading-loose pl-8 md:pl-10 list-disc space-y-2 marker:text-lantern-red">
-                                <li>{t.monster.object1}</li>
-                                <li>{t.monster.object2}</li>
-                                <li>{t.monster.object3}</li>
-                              </ul>
-                          </div>
+                      {/* Observation Log */}
+                      <div>
+                           <h4 className="text-lantern-red font-bold text-lg md:text-xl border-b-2 border-lantern-red/50 pb-2 mb-4 inline-block">
+                             {t.monster.file.observation.title}
+                           </h4>
+                           
+                           <div className="space-y-4">
+                              <p className="font-bold text-[#4a443b]">{t.monster.file.observation.section1_title}</p>
+                              <p className="pl-4 border-l border-[#4a443b]/30">{t.monster.file.observation.section1_content}</p>
+                              
+                              <div className="pl-6 space-y-2 italic text-[#4a443b]/80">
+                                 {t.monster.file.observation.quotes.map((q, i) => (
+                                   <p key={i}>{q}</p>
+                                 ))}
+                              </div>
+
+                              <p className="font-bold text-[#4a443b] mt-6">{t.monster.file.observation.section2_title}</p>
+                              <p className="pl-4 border-l border-[#4a443b]/30">{t.monster.file.observation.section2_content}</p>
+                           </div>
+                      </div>
+
+                      <div className="mt-auto pt-4 text-right text-lantern-red font-bold font-mono tracking-widest">
+                         {t.monster.file.status}
                       </div>
                   </div>
               </div>
 
-              {/* Added Integrated Wishlist CTA at bottom of file */}
+              {/* Wishlist CTA */}
               <div className="mt-12 pt-8 border-t-2 border-[#4a443b] border-dashed flex flex-col md:flex-row items-center justify-between gap-6 opacity-90 relative z-20">
                   <div className="flex flex-col gap-2 text-center md:text-left">
                       <span className="font-mono font-bold text-[#4a443b] tracking-widest text-xs md:text-sm uppercase flex items-center justify-center md:justify-start">

@@ -8,6 +8,7 @@ import Town from './components/Town';
 import LatestNews from './components/LatestNews';
 import Gameplay from './components/Gameplay';
 import MonsterIndex from './components/MonsterIndex';
+import ContentWarning from './components/ContentWarning';
 import FloatingControls from './components/FloatingControls';
 import Footer from './components/Footer';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -56,6 +57,7 @@ export default function App() {
             <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
             <div className="scroll-reveal"><Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
             <div className="scroll-reveal"><MonsterIndex foundItems={foundItems} /></div>
+            <div className="scroll-reveal"><ContentWarning /></div>
             <div className="scroll-reveal"><Footer /></div>
             <FloatingControls />
           </main>

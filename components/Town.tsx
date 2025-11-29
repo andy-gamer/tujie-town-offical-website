@@ -1,5 +1,4 @@
 
-
 import React, { useState } from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -84,10 +83,17 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
 
           {/* Right Panel: Survival Guide */}
           <div className="w-full lg:w-7/12 bg-[#F9F7F5] p-6 md:p-16 relative border-t lg:border-t-0 lg:border-l border-mist-grey shadow-[inset_0_0_80px_rgba(0,0,0,0.05)] animate-survival-glow" style={{ backgroundImage: `url(${ASSETS.texturePaper})` }}>
-             <div className="absolute top-0 right-4 md:right-10 w-24 h-24 md:w-32 md:h-32 opacity-10 pointer-events-none mix-blend-multiply">
-                 <div className="w-full h-full border-4 border-ui-dim-red rounded-full flex items-center justify-center transform rotate-12">
-                     <span className="text-ui-dim-red font-display font-black text-base md:text-xl text-center" dangerouslySetInnerHTML={{ __html: t.town.taboo.replace('\n', '<br/>') }}></span>
-                 </div>
+             
+             {/* Chen Family Lily Crest Stamp */}
+             <div className="absolute top-4 right-4 md:top-8 md:right-10 w-24 h-24 md:w-32 md:h-32 opacity-20 pointer-events-none mix-blend-multiply">
+                 <svg viewBox="0 0 100 100" fill="currentColor" className="text-[#7A2321] w-full h-full transform rotate-12 drop-shadow-md">
+                    {/* Simplified Lily Crest Style */}
+                    <path d="M50 5 C55 25 70 35 85 40 C70 50 60 70 50 90 C40 70 30 50 15 40 C30 35 45 25 50 5 Z" />
+                    <path d="M50 15 C52 25 60 30 70 33 C60 40 55 50 50 65 C45 50 40 40 30 33 C40 30 48 25 50 15 Z" fill="#F9F7F5" opacity="0.5"/>
+                    <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="2" fill="none" />
+                    <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="1" fill="none" />
+                    <text x="50" y="85" textAnchor="middle" fontSize="10" fontFamily="serif" fontWeight="bold" fill="currentColor">CHEN FAMILY</text>
+                 </svg>
              </div>
              
              <div className="h-full relative z-10 flex flex-col">

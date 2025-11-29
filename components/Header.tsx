@@ -1,23 +1,33 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Language } from '../translations';
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      // Threshold increased to 50 to clear the main hero logo area mostly
-      setIsScrolled(window.scrollY > 50);
+      // Show logo only when user scrolls down to Latest News section
+      const newsSection = document.getElementById('news');
+      if (newsSection) {
+        const rect = newsSection.getBoundingClientRect();
+        // If the top of the news section is near the top of viewport (or passed it)
+        if (rect.top <= 100) {
+           setShowLogo(true);
+        } else {
+           setShowLogo(false);
+        }
+      } else {
+         // Fallback if section missing
+         setShowLogo(window.scrollY > 600);
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -47,15 +57,15 @@ const Header: React.FC = () => {
     <>
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out border-b will-change-transform transform-gpu ${
-        isScrolled || mobileMenuOpen
+        showLogo || mobileMenuOpen
           ? 'bg-[#1c2329]/95 backdrop-blur-md shadow-lg border-mist-grey/10 py-3 md:py-4' 
           : 'bg-transparent border-transparent py-4 md:py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center pointer-events-auto">
-        {/* Logo Image - Only visible when scrolled */}
+        {/* Logo Image - Only visible when scrolled to News */}
         <div 
-          className={`flex flex-col cursor-pointer group z-50 relative transition-opacity duration-500 ${isScrolled ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+          className={`flex flex-col cursor-pointer group z-50 relative transition-all duration-700 ${showLogo ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-4 pointer-events-none'}`}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           <img 
@@ -126,41 +136,46 @@ const Header: React.FC = () => {
     </nav>
 
     {/* Mobile Menu Overlay */}
-    <div className={`fixed inset-0 bg-midnight-fog z-40 flex flex-col items-center justify-center transition-opacity duration-300 md:hidden ${mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+    {/* Using h-[100dvh] fixes address bar jumping issues on mobile */}
+    <div className={`fixed inset-0 bg-midnight-fog z-40 flex flex-col items-center transition-all duration-300 md:hidden h-[100dvh] pt-24 pb-safe ${mobileMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'}`}>
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
-        <div className="flex flex-col gap-8 text-center relative z-10 w-full px-6">
+        
+        <div className="flex flex-col gap-6 text-center relative z-10 w-full px-8 flex-1 overflow-y-auto">
              {['news', 'town', 'gameplay'].map((section) => (
                <button 
                  key={section}
                  onClick={() => scrollToSection(section)} 
-                 className="text-xl font-display font-bold text-mist-grey hover:text-lantern-red transition-colors tracking-[0.2em] border-b border-white/10 pb-4 w-full"
+                 className="text-xl font-display font-bold text-mist-grey hover:text-lantern-red transition-colors tracking-[0.2em] border-b border-white/10 pb-4 w-full text-left"
                >
                  {section === 'town' ? t.nav.world : section === 'news' ? t.nav.news : t.nav.gameplay}
                </button>
              ))}
              
              {/* Mobile Language Switcher */}
-             <div className="grid grid-cols-3 gap-4 border-b border-white/10 pb-4 w-full">
+             <div className="grid grid-cols-3 gap-3 border-b border-white/10 pb-4 w-full">
                {languages.map((l) => (
                    <button 
                      key={l.code} 
                      onClick={() => handleLangChange(l.code)}
-                     className={`text-sm py-2 ${lang === l.code ? 'text-lantern-red font-bold border border-lantern-red/30 bg-lantern-red/10' : 'text-mist-grey border border-transparent'}`}
+                     className={`text-sm py-2 rounded-sm transition-colors ${lang === l.code ? 'text-lantern-red font-bold border border-lantern-red/30 bg-lantern-red/10' : 'text-mist-grey border border-transparent'}`}
                    >
                      {l.label}
                    </button>
                ))}
              </div>
+        </div>
 
-             <a 
-                href={steamUrl}
-                target="_blank" 
-                rel="noreferrer" 
-                className="mt-4 bg-lantern-red text-moon-silver px-8 py-4 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] tracking-widest flex items-center justify-center gap-3 w-full"
-              >
-                <i className="fa-brands fa-steam text-xl"></i>
-                {t.nav.wishlist}
-              </a>
+        {/* Fixed Bottom Action for Stability */}
+        <div className="w-full p-6 pb-8 bg-midnight-fog border-t border-white/5 relative z-50">
+           <a 
+              href={steamUrl}
+              target="_blank" 
+              rel="noreferrer" 
+              className="bg-lantern-red text-moon-silver px-8 py-4 text-base font-bold shadow-[0_0_20px_rgba(192,53,43,0.4)] tracking-widest flex items-center justify-center gap-3 w-full"
+            >
+              <i className="fa-brands fa-steam text-xl"></i>
+              {t.nav.wishlist}
+            </a>
         </div>
     </div>
     </>

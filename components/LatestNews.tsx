@@ -66,24 +66,37 @@ const LatestNews: React.FC = () => {
                     <span className="text-mist-grey/60 font-mono text-sm">{selectedNews.date}</span>
                  </div>
                  
-                 <h3 className="text-2xl md:text-4xl font-display font-bold text-moon-silver mb-8 leading-snug">
+                 <h3 className="text-2xl md:text-3xl font-display font-bold text-moon-silver mb-8 leading-snug">
                    {selectedNews.title}
                  </h3>
                  
-                 <div className="prose prose-invert prose-p:text-mist-grey prose-p:font-serif prose-p:leading-loose max-h-[40vh] overflow-y-auto custom-scrollbar pr-4">
-                     <p>
-                        {/* Simulated Content */}
-                        {t.news.readMore}
+                 <div className="prose prose-invert prose-p:text-mist-grey prose-p:font-serif prose-p:leading-loose max-h-[50vh] overflow-y-auto custom-scrollbar pr-4">
+                     <p className="mb-6">
+                        感謝大家來到土界鎮。官網現已開放，您可以自由探索這個充滿謎團的小鎮，並從中拼湊出關於失蹤案件的真相。
                      </p>
-                     <p>
-                        {/* Placeholder generic text to fill the modal visually */}
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                     <p className="mb-6">
+                        如果您喜歡我們的作品，歡迎追蹤以下社群平台以獲取第一手開發進度，或加入 Steam 願望清單給予我們支持：
                      </p>
-                     <p>
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                     </p>
+                     <ul className="space-y-4 list-none pl-0 mt-8">
+                        <li>
+                          <a href="https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown" target="_blank" rel="noreferrer" className="text-lantern-red hover:text-white font-bold flex items-center gap-3 transition-colors bg-white/5 p-3 border border-white/10 hover:bg-lantern-red/20 hover:border-lantern-red">
+                            <i className="fa-brands fa-steam text-xl"></i> 
+                            <span>Steam 商店頁面 (加入願望清單)</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.facebook.com/orizengames" target="_blank" rel="noreferrer" className="text-mist-grey hover:text-white flex items-center gap-3 transition-colors p-2 hover:translate-x-1">
+                            <i className="fa-brands fa-facebook text-xl w-6"></i> 
+                            <span>Facebook 粉絲專頁</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://www.instagram.com/tujietown.offical" target="_blank" rel="noreferrer" className="text-mist-grey hover:text-white flex items-center gap-3 transition-colors p-2 hover:translate-x-1">
+                             <i className="fa-brands fa-instagram text-xl w-6"></i> 
+                             <span>Instagram 官方帳號</span>
+                          </a>
+                        </li>
+                      </ul>
                  </div>
                  
                  <div className="mt-8 pt-6 border-t border-white/10 text-right">

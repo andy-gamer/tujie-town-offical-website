@@ -69,7 +69,7 @@ export const translations = {
       viewAll: 'VIEW ALL NEWS',
       readMore: '點擊查看更多關於此更新的詳細內容。土界鎮的秘密正在逐漸揭開...',
       items: [
-        { date: '2026.01.20', category: 'NEWS', title: '官網正式上線！土界鎮的大門已開啟' }
+        { date: '2026.01.20', category: 'NEWS', title: '官網正式上線！歡迎加入願望清單' }
       ]
     },
     gameplay: {
@@ -80,7 +80,7 @@ export const translations = {
       card3: { title: '異界生存', sub: 'SURVIVAL', desc: '當月亮變色，面對擬態成人類的「花倀」，利用弱點求生。' },
     },
     monster: {
-      title: '失蹤者觀察檔案 No.01 — 林晴',
+      title: '失踪者觀察檔案 No.01 — 林晴',
       subtitle: '蒐集散落在土界鎮的記憶碎片，還原事件真相，並追查那些無法以常理解釋的現象……',
       caseId: 'CASE #001970',
       lockedOverlay: {
@@ -97,7 +97,7 @@ export const translations = {
         },
         event: {
            title: '事件摘要',
-           content: '暑假外出時妹妹一度走失，隔日平安尋回。同日下午，有目擊指出林晴曾獨自前往 ████ 祈願（紀錄後遭塗銷）。深夜，她因窗外異常的貓叫聲外出查看——這是最後一次確切目擊。'
+           content: '暑假外出時妹妹一度走失，隔日平安尋回。同日下午，有目擊指出林晴曾獨自前往 ████ 祈願（紀錄後遭涂销）。深夜，她因窗外異常的貓叫聲外出查看——這是最後一次確切目擊。'
         },
         items: {
            title: '疑似殘留物品',
@@ -127,17 +127,18 @@ export const translations = {
       addToWishlist: '加入願望清單',
     },
     footer: {
-      tagline: '記憶是會騙人的，但恐懼不會。',
-      quote: '當你凝視深淵的時候，深淵也在凝視你。',
-      director: '製作人',
-      writer: '劇本',
-      coWriter: '共同編劇',
-      gameDesign: '遊戲設計',
-      artist: '美術',
-      supporter: '協力',
+      tagline: '以「源」為始，稚心投入。',
+      quote: '“白日凡人，夜裡追夢人。\n一群朝九晚五的上班族，源於對遊戲的熱愛，從玩家化為開發者，期盼也能作出有共鳴的作品。”',
+      director: '發起人 Game Director',
+      writer: '主編 Writer',
+      coWriter: '協力編劇 Co-Writer',
+      gameDesign: '遊戲設計 Game Design',
+      artist: '美術設計 Artist',
+      supporter: '美術支援 Supporter',
       uiux: 'UI/UX',
-      programmer: '程式',
-      sound: '音效',
+      programmer: '程式 Programmer',
+      techSupporter: '技術支援 Supporter',
+      sound: '音樂及音效 Music/Sound',
       privacy: '隱私權政策',
       terms: '使用者條款',
       contact: '聯絡我們',
@@ -210,7 +211,7 @@ export const translations = {
       viewAll: 'VIEW ALL NEWS',
       readMore: '点击查看更多关于此更新的详细内容。土界镇的秘密正在逐渐揭开...',
       items: [
-        { date: '2026.01.20', category: 'NEWS', title: '官网正式上线！土界镇的大门已开启' }
+        { date: '2026.01.20', category: 'NEWS', title: '官网正式上线！欢迎加入愿望单' }
       ]
     },
     gameplay: {
@@ -268,17 +269,18 @@ export const translations = {
       addToWishlist: '加入愿望单',
     },
     footer: {
-      tagline: '记忆是会骗人的，但恐惧不会。',
-      quote: '当你凝视深渊的时候，深渊也在凝视你。',
-      director: '制作人',
-      writer: '剧本',
-      coWriter: '共同编剧',
-      gameDesign: '游戏设计',
-      artist: '美术',
-      supporter: '协力',
+      tagline: '以「源」为始，稚心投入。',
+      quote: '“白日凡人，夜里追梦人。\n一群朝九晚五的上班族，源于对游戏的热爱，从玩家化为开发者，期盼也能作出有共鸣的作品。”',
+      director: '发起人 Game Director',
+      writer: '主编 Writer',
+      coWriter: '协力编剧 Co-Writer',
+      gameDesign: '游戏设计 Game Design',
+      artist: '美术设计 Artist',
+      supporter: '美术支援 Supporter',
       uiux: 'UI/UX',
-      programmer: '程式',
-      sound: '音效',
+      programmer: '程式 Programmer',
+      techSupporter: '技术支援 Supporter',
+      sound: '音乐及音效 Music/Sound',
       privacy: '隐私权政策',
       terms: '使用者条款',
       contact: '联络我们',
@@ -351,7 +353,7 @@ export const translations = {
       viewAll: 'VIEW ALL NEWS',
       readMore: 'Click to view more details about this update. The secrets of Tujie Town are unraveling...',
       items: [
-        { date: '2026.01.20', category: 'NEWS', title: 'Official Site Launched! The gates to Tujie Town are open.' }
+        { date: '2026.01.20', category: 'NEWS', title: 'Official Site Launched! Welcome to Wishlist' }
       ]
     },
     gameplay: {
@@ -409,17 +411,18 @@ export const translations = {
       addToWishlist: 'ADD TO WISHLIST',
     },
     footer: {
-      tagline: 'Memories deceive, but fear does not.',
-      quote: 'When you gaze long into the abyss, the abyss gazes also into you.',
-      director: 'Producer',
-      writer: 'Script',
+      tagline: 'Start from origin, create with heart.',
+      quote: '"Ordinary people by day, dream chasers by night.\nA group of office workers turned developers, driven by passion, hoping to create works that resonate."',
+      director: 'Game Director',
+      writer: 'Writer',
       coWriter: 'Co-Writer',
       gameDesign: 'Game Design',
-      artist: 'Art',
-      supporter: 'Support',
+      artist: 'Artist',
+      supporter: 'Supporter',
       uiux: 'UI/UX',
-      programmer: 'Code',
-      sound: 'Sound',
+      programmer: 'Programmer',
+      techSupporter: 'Tech Support',
+      sound: 'Music/Sound',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
       contact: 'Contact',
@@ -492,7 +495,7 @@ export const translations = {
       viewAll: 'VIEW ALL NEWS',
       readMore: 'クリックして詳細を見る。土界鎮の秘密が少しずつ明らかになる...',
       items: [
-        { date: '2026.01.20', category: 'NEWS', title: '公式サイト公開！土界鎮への扉が開かれた。' }
+        { date: '2026.01.20', category: 'NEWS', title: '公式サイト公開！ウィッシュリストへようこそ' }
       ]
     },
     gameplay: {
@@ -560,6 +563,7 @@ export const translations = {
       supporter: '協力',
       uiux: 'UI/UX',
       programmer: 'プログラム',
+      techSupporter: '技術支援',
       sound: 'サウンド',
       privacy: 'プライバシーポリシー',
       terms: '利用規約',
@@ -633,7 +637,7 @@ export const translations = {
       viewAll: 'VIEW ALL NEWS',
       readMore: '클릭하여 자세한 내용을 확인하세요. 마을의 비밀이 서서히 밝혀집니다...',
       items: [
-        { date: '2026.01.20', category: 'NEWS', title: '공식 사이트 오픈! Tujie Town의 문이 열렸습니다.' }
+        { date: '2026.01.20', category: 'NEWS', title: '공식 사이트 오픈! 찜하기에 추가하세요' }
       ]
     },
     gameplay: {
@@ -691,16 +695,17 @@ export const translations = {
       addToWishlist: '찜하기 추가',
     },
     footer: {
-      tagline: '기억은 거짓말을 하지만, 공포는 거짓말을 하지 않는다.',
-      quote: '그대가 심연을 들여다볼 때, 심연 또한 그대를 들여다본다.',
-      director: '프로듀서',
-      writer: '각본',
-      coWriter: '공동 각본',
+      tagline: '기원은, 순수한 마음에서.',
+      quote: '“낮에는 평범한 사람, 밤에는 꿈을 쫓는 사람.\n게임에 대한 열정으로 뭉친 직장인들이, 플레이어에서 개발자로 변신하여, 공감을 불러일으키는 작품을 만들기를 희망합니다.”',
+      director: '디렉터',
+      writer: '메인 시나리오',
+      coWriter: '공동 시나리오',
       gameDesign: '게임 디자인',
-      artist: '아트',
-      supporter: '협력',
+      artist: '아티스트',
+      supporter: '아트 서포터',
       uiux: 'UI/UX',
-      programmer: '프로그램',
+      programmer: '프로그래머',
+      techSupporter: '기술 지원',
       sound: '사운드',
       privacy: '개인정보 처리방침',
       terms: '이용 약관',

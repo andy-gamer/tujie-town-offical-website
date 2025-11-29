@@ -40,7 +40,7 @@ const LatestNews: React.FC = () => {
               </h3>
               
               {/* Content */}
-              <div className="text-mist-grey font-serif leading-loose text-base space-y-6">
+              <div className="text-mist-grey font-serif leading-loose text-base md:text-lg space-y-6">
                   <p>
                     感謝大家來到土界鎮。官網現已開放，您可以自由探索這個充滿謎團的小鎮，並從中拼湊出關於失蹤案件的真相。
                   </p>
@@ -92,9 +92,7 @@ const LatestNews: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-display font-bold text-moon-silver tracking-[0.2em] drop-shadow-md">
             {t.news?.title}
           </h2>
-          <a href="#" className="text-mist-grey hover:text-lantern-red transition-colors text-sm md:text-base font-bold tracking-widest mt-4 md:mt-0 font-mono">
-            {t.news?.viewAll} <i className="fa-solid fa-arrow-right ml-2"></i>
-          </a>
+          {/* View All link removed as requested */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-mist-grey/10 bg-black/20 backdrop-blur-sm">
@@ -111,7 +109,8 @@ const LatestNews: React.FC = () => {
               <h3 className="text-lg md:text-2xl font-display font-bold text-lily-pale mb-4 md:mb-6 group-hover:text-lantern-red transition-colors leading-relaxed line-clamp-2">
                 {item.title}
               </h3>
-              <p className="text-mist-grey/60 text-sm md:text-base font-sans line-clamp-3 mt-auto leading-relaxed group-hover:text-mist-grey transition-colors">
+              {/* Increased font size for better readability on mobile (text-[15px]) */}
+              <p className="text-mist-grey/60 text-[15px] md:text-base font-sans line-clamp-3 mt-auto leading-relaxed group-hover:text-mist-grey transition-colors">
                 {t.news?.readMore}
               </p>
               <div className="absolute bottom-0 left-0 w-full h-[2px] bg-lantern-red transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>

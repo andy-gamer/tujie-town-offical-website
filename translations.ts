@@ -66,7 +66,6 @@ export const translations = {
     },
     news: {
       title: '最新消息',
-      viewAll: 'VIEW ALL NEWS',
       readMore: '點擊查看更多關於此更新的詳細內容。土界鎮的秘密正在逐漸揭開...',
       items: [
         { date: '2026.01.20', category: 'NEWS', title: '官網正式上線！歡迎加入願望清單' }
@@ -214,7 +213,6 @@ export const translations = {
     },
     news: {
       title: '最新消息',
-      viewAll: 'VIEW ALL NEWS',
       readMore: '点击查看更多关于此更新的详细内容。土界镇的秘密正在逐渐揭开...',
       items: [
         { date: '2026.01.20', category: 'NEWS', title: '官网正式上线！欢迎加入愿望单' }
@@ -241,7 +239,7 @@ export const translations = {
       file: {
         basic: {
            title: '基本资料',
-           content: '13 岁少女，个性开朗，疼爱妹妹。常穿蓝色碎花洋装，自幼习武。'
+           content: '13 岁少女，个性开朗，疼爱妹妹。常穿蓝色碎花洋装，自幼習武。'
         },
         items: {
           title: '疑似残留物品',
@@ -362,7 +360,6 @@ export const translations = {
     },
     news: {
       title: 'LATEST NEWS',
-      viewAll: 'VIEW ALL NEWS',
       readMore: 'Click to read more details. The secrets of Tujie Town are unfolding...',
       items: [
         { date: '2026.01.20', category: 'NEWS', title: 'Official Site Launch! Wishlist Now Available' }
@@ -510,7 +507,6 @@ export const translations = {
     },
     news: {
       title: '最新情報',
-      viewAll: 'VIEW ALL NEWS',
       readMore: 'クリックして詳細を読む。土界鎮の秘密が徐々に明らかになる...',
       items: [
         { date: '2026.01.20', category: 'NEWS', title: '公式サイト公開！ウィッシュリスト登録受付中' }
@@ -658,7 +654,6 @@ export const translations = {
     },
     news: {
       title: '최신 소식',
-      viewAll: 'VIEW ALL NEWS',
       readMore: '클릭하여 자세한 내용을 확인하세요. 투계진의 비밀이 서서히 드러납니다...',
       items: [
         { date: '2026.01.20', category: 'NEWS', title: '공식 사이트 오픈! 찜하기 목록 추가 가능' }

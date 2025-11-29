@@ -69,8 +69,13 @@ export default function App() {
           @keyframes fog { 0% { background-position: 0 0; } 100% { background-position: 1000px 0; } }
           .animate-fog { animation: fog 80s linear infinite; }
           .animate-fog-slow { animation: fog 160s linear infinite reverse; }
+          
           @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
           .animate-fade-in { animation: fadeIn 2s ease-out forwards; }
+          
+          /* Faster animation for Popups/Modals */
+          .animate-modal-in { animation: fadeIn 0.3s ease-out forwards; }
+
           @keyframes kenBurns { 0% { transform: scale(1) translate(0,0); } 50% { transform: scale(1.05) translate(-0.5%, -0.5%); } 100% { transform: scale(1) translate(0,0); } }
           .animate-ken-burns { animation: kenBurns 60s ease-in-out infinite alternate; }
           @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }

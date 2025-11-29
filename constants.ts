@@ -7,7 +7,7 @@ export const ASSETS = {
   logo: './assets/logo.png',
   heroBg: './assets/hero-main.jpg',
   townImage: './assets/town-teahouse.jpg',
-  character: './assets/character.jpg',
+  // character asset removed
   gameplayExplore: './assets/gameplay-explore.jpg',
   gameplaySight: './assets/gameplay-sight.jpg',
   gameplaySurvival: './assets/gameplay-survival.jpg',

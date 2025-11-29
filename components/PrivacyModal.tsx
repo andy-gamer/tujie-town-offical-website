@@ -6,7 +6,7 @@ const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const { t } = useLanguage();
 
   return (
-    <div className="fixed inset-0 z-[70] bg-midnight-fog/95 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in" onClick={onClose}>
+    <div className="fixed inset-0 z-[70] bg-midnight-fog/95 backdrop-blur-md flex items-center justify-center p-4 animate-modal-in" onClick={onClose}>
       <div className="relative w-full max-w-2xl bg-valley-teal border border-mist-grey p-6 md:p-12 shadow-2xl overflow-y-auto max-h-[90vh]" onClick={e => e.stopPropagation()}>
         <button onClick={onClose} className="absolute top-4 right-4 text-mist-grey hover:text-lantern-red transition-colors text-xl">
           <i className="fa-solid fa-xmark"></i>

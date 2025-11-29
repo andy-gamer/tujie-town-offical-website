@@ -169,7 +169,8 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                 </div>
 
                 {!isFound && townItem && (
-                  <button onClick={() => onFindItem(townItem.id)} className="absolute bottom-4 right-4 md:bottom-32 md:right-10 transform rotate-12 hover:rotate-0 hover:scale-105 transition-all z-30 group" title={t.town.pickupTicket}>
+                  // Position updated: left-4 on mobile to avoid overlapping with floating controls (bottom right)
+                  <button onClick={() => onFindItem(townItem.id)} className="absolute bottom-4 left-4 md:bottom-32 md:right-10 md:left-auto transform rotate-12 hover:rotate-0 hover:scale-105 transition-all z-30 group" title={t.town.pickupTicket}>
                     <div className="relative">
                       <div className="absolute inset-0 rounded-full bg-lantern-red/30 animate-ping opacity-75"></div>
                       <div className="bg-[#e8e4dc] border-2 border-lantern-red/50 p-2 md:p-4 shadow-[0_0_20px_rgba(192,53,43,0.5)] flex flex-col items-center gap-1 md:gap-2 w-24 h-16 md:w-32 md:h-20 justify-center group-hover:bg-white transition-colors relative overflow-hidden z-10 opacity-90 group-hover:opacity-100 ring-2 ring-lantern-red ring-offset-2 ring-offset-valley-teal">

@@ -57,11 +57,13 @@ const Gameplay: React.FC<{ foundItems: string[], onFindItem: (id: string) => voi
           </div>
           
           {!isFound && item && (
-             <div className="absolute right-6 bottom-12 md:right-20 md:bottom-40 z-20">
+             // Move to top-right on mobile (top-4 right-4) to avoid bottom floating buttons
+             <div className="absolute right-4 top-4 md:right-20 md:bottom-40 md:top-auto z-20">
                 <button onClick={() => onFindItem(item.id)} className="text-mist-grey hover:text-white transition-colors p-4 md:p-6 transform hover:scale-110 opacity-90 hover:opacity-100 relative group" title="發現碎片">
                    <div className="absolute inset-0 bg-lantern-red/20 rounded-full animate-ping blur-md"></div>
                    <div className="absolute inset-0 border-2 border-lantern-red rounded-full opacity-60 animate-pulse"></div>
-                   <i className={`fa-solid ${item.icon} text-3xl md:text-5xl -rotate-12 drop-shadow-[0_0_10px_rgba(192,53,43,0.8)] relative z-10 text-lily-pale`}></i>
+                   {/* Increased Icon Size for easier tapping */}
+                   <i className={`fa-solid ${item.icon} text-5xl md:text-5xl -rotate-12 drop-shadow-[0_0_10px_rgba(192,53,43,0.8)] relative z-10 text-lily-pale`}></i>
                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-lantern-red font-bold tracking-widest bg-black/80 px-2 py-1 rounded backdrop-blur-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
                       {t.gameplay.pickupLabel}
                    </div>

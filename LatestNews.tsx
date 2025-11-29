@@ -1,29 +1,13 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const LatestNews: React.FC = () => {
   const { t } = useLanguage();
-  
-  // State for news items to support async loading (e.g., from Firebase)
-  const [newsItems, setNewsItems] = useState<any[]>([]);
-
-  useEffect(() => {
-    // TODO: Connect to Firebase here
-    // Example: 
-    // const unsubscribe = onSnapshot(collection(db, "news"), (snapshot) => {
-    //    setNewsItems(snapshot.docs.map(doc => doc.data()));
-    // });
-    
-    // For now, load from translations
-    if (t.news?.items) {
-      setNewsItems(t.news.items);
-    }
-  }, [t.news]);
-
-  const [selectedNews, setSelectedNews] = useState<any | null>(null);
+  const news = t.news?.items || []; // Safe access to prevent crash if lang not ready
+  const [selectedNews, setSelectedNews] = useState<typeof news[0] | null>(null);
 
   // Modal content component to be rendered via Portal
   const ModalContent = () => (
@@ -96,6 +80,7 @@ const LatestNews: React.FC = () => {
     </div>
   );
 
+  // Using Portal to attach to document.body, ensuring it overlays everything regardless of parent z-index or transforms
   return (
     <>
     <section id="news" className="py-16 md:py-24 relative border-t border-lily-shadow/30 bg-midnight-fog">
@@ -107,10 +92,11 @@ const LatestNews: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-display font-bold text-moon-silver tracking-[0.2em] drop-shadow-md">
             {t.news?.title}
           </h2>
+          {/* View All link removed as requested */}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-mist-grey/10 bg-black/20 backdrop-blur-sm">
-          {newsItems.map((item, idx) => (
+          {news.map((item, idx) => (
             <div 
               key={idx} 
               onClick={() => setSelectedNews(item)}

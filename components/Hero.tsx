@@ -10,9 +10,20 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
   const isFound = heroItem && foundItems.includes(heroItem.id);
   const { t } = useLanguage();
 
+  const renderItemContent = () => (
+    <div className="relative w-full h-full flex items-center justify-center">
+        <div className="absolute inset-0 bg-lantern-red/30 rounded-full animate-ping blur-sm"></div>
+        {/* Icon - Scaled up slightly for mobile visibility */}
+        <i className={`fa-solid ${heroItem?.icon} text-5xl md:text-5xl drop-shadow-[0_0_15px_rgba(192,53,43,0.8)] opacity-90 group-hover:opacity-100 relative z-10`}></i>
+        <div className="absolute -bottom-6 text-xs text-lantern-red font-bold tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+            {t.hero.clickToInvestigate}
+        </div>
+    </div>
+  );
+
   return (
     <>
-      <section id="hero" className="relative w-full h-screen min-h-[600px] overflow-hidden bg-midnight-fog select-none">
+      <section id="hero" className="relative w-full h-[100dvh] md:h-screen md:min-h-[600px] overflow-hidden bg-midnight-fog select-none">
         
         {/* --- Background Layer (Full Screen for both Mobile & Desktop) --- */}
         <div className="absolute inset-0 w-full h-full z-0">
@@ -23,8 +34,8 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
              alt="Concept Art" 
            />
            
-           {/* Mobile Gradient Overlay (Bottom Up Fade) - Made significantly more transparent */}
-           <div className="absolute inset-0 bg-gradient-to-t from-[#050607] via-transparent to-transparent md:hidden mix-blend-multiply opacity-60"></div>
+           {/* Mobile Gradient Overlay (Bottom Up Fade) - Adjusted to support Logo+Text stack */}
+           <div className="absolute inset-0 bg-gradient-to-t from-[#050607] via-[#050607]/60 to-transparent md:hidden mix-blend-multiply opacity-60"></div>
            
            {/* Desktop Overlays */}
            <div className="hidden md:block absolute inset-0 shadow-[inset_0_0_100px_rgba(5,6,7,0.5)] md:shadow-[inset_0_0_300px_rgba(5,6,7,0.9)] mix-blend-multiply pointer-events-none"></div>
@@ -34,31 +45,36 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
            {/* Fog Layers - Reduced opacity on mobile to let image show through */}
            <div className="absolute inset-0 bg-repeat-x animate-fog opacity-30 md:opacity-50 mix-blend-hard-light pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
            <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-20 md:opacity-40 mix-blend-screen pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
-
-            {/* Hidden Item */}
-            {!isFound && heroItem && (
-              <button
-                onClick={(e) => { e.stopPropagation(); onFindItem(heroItem.id); }}
-                className="absolute w-20 h-20 md:w-24 md:h-24 flex items-center justify-center text-lily-pale hover:text-lantern-red transition-all cursor-pointer animate-float z-50 group"
-                style={{ top: heroItem.top, left: heroItem.left }}
-              >
-                <div className="relative w-full h-full flex items-center justify-center">
-                    <div className="absolute inset-0 bg-lantern-red/30 rounded-full animate-ping blur-sm"></div>
-                    <i className={`fa-solid ${heroItem.icon} text-4xl md:text-5xl drop-shadow-[0_0_15px_rgba(192,53,43,0.8)] opacity-90 group-hover:opacity-100 relative z-10`}></i>
-                    <div className="absolute -bottom-6 text-xs text-lantern-red font-bold tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        {t.hero.clickToInvestigate}
-                    </div>
-                </div>
-              </button>
-            )}
         </div>
 
+        {/* Hidden Item - Moved outside z-0 container to proper stacking context */}
+        {!isFound && heroItem && (
+          <>
+            {/* Mobile Button: Fixed Safe Position (Top-Right area, avoiding text at bottom) */}
+            <button
+              onClick={(e) => { e.stopPropagation(); onFindItem(heroItem.id); }}
+              className="md:hidden absolute w-24 h-24 top-[45%] right-6 flex items-center justify-center text-lily-pale hover:text-lantern-red transition-all cursor-pointer animate-float z-50 group p-4"
+            >
+                {renderItemContent()}
+            </button>
+
+            {/* Desktop Button: Configured Position */}
+            <button
+              onClick={(e) => { e.stopPropagation(); onFindItem(heroItem.id); }}
+              className="hidden md:flex absolute w-24 h-24 items-center justify-center text-lily-pale hover:text-lantern-red transition-all cursor-pointer animate-float z-50 group p-4"
+              style={{ top: heroItem.top, left: heroItem.left }}
+            >
+                {renderItemContent()}
+            </button>
+          </>
+        )}
+
         {/* --- LOGO SECTION --- 
-            Mobile: Centered Top
-            Desktop: Right Side
+            Mobile: MOVED inside Content Box below
+            Desktop: Right Side (Fixed)
         */}
         {ASSETS.logo && (
-          <div className="absolute top-24 left-1/2 -translate-x-1/2 md:top-[30%] md:right-16 md:left-auto md:translate-x-0 z-20 flex flex-col items-center md:items-end pointer-events-none mix-blend-screen opacity-90 w-full md:w-auto px-4">
+          <div className="hidden md:flex absolute top-24 left-1/2 -translate-x-1/2 md:top-[30%] md:right-16 md:left-auto md:translate-x-0 z-20 flex-col items-center md:items-end pointer-events-none mix-blend-screen opacity-90 w-full md:w-auto px-4">
               <div className="relative w-48 md:w-[550px]">
                   <img 
                       src={ASSETS.logo} 
@@ -71,25 +87,36 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
         )}
 
         {/* --- Content Box ---
-            Mobile: Absolute Bottom, Centered, Natural Fade
+            Mobile: Absolute Bottom, Logo + Text Stacked
             Desktop: Absolute Bottom-Left, Boxed
         */}
         <div className="absolute bottom-0 left-0 w-full md:w-auto md:bottom-32 md:left-0 z-30 flex justify-center md:justify-start pointer-events-auto">
            <div className="w-full md:max-w-2xl 
-                           bg-gradient-to-t from-[#050607]/95 via-[#050607]/40 to-transparent 
+                           bg-gradient-to-t from-[#050607] via-[#050607]/80 to-transparent 
                            md:bg-transparent md:from-transparent md:to-transparent
-                           pt-32 pb-16 px-6
+                           pt-24 pb-12 px-6
                            md:p-0
                            flex flex-col items-center md:items-start text-center md:text-left">
               
+              {/* Mobile Logo: Inserted here for cohesive bottom layout */}
+              {ASSETS.logo && (
+                <div className="md:hidden w-48 mb-4 relative z-10 animate-fade-in opacity-100 mix-blend-screen">
+                    <img 
+                        src={ASSETS.logo} 
+                        alt="Logo" 
+                        className="w-full h-auto drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] filter brightness-110 contrast-125" 
+                    />
+                </div>
+              )}
+
               <div className="w-full md:p-12 md:border-l-4 md:border-lantern-red/60 md:bg-[#1D1F21]/60 md:backdrop-blur-sm relative group">
                   <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
-                  <div className="mb-6 md:mb-8 relative flex flex-col md:block items-center md:items-baseline">
-                    <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-6xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
+                  <div className="mb-4 md:mb-8 relative flex flex-col md:block items-center md:items-baseline">
+                    <span className="block text-lantern-red font-display font-black tracking-[0.2em] text-5xl md:text-[8rem] leading-none drop-shadow-red-glow glitch opacity-90" data-text="2026">
                       2026
                     </span>
-                    <span className="block text-mist-grey font-mono font-bold tracking-[0.3em] md:tracking-[0.6em] text-sm md:text-3xl mt-3 md:mt-2 md:ml-1 opacity-80">
+                    <span className="block text-mist-grey font-mono font-bold tracking-[0.3em] md:tracking-[0.6em] text-sm md:text-3xl mt-2 md:mt-2 md:ml-1 opacity-80">
                       {t.hero.comingSoon}
                     </span>
                   </div>

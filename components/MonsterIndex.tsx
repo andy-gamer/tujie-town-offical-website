@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ASSETS, ITEMS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -101,7 +100,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
               )}
 
               {allFound && (
-                <div className={`transition-all duration-1000 w-full h-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 relative z-10 animate-fade-in`}>
+                <div className={`transition-all duration-1000 w-full h-full grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-12 relative z-10 animate-fade-in`}>
                     
                     {/* Left Column: Photo & Evidence Slots */}
                     <div className="md:col-span-4 flex flex-col gap-6 md:gap-8">
@@ -126,7 +125,7 @@ const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
                     </div>
 
                     {/* Right Column: Detailed Report */}
-                    <div className="md:col-span-8 font-serif text-[#2b2520] relative flex flex-col h-full gap-6 md:gap-8">
+                    <div className="md:col-span-8 font-serif text-[#2b2520] relative flex flex-col h-full gap-4 md:gap-8 mt-4 md:mt-0">
                         
                         {/* Confidential Stamp */}
                         <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 border-4 border-lantern-red rounded-full flex items-center justify-center opacity-20 transform rotate-12 pointer-events-none mix-blend-multiply">

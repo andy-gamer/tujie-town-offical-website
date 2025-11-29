@@ -53,13 +53,16 @@ const Header: React.FC = () => {
 
   const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
 
+  // Stabilize mobile padding: Always py-3 on mobile to prevent jumpiness on scroll
+  const headerPadding = "py-3 md:transition-[padding] md:duration-500 " + (showLogo || mobileMenuOpen ? 'md:py-4' : 'md:py-6');
+
   return (
     <>
     <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out border-b will-change-transform transform-gpu ${
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ease-in-out border-b ${headerPadding} ${
         showLogo || mobileMenuOpen
-          ? 'bg-[#1c2329]/95 backdrop-blur-md shadow-lg border-mist-grey/10 py-3 md:py-4' 
-          : 'bg-transparent border-transparent py-4 md:py-6'
+          ? 'bg-[#1c2329]/95 backdrop-blur-md shadow-lg border-mist-grey/10' 
+          : 'bg-transparent border-transparent'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center pointer-events-auto">

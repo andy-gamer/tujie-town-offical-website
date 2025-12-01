@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ASSETS } from '../constants';
@@ -13,17 +12,11 @@ interface NewsItem {
 const LatestNews: React.FC = () => {
   const { t } = useLanguage();
   
-  // State for news items to support async loading (e.g., from Firebase)
+  // State for news items to support async loading
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
-    // TODO: Connect to Firebase here
-    // Example: 
-    // const unsubscribe = onSnapshot(collection(db, "news"), (snapshot) => {
-    //    setNewsItems(snapshot.docs.map(doc => doc.data() as NewsItem));
-    // });
-    
-    // For now, load from translations
+    // TODO: Connect to Firebase here in the future
     if (t.news?.items) {
       setNewsItems(t.news.items);
     }
@@ -116,7 +109,7 @@ const LatestNews: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-mist-grey/10 bg-black/20 backdrop-blur-sm">
-          {newsItems.map((item, idx) => (
+          {newsItems.map((item: NewsItem, idx: number) => (
             <div 
               key={idx} 
               onClick={() => setSelectedNews(item)}

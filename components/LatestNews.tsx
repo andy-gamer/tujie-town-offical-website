@@ -4,17 +4,23 @@ import { createPortal } from 'react-dom';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
 
+interface NewsItem {
+  date: string;
+  category: string;
+  title: string;
+}
+
 const LatestNews: React.FC = () => {
   const { t } = useLanguage();
   
   // State for news items to support async loading (e.g., from Firebase)
-  const [newsItems, setNewsItems] = useState<any[]>([]);
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
 
   useEffect(() => {
     // TODO: Connect to Firebase here
     // Example: 
     // const unsubscribe = onSnapshot(collection(db, "news"), (snapshot) => {
-    //    setNewsItems(snapshot.docs.map(doc => doc.data()));
+    //    setNewsItems(snapshot.docs.map(doc => doc.data() as NewsItem));
     // });
     
     // For now, load from translations
@@ -23,7 +29,7 @@ const LatestNews: React.FC = () => {
     }
   }, [t.news]);
 
-  const [selectedNews, setSelectedNews] = useState<any | null>(null);
+  const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
 
   // Modal content component to be rendered via Portal
   const ModalContent = () => (

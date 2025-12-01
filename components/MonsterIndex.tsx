@@ -1,14 +1,10 @@
 
 import React from 'react';
-import { ASSETS, ITEMS } from '../constants';
+import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const MonsterIndex: React.FC<{ foundItems: string[] }> = ({ foundItems }) => {
-  // Feature temporarily disabled: Always treated as locked/incomplete
-  const allFound = false; 
-  // const progress = Math.round((foundItems.length / ITEMS.length) * 100); // Progress not shown
+const MonsterIndex: React.FC = () => {
   const { t } = useLanguage();
-  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
   
   return (
     <section id="collection" className="py-12 md:py-24 bg-[#151719] relative overflow-hidden border-t border-lily-shadow flex justify-center">

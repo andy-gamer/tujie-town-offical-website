@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from 'react';
-import { ITEMS } from './constants';
 import Preloader from './components/Preloader';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -15,16 +14,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 
 // --- Main App ---
 export default function App() {
-  const [foundItems, setFoundItems] = useState<string[]>([]);
   const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    if (foundItems.length === ITEMS.length) {
-       setTimeout(() => {
-          document.getElementById('collection')?.scrollIntoView({ behavior: 'smooth' });
-       }, 800);
-    }
-  }, [foundItems]);
 
   // Scroll Reveal Observer
   useEffect(() => {
@@ -53,11 +43,11 @@ export default function App() {
           <>
             <Header />
             <main className="animate-fade-in w-full overflow-x-hidden">
-              <Hero foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} />
+              <Hero />
               <div className="scroll-reveal"><LatestNews /></div>
-              <div className="scroll-reveal"><Town foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
-              <div className="scroll-reveal"><Gameplay foundItems={foundItems} onFindItem={id => setFoundItems(p => [...p, id])} /></div>
-              <div className="scroll-reveal"><MonsterIndex foundItems={foundItems} /></div>
+              <div className="scroll-reveal"><Town /></div>
+              <div className="scroll-reveal"><Gameplay /></div>
+              <div className="scroll-reveal"><MonsterIndex /></div>
               <div className="scroll-reveal"><ContentWarning /></div>
               <div className="scroll-reveal"><Footer /></div>
             </main>

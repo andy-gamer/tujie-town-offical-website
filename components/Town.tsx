@@ -1,13 +1,10 @@
 
 import React, { useState } from 'react';
-import { ASSETS, ITEMS } from '../constants';
+import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }> = ({ foundItems, onFindItem }) => {
+const Town: React.FC = () => {
   const [activeRule, setActiveRule] = useState<number | null>(null);
-  // Hidden item logic disabled
-  // const townItem = ITEMS.find(i => i.section === 'town');
-  // const isFound = townItem && foundItems.includes(townItem.id);
   const { t } = useLanguage();
 
   const rules = [
@@ -168,25 +165,6 @@ const Town: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
                      {t.nav.wishlist}
                    </a>
                 </div>
-
-                {/* Hidden Item Temporarily Disabled */}
-                {/* 
-                {!isFound && townItem && (
-                  <button onClick={() => onFindItem(townItem.id)} className="absolute bottom-4 left-4 md:bottom-32 md:right-10 md:left-auto transform rotate-12 hover:rotate-0 hover:scale-105 transition-all z-30 group" title={t.town.pickupTicket}>
-                    <div className="relative">
-                      <div className="absolute inset-0 rounded-full bg-lantern-red/30 animate-ping opacity-75"></div>
-                      <div className="bg-[#e8e4dc] border-2 border-lantern-red/50 p-2 md:p-4 shadow-[0_0_20px_rgba(192,53,43,0.5)] flex flex-col items-center gap-1 md:gap-2 w-24 h-16 md:w-32 md:h-20 justify-center group-hover:bg-white transition-colors relative overflow-hidden z-10 opacity-90 group-hover:opacity-100 ring-2 ring-lantern-red ring-offset-2 ring-offset-valley-teal">
-                         <div className="absolute top-0 left-0 w-full h-1 md:h-2 bg-valley-teal"></div>
-                         <div className="flex items-center gap-2">
-                             <i className={`fa-solid ${townItem.icon} text-lantern-red text-base md:text-xl animate-bounce`}></i> 
-                             <span className="font-display font-bold text-valley-teal text-sm md:text-lg">{t.town.pickupTicket}</span>
-                         </div>
-                         <span className="text-[8px] md:text-[10px] font-mono text-forgotten-ink tracking-widest">{t.town.pickupTicketSub}</span>
-                      </div>
-                    </div>
-                  </button>
-                )}
-                */}
              </div>
           </div>
         </div>

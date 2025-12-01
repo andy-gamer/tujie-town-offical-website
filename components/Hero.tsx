@@ -1,26 +1,12 @@
 
 import React, { useState } from 'react';
-import { ASSETS, ITEMS } from '../constants';
+import { ASSETS } from '../constants';
 import TrailerModal from './TrailerModal';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }> = ({ foundItems, onFindItem }) => {
+const Hero: React.FC = () => {
   const [showTrailer, setShowTrailer] = useState(false);
-  // Hidden item logic disabled
-  // const heroItem = ITEMS.find(i => i.section === 'hero');
-  // const isFound = heroItem && foundItems.includes(heroItem.id);
   const { t } = useLanguage();
-
-  const renderItemContent = () => (
-    <div className="relative w-full h-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-lantern-red/30 rounded-full animate-ping blur-sm"></div>
-        {/* Icon - Scaled up slightly for mobile visibility */}
-        {/* <i className={`fa-solid ${heroItem?.icon} text-5xl md:text-5xl drop-shadow-[0_0_15px_rgba(192,53,43,0.8)] opacity-90 group-hover:opacity-100 relative z-10`}></i> */}
-        <div className="absolute -bottom-6 text-xs text-lantern-red font-bold tracking-widest bg-black/50 px-2 py-1 rounded backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
-            {t.hero.clickToInvestigate}
-        </div>
-    </div>
-  );
 
   return (
     <>
@@ -47,28 +33,6 @@ const Hero: React.FC<{ foundItems: string[], onFindItem: (id: string) => void }>
            <div className="absolute inset-0 bg-repeat-x animate-fog opacity-30 md:opacity-50 mix-blend-hard-light pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog1})` }}></div>
            <div className="absolute inset-0 bg-repeat-x animate-fog-slow opacity-20 md:opacity-40 mix-blend-screen pointer-events-none" style={{ backgroundImage: `url(${ASSETS.fog2})` }}></div>
         </div>
-
-        {/* Hidden Item Temporarily Disabled */}
-        {/*
-        {!isFound && heroItem && (
-          <>
-            <button
-              onClick={(e) => { e.stopPropagation(); onFindItem(heroItem.id); }}
-              className="md:hidden absolute w-24 h-24 top-[45%] right-6 flex items-center justify-center text-lily-pale hover:text-lantern-red transition-all cursor-pointer animate-float z-50 group p-4"
-            >
-                {renderItemContent()}
-            </button>
-
-            <button
-              onClick={(e) => { e.stopPropagation(); onFindItem(heroItem.id); }}
-              className="hidden md:flex absolute w-24 h-24 items-center justify-center text-lily-pale hover:text-lantern-red transition-all cursor-pointer animate-float z-50 group p-4"
-              style={{ top: heroItem.top, left: heroItem.left }}
-            >
-                {renderItemContent()}
-            </button>
-          </>
-        )}
-        */}
 
         {/* --- LOGO SECTION --- 
             Mobile: MOVED inside Content Box below

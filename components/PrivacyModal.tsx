@@ -2,7 +2,7 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const PrivacyModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+const PrivacyModal = ({ onClose }: { onClose: () => void }) => {
   const { t } = useLanguage();
 
   return (

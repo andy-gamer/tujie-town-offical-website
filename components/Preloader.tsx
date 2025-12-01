@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ASSETS } from '../constants';
 
-const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
+const Preloader = ({ onComplete }: { onComplete: () => void }) => {
   const [step, setStep] = useState(0);
   const { t } = useLanguage();
 

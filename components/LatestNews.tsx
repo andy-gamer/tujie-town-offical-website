@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ASSETS } from '../constants';
 import { useLanguage } from '../contexts/LanguageContext';
 
-interface NewsItem {
+export interface NewsItem {
   date: string;
   category: string;
   title: string;

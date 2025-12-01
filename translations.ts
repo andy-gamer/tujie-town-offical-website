@@ -85,9 +85,9 @@ export const translations = {
       lockedOverlay: {
         topSecret: 'TOP SECRET',
         doNotOpen: 'DO NOT OPEN',
-        desc: '此檔案已被封存。請尋回所有記憶碎片以解鎖內容。',
-        hint: '（提示：線索就藏在網站的各個角落，請仔細尋找...）',
-        status: 'DECRYPTION STATUS'
+        desc: '此檔案目前處於封存狀態。',
+        hint: '解鎖功能將於未來開放。\n欲知案件的最新情報，請密切追蹤官方社群。',
+        status: 'ARCHIVED'
       },
       file: {
         basic: {
@@ -232,9 +232,9 @@ export const translations = {
       lockedOverlay: {
         topSecret: 'TOP SECRET',
         doNotOpen: 'DO NOT OPEN',
-        desc: '此档案已被封存。请寻回所有记忆碎片以解锁内容。',
-        hint: '（提示：线索就藏在网站的各个角落，请仔细寻找...）',
-        status: 'DECRYPTION STATUS'
+        desc: '此档案目前处于封存状态。',
+        hint: '解锁功能将于未来开放。\n欲知案件的最新情报，请密切追踪官方社群。',
+        status: 'ARCHIVED'
       },
       file: {
         basic: {
@@ -379,9 +379,362 @@ export const translations = {
       lockedOverlay: {
         topSecret: 'TOP SECRET',
         doNotOpen: 'DO NOT OPEN',
-        desc: 'This file is sealed. Recover all memory fragments to decrypt.',
-        hint: '(Hint: Clues are hidden in corners of this site. Look closely...)',
-        status: 'DECRYPTION STATUS'
+        desc: 'This file is currently archived.',
+        hint: 'Unlock functionality will be available in the future.\nFollow our official social media for the latest case updates.',
+        status: 'ARCHIVED'
       },
       file: {
-        
+        basic: {
+           title: 'BASIC INFO',
+           content: '13-year-old girl. Cheerful personality, loves her younger sister. Often wears a blue floral dress. Trained in martial arts.'
+        },
+        items: {
+          title: 'RESIDUAL ITEMS',
+          list: [
+            'Stuffed Doll (Right eye has abnormal reflection)',
+            'Ticket Stub (Child type, year unknown)',
+            'Photo Fragment (Two children, writing on back scraped off)'
+          ],
+          note: '(These items appear frequently near event locations. Origin unknown.)'
+        },
+        event: {
+          title: 'EVENT SUMMARY',
+          content: 'Sister briefly went missing during summer vacation but was found the next day. That afternoon, witnesses saw Lin Ching praying alone at ████ (record redacted). Late that night, she went out to investigate strange cat noises—this was the last confirmed sighting.'
+        },
+        observation: {
+          title: 'OBSERVATION LOG (Excerpt)',
+          intro: 'Night Patrol Record:\nBetween days 3-21 after the event, a silhouette matching the subject\'s height and movement was observed multiple times near the old railway, sugar factory entrance, and alley shadows.',
+          quotes: [
+            '"Looks like her, but moves differently from memory."',
+            '"The shadow lifts its head half a beat earlier than the body."',
+            '"There\'s a blurred mark on the waist like a child\'s rubber stamp."'
+          ],
+          rumors_title: 'Unverified Rumors:',
+          rumors_content: 'Some heard a voice similar to hers at night, but it only repeated sentences said the previous day. Others described her lingering by the railway, as if waiting for something unseen.'
+        },
+        status: 'STATUS: UNDER INVESTIGATION'
+      },
+      actionRequired: 'ACTION REQUIRED',
+      actionDesc: 'PLEASE VERIFY THE ABOVE INFORMATION',
+      addToWishlist: 'ADD TO WISHLIST',
+    },
+    footer: {
+      studio: 'OrzienGames',
+      tagline: 'From Origin, With Heart.',
+      desc: '"Daytime mortals, nighttime dreamers.\nA group of office workers, driven by love for games, turning from players into developers, hoping to create works that resonate."',
+      credits: {
+        col1: 'Production & Narrative',
+        col2: 'Design & Art',
+        col3: 'Tech & Audio',
+        roles: {
+          director: 'Game Director',
+          writer: 'Writer',
+          coWriter: 'Co-Writer',
+          gameDesign: 'Game Design',
+          artist: 'Artist',
+          supporter: 'Supporter',
+          uiux: 'UI/UX',
+          programmer: 'Programmer',
+          techSupporter: 'Tech Support',
+          sound: 'Music/Sound'
+        }
+      },
+      privacy: 'PRIVACY POLICY',
+      contact: 'CONTACT US'
+    }
+  },
+  'ja': {
+    nav: {
+      world: '世界観',
+      news: '最新情報',
+      gameplay: 'ゲームシステム',
+      wishlist: 'ウィッシュリスト',
+    },
+    preloader: {
+      line1: '母さんは言った。月がおかしい夜は、決して外に出てはいけないと……',
+    },
+    privacy: {
+      title: 'プライバシーポリシー',
+      p1: '土界鎮（Tujie Town）公式サイトへようこそ。私たちはあなたのプライバシーを重視しています。',
+      p2: '本サイトは主にゲームの宣伝と展示を目的としています。関連するプライバシー法規を遵守することをお約束します。',
+      l1: 'データ収集：',
+      l1_desc: '本サイトは必要な匿名の利用データ（閲覧数など）のみを収集し、個人を特定できる情報は収集しません。',
+      l2: 'Cookieの使用：',
+      l2_desc: '閲覧体験を最適化するためにCookieを使用しています（言語設定の記憶など）。ブラウザの設定でいつでも無効にできます。',
+      l3: '第三者リンク：',
+      l3_desc: '本サイトには外部サイト（Steamなど）へのリンクが含まれています。これらのサイトのプライバシーポリシーは私たちとは無関係です。',
+      update: '最終更新日：2026.01.01',
+      understood: '理解しました',
+    },
+    contentWarning: {
+      title: '【 コンテンツ警告 】',
+      text: '『土界鎮』には、ホラー、失踪事件、民間伝承などの要素が含まれており、不快感を与える可能性があります。\nすべてのキャラクターと設定は架空のものです。ご自身の判断で体験してください。',
+    },
+    hero: {
+      comingSoon: 'COMING SOON',
+      description_1: '父を探すため、',
+      description_2: 'あなたはサトウキビと秘密に包まれたこの町に戻ってきた。',
+      description_3: 'しかし、境界に足を踏み入れたその瞬間から——',
+      description_4: '誰かの声が耳元でささやいた：',
+      description_punchline: '「やっと、帰ってきたね。」',
+      watchTrailer: '予告編を見る',
+      clickToInvestigate: '調査する',
+    },
+    town: {
+      topSecret: 'TOP SECRET // FILE',
+      worldView: '世界観',
+      aboutTitle: '土界鎮について',
+      aboutDesc_1: '土界鎮は深い山の霧に閉ざされた町だ。',
+      aboutDesc_2: '三方を山に、一方を川に囲まれ、古い街並みと廃線跡が谷間に交錯している。',
+      aboutDesc_3: '昼間はすべてがあまりにも平穏に見える。',
+      aboutDesc_4: 'しかし夜になると、町は全く別の顔を見せる。',
+      aboutDesc_5: '住民は決して理由を語らず、ただ警告する：',
+      quote: '「ルールを守れば、無事でいられる。」',
+      fig1: 'FIG. 1: THE TEA HOUSE',
+      taboo: '禁忌',
+      guideTitle: '住民生存ガイド',
+      guideVer: 'VER. 2.0',
+      rule1: 'カタツムリを見かけたら、傷つけずに避けて通ること。',
+      rule2: '日が沈んだ後は、屋外に留まらないこと。',
+      rule3: '存在しないはずの駅を見たら、すぐに目を閉じること。',
+      rule4_prefix: '絶対に',
+      rule4_highlight: '「九姑娘花」',
+      rule4_suffix: 'を町の外に持ち出さないこと。',
+      rule4_hover: 'SHE IS WATCHING YOU',
+      notReady: 'まだルールを守る準備ができていませんか？',
+      pickupTicket: '切符',
+      pickupTicketSub: '拾う',
+    },
+    news: {
+      title: '最新情報',
+      readMore: 'クリックして詳細を読む。土界鎮の秘密が徐々に明らかになっていく...',
+      items: [
+        { date: '2026.01.20', category: 'NEWS', title: '公式サイト正式オープン！ウィッシュリスト登録受付中' }
+      ]
+    },
+    gameplay: {
+      title: 'ゲームシステム',
+      pickupLabel: '拾う',
+      card1: { title: '懐古探索', sub: 'EXPLORATION', desc: '土界鎮の通り、廃糖工場、駅を探索せよ。町の風景や風習から、隠された真実を繋ぎ合わせろ。' },
+      card2: { title: '看取能力', sub: 'THE SIGHT', desc: '古い物に触れ、残留した記憶の断片を読み取り、隠蔽された真実を復元せよ。' },
+      card3: { title: '異界生存', sub: 'SURVIVAL', desc: '月が変色する時、人間に擬態した「花倀（かしょう）」と対峙せよ。彼らの弱点を利用して生き延びろ。' },
+    },
+    monster: {
+      title: '失踪者観察ファイル No.01 — 林晴（リン・チン）',
+      subtitle: '土界鎮に散らばる記憶の欠片を集め、事件の真相を復元し、常識では説明できない現象を追跡せよ……',
+      caseId: 'CASE #001970',
+      lockedOverlay: {
+        topSecret: 'TOP SECRET',
+        doNotOpen: 'DO NOT OPEN',
+        desc: 'このファイルは現在アーカイブされています。',
+        hint: 'ロック解除機能は将来的に公開される予定です。\n最新情報については、公式SNSをフォローしてください。',
+        status: 'ARCHIVED'
+      },
+      file: {
+        basic: {
+           title: '基本データ',
+           content: '13歳の少女。明るい性格で、妹思い。青い花柄のワンピースを好んで着る。幼い頃から武術を学んでいた。'
+        },
+        items: {
+          title: '残留物と思われる物品',
+          list: [
+            'ぬいぐるみ（右目の表面反射に異常あり）',
+            '切符の半券（小児用、発行年不明）',
+            '写真の破片（子供二人の集合写真、裏面の文字は削り取られている）'
+          ],
+          note: '（以上の物品は事件現場周辺で頻繁に出現。出所は調査中）'
+        },
+        event: {
+          title: '事件概要',
+          content: '夏休みの外出中に妹が一時行方不明になったが、翌日無事に発見された。同日午後、林晴が単独で████へ祈願に行ったという目撃証言がある（記録後に抹消済み）。深夜、窓の外からの異常な猫の鳴き声を確認するために外出した——これが確実な最後の目撃情報である。'
+        },
+        observation: {
+          title: '観察日誌（抜粋）',
+          intro: '夜間巡回記録（抄録）：\n事件発生後3日目から21日目の間、旧鉄道、廃糖工場入口、路地の影などで、対象の身長や動作に酷似した人影が多数観測された。',
+          quotes: [
+            '「彼女に似ているが、動きが記憶と少し違う。」',
+            '「影が頭を上げるタイミングが、体より半拍早い。」',
+            '「腰のあたりに、子供用のゴム印のようなぼやけた痕跡がある。」'
+          ],
+          rumors_title: '町には未確認の噂もある：',
+          rumors_content: '夜中に彼女に似た声を聞いたという者がいるが、その内容は前日に話していた言葉の繰り返しだった。また、誰か見えないものを待っているかのように、線路脇に長時間佇んでいる姿も目撃されている。'
+        },
+        status: 'ステータス：追跡調査中'
+      },
+      actionRequired: '行動確認',
+      actionDesc: '上記情報の確認をお願いします',
+      addToWishlist: 'ウィッシュリストに追加',
+    },
+    footer: {
+      studio: 'OrzienGames',
+      tagline: '「源」より始まり、稚心を注ぐ。',
+      desc: '“昼は凡人、夜は夢追い人。\nゲームへの愛を源に、プレイヤーから開発者へと変わったサラリーマンたちが、共鳴できる作品作りを目指しています。”',
+      credits: {
+        col1: 'Production & Narrative',
+        col2: 'Design & Art',
+        col3: 'Tech & Audio',
+        roles: {
+          director: '発起人 Game Director',
+          writer: 'メインライター Writer',
+          coWriter: '協力ライター Co-Writer',
+          gameDesign: 'ゲームデザイン Game Design',
+          artist: 'アートデザイン Artist',
+          supporter: 'アートサポート Supporter',
+          uiux: 'UI/UX',
+          programmer: 'プログラマー Programmer',
+          techSupporter: '技術サポート Tech Support',
+          sound: '音楽・SE Music/Sound'
+        }
+      },
+      privacy: 'プライバシーポリシー',
+      contact: 'お問い合わせ'
+    }
+  },
+  'ko': {
+    nav: {
+      world: '세계관',
+      news: '최신 소식',
+      gameplay: '게임 플레이',
+      wishlist: '찜하기',
+    },
+    preloader: {
+      line1: '엄마는 말씀하셨지, 달이 이상한 밤에는 절대 밖으로 나가지 말라고……',
+    },
+    privacy: {
+      title: '개인정보 처리방침',
+      p1: '투계진(Tujie Town) 공식 사이트에 오신 것을 환영합니다. 저희는 귀하의 개인정보를 중요하게 생각합니다.',
+      p2: '이 사이트는 게임 홍보 및 전시 목적으로 운영되며, 관련 개인정보 보호 법규를 준수합니다.',
+      l1: '데이터 수집:',
+      l1_desc: '본 사이트는 필수적인 익명 사용 데이터(방문 수 등)만 수집하며, 개인을 식별할 수 있는 정보는 수집하지 않습니다.',
+      l2: '쿠키 사용:',
+      l2_desc: '사용자 경험 최적화를 위해 쿠키를 사용합니다(언어 설정 저장 등). 브라우저 설정에서 언제든지 비활성화할 수 있습니다.',
+      l3: '제3자 링크:',
+      l3_desc: '본 사이트에는 외부 사이트(Steam 등)로 연결되는 링크가 포함되어 있으며, 해당 사이트의 개인정보 보호 정책은 저희와 무관합니다.',
+      update: '최종 업데이트: 2026.01.01',
+      understood: '확인했습니다',
+    },
+    contentWarning: {
+      title: '【 콘텐츠 경고 】',
+      text: '《투계진》에는 공포 분위기, 실종 사건, 민속 신앙 등의 요소가 포함되어 있어 불쾌감을 줄 수 있습니다.\n모든 등장인물과 설정은 허구입니다. 개인의 판단에 따라 이용해 주시기 바랍니다.',
+    },
+    hero: {
+      comingSoon: 'COMING SOON',
+      description_1: '아버지를 찾기 위해,',
+      description_2: '당신은 사탕수수와 비밀로 뒤덮인 이 마을로 돌아왔습니다.',
+      description_3: '하지만 경계를 넘은 그 순간부터——',
+      description_4: '누군가의 목소리가 귓가에 속삭였습니다:',
+      description_punchline: '“드디어, 돌아왔구나.”',
+      watchTrailer: '트레일러 보기',
+      clickToInvestigate: '조사하기',
+    },
+    town: {
+      topSecret: 'TOP SECRET // FILE',
+      worldView: '세계관',
+      aboutTitle: '투계진에 대하여',
+      aboutDesc_1: '투계진은 깊은 산안개에 갇힌 마을입니다.',
+      aboutDesc_2: '삼면이 산이고 한쪽은 강이며, 옛 거리와 폐철도가 골짜기에 얽혀 있습니다.',
+      aboutDesc_3: '낮에는 모든 것이 너무나 평온해 보입니다;',
+      aboutDesc_4: '하지만 밤이 되면, 마을은 완전히 다른 모습으로 변합니다.',
+      aboutDesc_5: '주민들은 절대 이유를 말하지 않고, 단지 경고할 뿐입니다:',
+      quote: '“규칙을 지키면, 무사할 수 있어.”',
+      fig1: 'FIG. 1: THE TEA HOUSE',
+      taboo: '금기',
+      guideTitle: '주민 생존 가이드',
+      guideVer: 'VER. 2.0',
+      rule1: '달팽이를 보면 해치지 말고 피해 가십시오.',
+      rule2: '해가 진 후에는 야외에 머물지 마십시오.',
+      rule3: '존재하지 않는 역을 보면 즉시 눈을 감으십시오.',
+      rule4_prefix: '절대로',
+      rule4_highlight: '“구고낭화(九姑娘花)”',
+      rule4_suffix: '를 마을 밖으로 가져가지 마십시오.',
+      rule4_hover: 'SHE IS WATCHING YOU',
+      notReady: '아직 규칙을 따를 준비가 안 되셨나요?',
+      pickupTicket: '승차권',
+      pickupTicketSub: '줍기',
+    },
+    news: {
+      title: '최신 소식',
+      readMore: '클릭하여 자세한 내용을 확인하세요. 투계진의 비밀이 서서히 드러납니다...',
+      items: [
+        { date: '2026.01.20', category: 'NEWS', title: '공식 사이트 오픈! 찜하기 목록 추가 가능' }
+      ]
+    },
+    gameplay: {
+      title: '게임 플레이',
+      pickupLabel: '줍기',
+      card1: { title: '추억 탐색', sub: 'EXPLORATION', desc: '투계진의 거리, 폐당 공장, 역을 탐색하십시오. 마을의 풍경과 풍습에서 숨겨진 진실을 조각해 맞추십시오.' },
+      card2: { title: '사이코메트리', sub: 'THE SIGHT', desc: '오래된 물건을 만져 잔류 기억의 조각을 읽어내고, 은폐된 진실을 복원하십시오.' },
+      card3: { title: '이계 생존', sub: 'SURVIVAL', desc: '달이 변색될 때, 인간으로 의태한 ‘화창(花倀)’과 맞서십시오. 그들의 약점을 이용해 살아남아야 합니다.' },
+    },
+    monster: {
+      title: '실종자 관찰 파일 No.01 — 임청(Lin Ching)',
+      subtitle: '투계진에 흩어진 기억의 조각을 모아 사건의 진상을 복원하고, 상식으로 설명할 수 없는 현상을 추적하십시오……',
+      caseId: 'CASE #001970',
+      lockedOverlay: {
+        topSecret: 'TOP SECRET',
+        doNotOpen: 'DO NOT OPEN',
+        desc: '이 파일은 현재 보관된 상태입니다.',
+        hint: '잠금 해제 기능은 추후 공개될 예정입니다.\n최신 정보는 공식 소셜 미디어를 확인해 주세요.',
+        status: 'ARCHIVED'
+      },
+      file: {
+        basic: {
+           title: '기본 정보',
+           content: '13세 소녀. 밝은 성격이며 여동생을 아낌. 파란색 꽃무늬 원피스를 즐겨 입음. 어릴 적부터 무술을 배움.'
+        },
+        items: {
+          title: '잔류 추정 물품',
+          list: [
+            '인형 (오른쪽 눈 표면 반사 이상)',
+            '승차권 (아동용, 연도 불명)',
+            '사진 조각 (아이 두 명의 단체 사진, 뒷면 글씨 긁혀 있음)'
+          ],
+          note: '(위 물품들은 사건 현장 주변에서 빈번히 출현. 출처 조사 중)'
+        },
+        event: {
+          title: '사건 개요',
+          content: '여름방학 외출 중 여동생이 일시 실종되었으나 다음 날 무사히 발견됨. 같은 날 오후, 임청이 홀로 ████에 가서 기도를 올렸다는 목격담이 있음(기록 후 말소됨). 심야에 창밖의 이상한 고양이 울음소리를 확인하러 나감——이것이 마지막으로 확인된 목격 정보임.'
+        },
+        observation: {
+          title: '관찰 일지 (발췌)',
+          intro: '야간 순찰 기록 (초록):\n사건 발생 3~21일 사이, 구 철도, 폐당 공장 입구 및 골목 그림자 등에서 대상의 신장, 동작과 흡사한 실루엣이 다수 관측됨.',
+          quotes: [
+            '“그 아이 같지만, 움직임이 기억과 조금 다르다.”',
+            '“그림자가 머리를 드는 타이밍이 몸보다 반 박자 빠르다.”',
+            '“허리 쪽에 어린이용 고무 도장 같은 흐릿한 자국이 있다.”'
+          ],
+          rumors_title: '마을에 확인되지 않은 소문도 있음:',
+          rumors_content: '밤에 그 아이와 비슷한 목소리를 들었다는 사람이 있지만, 내용은 전날 했던 말의 반복이었다. 또한 누군가 보이지 않는 것을 기다리는 듯 철길 옆에 오랫동안 서 있는 모습도 목격되었다.'
+        },
+        status: '상태: 추적 조사 중'
+      },
+      actionRequired: '행동 확인',
+      actionDesc: '위 정보의 확인을 부탁드립니다',
+      addToWishlist: '찜하기 추가',
+    },
+    footer: {
+      studio: 'OrzienGames',
+      tagline: '「근원」에서 시작해, 동심을 쏟다.',
+      desc: '“낮에는 평범한 직장인, 밤에는 꿈을 쫓는 사람들.\n게임에 대한 열정을 근원으로, 플레이어에서 개발자로 변신한 직장인들이 공감할 수 있는 작품을 만들고자 합니다.”',
+      credits: {
+        col1: 'Production & Narrative',
+        col2: 'Design & Art',
+        col3: 'Tech & Audio',
+        roles: {
+          director: '발기인 Game Director',
+          writer: '메인 작가 Writer',
+          coWriter: '협력 작가 Co-Writer',
+          gameDesign: '게임 기획 Game Design',
+          artist: '아트 디자인 Artist',
+          supporter: '아트 지원 Supporter',
+          uiux: 'UI/UX',
+          programmer: '프로그래머 Programmer',
+          techSupporter: '기술 지원 Tech Support',
+          sound: '음악/효과음 Music/Sound'
+        }
+      },
+      privacy: '개인정보 처리방침',
+      contact: '문의하기'
+    }
+  },
+};

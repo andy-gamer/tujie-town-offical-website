@@ -1,5 +1,4 @@
 
-import React from 'react';
 
 const TrailerModal = ({ onClose }: { onClose: () => void }) => (
   <div className="fixed inset-0 z-[60] bg-valley-teal/95 flex items-center justify-center p-4 animate-modal-in backdrop-blur-sm" onClick={onClose}>

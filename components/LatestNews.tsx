@@ -1,8 +1,8 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ASSETS } from './constants';
-import { useLanguage } from './contexts/LanguageContext';
+import { ASSETS } from '../constants';
+import { useLanguage } from '../contexts/LanguageContext';
 
 export interface NewsItem {
   date: string;

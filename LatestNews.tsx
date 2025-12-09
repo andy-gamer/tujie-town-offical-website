@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ASSETS } from '../constants';
-import { useLanguage } from '../contexts/LanguageContext';
+import { ASSETS } from './constants';
+import { useLanguage } from './contexts/LanguageContext';
 
 const LatestNews: React.FC = () => {
   const { t } = useLanguage();

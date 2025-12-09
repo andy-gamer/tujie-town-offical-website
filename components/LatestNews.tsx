@@ -65,7 +65,7 @@ const LatestNews = () => {
                   </p>
                   
                   <div className="mt-8 space-y-4">
-                    <a href="https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown" target="_blank" rel="noreferrer" className="block text-lantern-red hover:text-white font-bold transition-colors bg-white/5 p-4 border border-white/10 hover:bg-lantern-red/20 hover:border-lantern-red">
+                    <a href="https://store.steampowered.com/app/4209230/_Twjie_Town/?utm_source=website&utm_medium=official&utm_campaign=wishlist" target="_blank" rel="noreferrer" className="block text-lantern-red hover:text-white font-bold transition-colors bg-white/5 p-4 border border-white/10 hover:bg-lantern-red/20 hover:border-lantern-red">
                         <div className="flex items-center gap-3">
                             <i className="fa-brands fa-steam text-2xl"></i> 
                             <span>Steam 商店頁面 (加入願望清單)</span>

@@ -23,7 +23,7 @@ const Town: React.FC = () => {
     }
   };
 
-  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
+  const steamUrl = "https://store.steampowered.com/app/4209230/_Twjie_Town/?utm_source=website&utm_medium=official&utm_campaign=wishlist";
 
   return (
     <section id="town" className="relative py-12 md:py-48 bg-valley-teal overflow-hidden">

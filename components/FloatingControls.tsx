@@ -2,7 +2,7 @@
 import React from 'react';
 
 const FloatingControls: React.FC = () => {
-  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
+  const steamUrl = "https://store.steampowered.com/app/4209230/_Twjie_Town/?utm_source=website&utm_medium=official&utm_campaign=wishlist";
 
   return (
     <div 

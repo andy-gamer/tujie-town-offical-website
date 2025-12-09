@@ -30,11 +30,11 @@ export const translations = {
       text: '《土界鎮》包含驚悚氛圍、失蹤事件與民俗信仰等元素，可能引起不適。\n所有角色與設定皆為虛構，請依個人狀態自行斟酌體驗。',
     },
     hero: {
-      comingSoon: 'COMING SOON',
+      comingSoon: '2026 COMING SOON',
       description_1: '為了尋找父親，',
-      description_2: '你回到了這座被蔗糖與秘密包裹的小鎮。',
-      description_3: '可從踏進邊界的那一刻起——',
-      description_4: '有個聲音便在你耳邊輕輕地說：',
+      description_2: '你回到了這座充滿秘密的繁華小鎮。',
+      description_3: '踏進小鎮的那一刻，你聽見一個聲音，',
+      description_4: '有些輕柔，有些高興，他說——',
       description_punchline: '「你終於回來了。」',
       watchTrailer: '觀看概念影片',
       clickToInvestigate: '點擊調查',
@@ -43,12 +43,12 @@ export const translations = {
       topSecret: 'TOP SECRET // 檔案',
       worldView: '世界觀',
       aboutTitle: '關於土界鎮',
-      aboutDesc_1: '土界鎮是一座被山霧包住的小鎮。',
-      aboutDesc_2: '三面環山，一面臨河，老街與廢鐵道交錯在谷地裡。',
-      aboutDesc_3: '白天一切都顯得過於平靜；',
-      aboutDesc_4: '到了夜晚，整個小鎮彷彿變了模樣。',
-      aboutDesc_5: '鎮民從不說明原因，只會提醒：',
-      quote: '「遵守規矩，你就能平安。」',
+      aboutDesc_1: '土界鎮是一座與世隔絕的繁華小鎮。',
+      aboutDesc_2: '三面環山，一面臨河，被山霧包裹的谷地中，交錯著老街與廢棄鐵道。',
+      aboutDesc_3: '白天一切如常，',
+      aboutDesc_4: '到了夜晚，整個小鎮瞬間變了模樣。',
+      aboutDesc_5: '面對外地人，鎮民從不解釋，只會提醒：',
+      quote: '「守規矩，保平安。」',
       fig1: 'FIG. 1: THE TEA HOUSE',
       taboo: '禁忌',
       guideTitle: '鎮民生存指南',
@@ -74,13 +74,13 @@ export const translations = {
     gameplay: {
       title: '核心玩法',
       pickupLabel: '點擊拾取',
-      card1: { title: '懷舊探索', sub: 'EXPLORATION', desc: '探索土界鎮的街道、廢糖廠與車站，從小鎮的地景與習俗中拼回被隱藏的真相。' },
+      card1: { title: '懷舊探索', sub: 'EXPLORATION', desc: '穿梭於台灣舊街景，在廢棄糖廠、老車站及巷弄間進行探索。' },
       card2: { title: '看取能力', sub: 'THE SIGHT', desc: '觸摸舊物讀取殘留的記憶碎片，還原被掩蓋的真相。' },
-      card3: { title: '異界生存', sub: 'SURVIVAL', desc: '當月亮變色，面對擬態成人類的「花倀」，利用弱點求生。' },
+      card3: { title: '異界生存', sub: 'SURVIVAL', desc: '當月亮變色，在擬態成人類的「花倀」追殺下，利用花倀弱點以求生。' },
     },
     monster: {
-      title: '失踪者觀察檔案 No.01 — 林晴',
-      subtitle: '蒐集散落在土界鎮的記憶碎片，還原事件真相，並追查那些無法以常理解釋的現象……',
+      title: '失蹤者觀察檔案 No.01 — 林晴',
+      subtitle: '蒐集散落在土界鎮的記憶碎片，揭開那些被遺忘的異界生物真面目……',
       caseId: 'CASE #001970',
       lockedOverlay: {
         topSecret: 'TOP SECRET',
@@ -92,24 +92,24 @@ export const translations = {
       file: {
         basic: {
            title: '基本資料',
-           content: '13 歲少女，個性開朗，疼愛妹妹。常穿藍色碎花洋裝，自幼習武。'
+           content: '13 歲少女，開朗活潑，疼愛妹妹。常穿藍色碎花洋裝，自幼習武。'
         },
         items: {
           title: '疑似殘留物品',
           list: [
             '布偶（右眼表面反光異常）',
-            '票根（兒童類型，年份不明）',
+            '兒童票根（年份不明）',
             '相片碎片（兩名孩童合照，背後字跡遭刮除）'
           ],
           note: '（以上物件多次出現在事件周邊，來源待查。）'
         },
         event: {
           title: '事件摘要',
-          content: '暑假外出時妹妹一度走失，隔日平安尋回。同日下午，有目擊指出林晴曾獨自前往 ████ 祈願（紀錄後遭涂销）。深夜，她因窗外異常的貓叫聲外出查看——這是最後一次確切目擊。'
+          content: '妹妹於暑假時走失，當日下午，有目擊者指出林晴曾獨自前往 ████ 祈願（紀錄後遭塗銷），妹妹於隔日順利尋回。尋回當夜，她因窗外異常的貓叫聲外出查看——這是最後一次確切目擊資訊。'
         },
         observation: {
-          title: '觀察日誌（簡短）',
-          intro: '夜間巡查紀錄（節錄）：\n事件後第 3～21 日期間，多次在舊鐵道、廢糖廠入口及巷弄陰影中，觀察到與主體身高、動作相似的剪影。',
+          title: '觀察日誌（節錄）',
+          intro: '夜間巡查紀錄：\n事件後第 3～21 日間，多次在舊鐵道、廢糖廠入口及巷弄陰影中，觀察到與主體身高、動作相似的身影。',
           quotes: [
             '「像她，但動作跟記憶中的不太一樣。」',
             '「影子抬頭的時間比身體早半拍。」',
@@ -127,7 +127,7 @@ export const translations = {
     footer: {
       studio: '源境創遊 | OrzienGames',
       tagline: '以「源」為始，稚心投入。',
-      desc: '“白日凡人，夜裡追夢人。\n一群朝九晚五的上班族，源於對遊戲的熱愛，從玩家化為開發者，期盼也能作出有共鳴的作品。”',
+      desc: '“白日凡人，夜裡追夢人。\n一群朝九晚五的上班族，源於對遊戲的熱愛，從玩家轉為開發者，期盼能做出引發共鳴的作品。”',
       credits: {
         col1: 'Production & Narrative',
         col2: 'Design & Art',
@@ -136,6 +136,7 @@ export const translations = {
           director: '發起人 Game Director',
           writer: '主編 Writer',
           coWriter: '協力編劇 Co-Writer',
+          marketing: '行銷/發布 Marketing', // New Role
           gameDesign: '遊戲設計 Game Design',
           artist: '美術設計 Artist',
           supporter: '美術支援 Supporter',
@@ -143,6 +144,9 @@ export const translations = {
           programmer: '程式 Programmer',
           techSupporter: '技術支援 Supporter',
           sound: '音樂及音效 Music/Sound'
+        },
+        names: { // New section for structured names if needed, but keeping inline for now
+            marketing: '安迪、芝芝、小黑'
         }
       },
       privacy: '隱私權政策',
@@ -177,11 +181,11 @@ export const translations = {
       text: '《土界镇》包含惊悚氛围、失踪事件与民俗信仰等元素，可能引起不适。\n所有角色与设定皆为虚构，请依个人状态自行斟酌体验。',
     },
     hero: {
-      comingSoon: 'COMING SOON',
+      comingSoon: '2026 COMING SOON',
       description_1: '为了寻找父亲，',
-      description_2: '你回到了这座被蔗糖与秘密包裹的小镇。',
-      description_3: '可从踏进边界的那一刻起——',
-      description_4: '有个声音便在你耳边轻轻地说：',
+      description_2: '你回到了这座充满秘密的繁华小镇。',
+      description_3: '踏进小镇的那一刻，你听见一个声音，',
+      description_4: '有些轻柔，有些高兴，他说——',
       description_punchline: '“你终于回来了。”',
       watchTrailer: '观看概念视频',
       clickToInvestigate: '点击调查',
@@ -190,12 +194,12 @@ export const translations = {
       topSecret: 'TOP SECRET // 档案',
       worldView: '世界观',
       aboutTitle: '关于土界镇',
-      aboutDesc_1: '土界镇是一座被山雾包住的小镇。',
-      aboutDesc_2: '三面环山，一面临河，老街与废铁道交错在谷地里。',
-      aboutDesc_3: '白天一切都显得过于平静；',
-      aboutDesc_4: '到了夜晚，整个小镇仿佛变了模样。',
-      aboutDesc_5: '镇民从不说明原因，只会提醒：',
-      quote: '“遵守规矩，你就能平安。”',
+      aboutDesc_1: '土界镇是一座与世隔绝的繁华小镇。',
+      aboutDesc_2: '三面环山，一面临河，被山雾包裹的谷地中，交错着老街与废弃铁道。',
+      aboutDesc_3: '白天一切如常，',
+      aboutDesc_4: '到了夜晚，整个小镇瞬间变了模样。',
+      aboutDesc_5: '面对外地人，镇民从不解释，只会提醒：',
+      quote: '“守规矩，保平安。”',
       fig1: 'FIG. 1: THE TEA HOUSE',
       taboo: '禁忌',
       guideTitle: '镇民生存指南',
@@ -221,13 +225,13 @@ export const translations = {
     gameplay: {
       title: '核心玩法',
       pickupLabel: '点击拾取',
-      card1: { title: '怀旧探索', sub: 'EXPLORATION', desc: '探索土界镇的街道、废糖厂与车站，从小镇的地景与习俗中拼回被隐藏的真相。' },
+      card1: { title: '怀旧探索', sub: 'EXPLORATION', desc: '穿梭于台湾旧街景，在废弃糖厂、老车站及巷弄间进行探索。' },
       card2: { title: '看取能力', sub: 'THE SIGHT', desc: '触摸旧物读取残留的记忆碎片，还原被掩盖的真相。' },
-      card3: { title: '异界生存', sub: 'SURVIVAL', desc: '当月亮变色，面对拟态成人类的“花伥”，利用弱点求生。' },
+      card3: { title: '异界生存', sub: 'SURVIVAL', desc: '当月亮变色，在拟态成人类的“花伥”追杀下，利用花伥弱点以求生。' },
     },
     monster: {
       title: '失踪者观察档案 No.01 — 林晴',
-      subtitle: '搜集散落在土界镇的记忆碎片，还原事件真相，并追查那些无法以常理解释的现象……',
+      subtitle: '搜集散落在土界镇的记忆碎片，揭开那些被遗忘的异界生物真面目……',
       caseId: 'CASE #001970',
       lockedOverlay: {
         topSecret: 'TOP SECRET',
@@ -239,24 +243,24 @@ export const translations = {
       file: {
         basic: {
            title: '基本资料',
-           content: '13 岁少女，个性开朗，疼爱妹妹。常穿蓝色碎花洋装，自幼習武。'
+           content: '13 岁少女，开朗活泼，疼爱妹妹。常穿蓝色碎花洋装，自幼習武。'
         },
         items: {
           title: '疑似残留物品',
           list: [
             '布偶（右眼表面反光异常）',
-            '票根（儿童类型，年份不明）',
+            '儿童票根（年份不明）',
             '相片碎片（两名孩童合照，背后字迹遭刮除）'
           ],
           note: '（以上物件多次出现在事件周边，来源待查。）'
         },
         event: {
           title: '事件摘要',
-          content: '暑假外出时妹妹一度走失，隔日平安寻回。同日下午，有目击指出林晴曾独自前往 ████ 祈愿（纪录后遭涂销）。深夜，她因窗外异常的猫叫声外出查看——这是最后一次确切目击。'
+          content: '妹妹于暑假时走失，当日下午，有目击者指出林晴曾独自前往 ████ 祈愿（纪录后遭涂销），妹妹于隔日顺利寻回。寻回当夜，她因窗外异常的猫叫声外出查看——这是最后一次确切目击资讯。'
         },
         observation: {
-          title: '观察日誌（简短）',
-          intro: '夜间巡查纪录（节录）：\n事件后第 3～21 日期间，多次在旧铁道、废糖厂入口及巷弄阴影中，观察到与主体身高、动作相似的剪影。',
+          title: '观察日誌（节录）',
+          intro: '夜间巡查纪录：\n事件后第 3～21 日间，多次在旧铁道、废糖厂入口及巷弄阴影中，观察到与主体身高、动作相似的身影。',
           quotes: [
             '“像她，但动作跟记忆中的不太一样。”',
             '“影子抬头的时间比身体早半拍。”',
@@ -274,7 +278,7 @@ export const translations = {
     footer: {
       studio: '源境创游 | OrzienGames',
       tagline: '以“源”为始，稚心投入。',
-      desc: '“白日凡人，夜里追梦人。\n一群朝九晚五的上班族，源于对游戏的热爱，从玩家化为开发者，期盼也能作出有共鸣的作品。”',
+      desc: '“白日凡人，夜里追梦人。\n一群朝九晚五的上班族，源于对游戏的热爱，从玩家转为开发者，期盼能做出引发共鸣的作品。”',
       credits: {
         col1: 'Production & Narrative',
         col2: 'Design & Art',
@@ -283,6 +287,7 @@ export const translations = {
           director: '发起人 Game Director',
           writer: '主编 Writer',
           coWriter: '协力编剧 Co-Writer',
+          marketing: '行销/发布 Marketing',
           gameDesign: '游戏设计 Game Design',
           artist: '美术设计 Artist',
           supporter: '美术支援 Supporter',
@@ -290,6 +295,9 @@ export const translations = {
           programmer: '程式 Programmer',
           techSupporter: '技术支援 Supporter',
           sound: '音乐及音效 Music/Sound'
+        },
+        names: {
+            marketing: '安迪、芝芝、小黑'
         }
       },
       privacy: '隐私政策',
@@ -324,11 +332,11 @@ export const translations = {
       text: 'Tujie Town contains horror elements, missing persons themes, and folklore references that may be unsettling.\nAll characters and events are fictional. Player discretion is advised.',
     },
     hero: {
-      comingSoon: 'COMING SOON',
-      description_1: 'To find your missing father,',
-      description_2: 'You return to this town shrouded in cane fields and secrets.',
-      description_3: 'But from the moment you stepped across the border—',
-      description_4: 'A voice whispered softly in your ear:',
+      comingSoon: '2026 COMING SOON',
+      description_1: 'To find your father,',
+      description_2: 'You returned to this isolated, prosperous town full of secrets.',
+      description_3: 'The moment you stepped into town, you heard a voice,',
+      description_4: 'Soft and somewhat joyous, it said—',
       description_punchline: '"You have finally returned."',
       watchTrailer: 'WATCH TRAILER',
       clickToInvestigate: 'INVESTIGATE',
@@ -337,12 +345,12 @@ export const translations = {
       topSecret: 'TOP SECRET // FILE',
       worldView: 'THE WORLD',
       aboutTitle: 'ABOUT TUJIE TOWN',
-      aboutDesc_1: 'Tujie Town is isolated by dense mountain fog.',
-      aboutDesc_2: 'Surrounded by mountains and a river, its old streets intertwine with abandoned railways.',
-      aboutDesc_3: 'By day, everything seems too peaceful;',
-      aboutDesc_4: 'But at night, the town reveals its true face.',
-      aboutDesc_5: 'The locals never explain why, they only warn:',
-      quote: '"Follow the rules, and you might survive."',
+      aboutDesc_1: 'Tujie Town is an isolated, prosperous town.',
+      aboutDesc_2: 'Surrounded by mountains on three sides and a river on one. Fog-shrouded valleys intertwine with old streets and abandoned railways.',
+      aboutDesc_3: 'By day, everything is normal;',
+      aboutDesc_4: 'But at night, the entire town instantly transforms.',
+      aboutDesc_5: 'To outsiders, the locals never explain, they only warn:',
+      quote: '"Follow the rules, stay safe."',
       fig1: 'FIG. 1: THE TEA HOUSE',
       taboo: 'TABOO',
       guideTitle: 'SURVIVAL GUIDE',
@@ -368,13 +376,13 @@ export const translations = {
     gameplay: {
       title: 'GAMEPLAY',
       pickupLabel: 'PICK UP',
-      card1: { title: 'EXPLORATION', sub: 'NOSTALGIA', desc: 'Explore the streets, abandoned sugar factory, and stations. Piece together the truth from the town\'s landscape and customs.' },
+      card1: { title: 'EXPLORATION', sub: 'NOSTALGIA', desc: 'Wander through old Taiwanese streetscapes, exploring abandoned sugar factories, old stations, and alleyways.' },
       card2: { title: 'THE SIGHT', sub: 'PSYCHOMETRY', desc: 'Touch old objects to read residual memory fragments and reconstruct the concealed truth.' },
-      card3: { title: 'SURVIVAL', sub: 'MIMICRY', desc: 'When the moon turns red, face the "Flower Thralls" that mimic humans. Use their weaknesses to survive.' },
+      card3: { title: 'SURVIVAL', sub: 'MIMICRY', desc: 'When the moon changes color, survive the hunt of "Flower Thralls" mimicking humans by exploiting their weaknesses.' },
     },
     monster: {
       title: 'Missing Person File No.01 — Lin Ching',
-      subtitle: 'Collect memory fragments scattered across Tujie Town to reconstruct the truth and investigate phenomena that defy explanation...',
+      subtitle: 'Collect memory fragments scattered across Tujie Town to reveal the true nature of forgotten otherworldly creatures...',
       caseId: 'CASE #001970',
       lockedOverlay: {
         topSecret: 'TOP SECRET',
@@ -386,20 +394,20 @@ export const translations = {
       file: {
         basic: {
            title: 'BASIC INFO',
-           content: '13-year-old girl. Cheerful personality, loves her younger sister. Often wears a blue floral dress. Trained in martial arts.'
+           content: '13-year-old girl. Cheerful and lively, loves her younger sister. Often wears a blue floral dress. Trained in martial arts since childhood.'
         },
         items: {
           title: 'RESIDUAL ITEMS',
           list: [
             'Stuffed Doll (Right eye has abnormal reflection)',
-            'Ticket Stub (Child type, year unknown)',
+            'Child Ticket Stub (Year unknown)',
             'Photo Fragment (Two children, writing on back scraped off)'
           ],
           note: '(These items appear frequently near event locations. Origin unknown.)'
         },
         event: {
           title: 'EVENT SUMMARY',
-          content: 'Sister briefly went missing during summer vacation but was found the next day. That afternoon, witnesses saw Lin Ching praying alone at ████ (record redacted). Late that night, she went out to investigate strange cat noises—this was the last confirmed sighting.'
+          content: 'Her sister went missing during summer vacation. That afternoon, witnesses saw Lin Ching praying alone at ████ (record redacted). The sister was found safe the next day. That night, Lin Ching went out to investigate strange cat noises—this was the last confirmed sighting.'
         },
         observation: {
           title: 'OBSERVATION LOG (Excerpt)',
@@ -430,6 +438,7 @@ export const translations = {
           director: 'Game Director',
           writer: 'Writer',
           coWriter: 'Co-Writer',
+          marketing: 'Marketing / Publishing',
           gameDesign: 'Game Design',
           artist: 'Artist',
           supporter: 'Supporter',
@@ -437,6 +446,9 @@ export const translations = {
           programmer: 'Programmer',
           techSupporter: 'Tech Support',
           sound: 'Music/Sound'
+        },
+        names: {
+            marketing: 'Andy, Chichi, Xiaohei'
         }
       },
       privacy: 'PRIVACY POLICY',
@@ -471,11 +483,11 @@ export const translations = {
       text: '『土界鎮』には、ホラー、失踪事件、民間伝承などの要素が含まれており、不快感を与える可能性があります。\nすべてのキャラクターと設定は架空のものです。ご自身の判断で体験してください。',
     },
     hero: {
-      comingSoon: 'COMING SOON',
+      comingSoon: '2026 COMING SOON',
       description_1: '父を探すため、',
-      description_2: 'あなたはサトウキビと秘密に包まれたこの町に戻ってきた。',
-      description_3: 'しかし、境界に足を踏み入れたその瞬間から——',
-      description_4: '誰かの声が耳元でささやいた：',
+      description_2: 'あなたは秘密に満ちたこの繁栄した町に戻ってきた。',
+      description_3: '町に足を踏み入れたその瞬間、声が聞こえた。',
+      description_4: '少し優しく、少し嬉しそうに、彼は言った——',
       description_punchline: '「やっと、帰ってきたね。」',
       watchTrailer: '予告編を見る',
       clickToInvestigate: '調査する',
@@ -484,11 +496,11 @@ export const translations = {
       topSecret: 'TOP SECRET // FILE',
       worldView: '世界観',
       aboutTitle: '土界鎮について',
-      aboutDesc_1: '土界鎮は深い山の霧に閉ざされた町だ。',
-      aboutDesc_2: '三方を山に、一方を川に囲まれ、古い街並みと廃線跡が谷間に交錯している。',
-      aboutDesc_3: '昼間はすべてがあまりにも平穏に見える。',
-      aboutDesc_4: 'しかし夜になると、町は全く別の顔を見せる。',
-      aboutDesc_5: '住民は決して理由を語らず、ただ警告する：',
+      aboutDesc_1: '土界鎮は世間から隔絶された繁栄した町だ。',
+      aboutDesc_2: '三方を山に、一方を川に囲まれ、霧に包まれた谷間には古い街並みと廃線跡が交錯している。',
+      aboutDesc_3: '昼間はすべてが正常だ。',
+      aboutDesc_4: 'しかし夜になると、町は瞬時にしてその姿を変える。',
+      aboutDesc_5: '住民は余所者に説明せず、ただ警告する：',
       quote: '「ルールを守れば、無事でいられる。」',
       fig1: 'FIG. 1: THE TEA HOUSE',
       taboo: '禁忌',
@@ -515,13 +527,13 @@ export const translations = {
     gameplay: {
       title: 'ゲームシステム',
       pickupLabel: '拾う',
-      card1: { title: '懐古探索', sub: 'EXPLORATION', desc: '土界鎮の通り、廃糖工場、駅を探索せよ。町の風景や風習から、隠された真実を繋ぎ合わせろ。' },
+      card1: { title: '懐古探索', sub: 'EXPLORATION', desc: '台湾の古い街並みを往来し、廃糖工場、古い駅、路地裏を探索せよ。' },
       card2: { title: '看取能力', sub: 'THE SIGHT', desc: '古い物に触れ、残留した記憶の断片を読み取り、隠蔽された真実を復元せよ。' },
-      card3: { title: '異界生存', sub: 'SURVIVAL', desc: '月が変色する時、人間に擬態した「花倀（かしょう）」と対峙せよ。彼らの弱点を利用して生き延びろ。' },
+      card3: { title: '異界生存', sub: 'SURVIVAL', desc: '月が変色する時、人間に擬態した「花倀（かしょう）」の追跡から、彼らの弱点を利用して生き延びろ。' },
     },
     monster: {
       title: '失踪者観察ファイル No.01 — 林晴（リン・チン）',
-      subtitle: '土界鎮に散らばる記憶の欠片を集め、事件の真相を復元し、常識では説明できない現象を追跡せよ……',
+      subtitle: '土界鎮に散らばる記憶の欠片を集め、忘れ去られた異界の生物の正体を暴け……',
       caseId: 'CASE #001970',
       lockedOverlay: {
         topSecret: 'TOP SECRET',
@@ -533,24 +545,24 @@ export const translations = {
       file: {
         basic: {
            title: '基本データ',
-           content: '13歳の少女。明るい性格で、妹思い。青い花柄のワンピースを好んで着る。幼い頃から武術を学んでいた。'
+           content: '13歳の少女。明るく活発で、妹思い。青い花柄のワンピースを好んで着る。幼い頃から武術を学んでいた。'
         },
         items: {
           title: '残留物と思われる物品',
           list: [
             'ぬいぐるみ（右目の表面反射に異常あり）',
-            '切符の半券（小児用、発行年不明）',
+            '子供用切符の半券（発行年不明）',
             '写真の破片（子供二人の集合写真、裏面の文字は削り取られている）'
           ],
           note: '（以上の物品は事件現場周辺で頻繁に出現。出所は調査中）'
         },
         event: {
           title: '事件概要',
-          content: '夏休みの外出中に妹が一時行方不明になったが、翌日無事に発見された。同日午後、林晴が単独で████へ祈願に行ったという目撃証言がある（記録後に抹消済み）。深夜、窓の外からの異常な猫の鳴き声を確認するために外出した——これが確実な最後の目撃情報である。'
+          content: '夏休みに妹が行方不明になった。同日午後、林晴が単独で████へ祈願に行ったという目撃証言がある（記録後に抹消済み）。妹は翌日無事に発見された。発見当夜、林晴は窓の外からの異常な猫の鳴き声を確認するために外出した——これが確実な最後の目撃情報である。'
         },
         observation: {
           title: '観察日誌（抜粋）',
-          intro: '夜間巡回記録（抄録）：\n事件発生後3日目から21日目の間、旧鉄道、廃糖工場入口、路地の影などで、対象の身長や動作に酷似した人影が多数観測された。',
+          intro: '夜間巡回記録：\n事件発生後3日目から21日目の間、旧鉄道、廃糖工場入口、路地の影などで、対象の身長や動作に酷似した人影が多数観測された。',
           quotes: [
             '「彼女に似ているが、動きが記憶と少し違う。」',
             '「影が頭を上げるタイミングが、体より半拍早い。」',
@@ -577,6 +589,7 @@ export const translations = {
           director: '発起人 Game Director',
           writer: 'メインライター Writer',
           coWriter: '協力ライター Co-Writer',
+          marketing: 'マーケティング / パブリッシング',
           gameDesign: 'ゲームデザイン Game Design',
           artist: 'アートデザイン Artist',
           supporter: 'アートサポート Supporter',
@@ -584,6 +597,9 @@ export const translations = {
           programmer: 'プログラマー Programmer',
           techSupporter: '技術サポート Tech Support',
           sound: '音楽・SE Music/Sound'
+        },
+        names: {
+            marketing: 'Andy, Chichi, Kuro'
         }
       },
       privacy: 'プライバシーポリシー',
@@ -618,11 +634,11 @@ export const translations = {
       text: '《투계진》에는 공포 분위기, 실종 사건, 민속 신앙 등의 요소가 포함되어 있어 불쾌감을 줄 수 있습니다.\n모든 등장인물과 설정은 허구입니다. 개인의 판단에 따라 이용해 주시기 바랍니다.',
     },
     hero: {
-      comingSoon: 'COMING SOON',
+      comingSoon: '2026 COMING SOON',
       description_1: '아버지를 찾기 위해,',
-      description_2: '당신은 사탕수수와 비밀로 뒤덮인 이 마을로 돌아왔습니다.',
-      description_3: '하지만 경계를 넘은 그 순간부터——',
-      description_4: '누군가의 목소리가 귓가에 속삭였습니다:',
+      description_2: '당신은 비밀이 가득한 이 번화한 마을로 돌아왔습니다.',
+      description_3: '마을에 들어선 그 순간, 누군가의 목소리가 들렸습니다.',
+      description_4: '조금 부드럽고, 조금 기쁜 듯한 목소리로 그는 말했습니다——',
       description_punchline: '“드디어, 돌아왔구나.”',
       watchTrailer: '트레일러 보기',
       clickToInvestigate: '조사하기',
@@ -631,11 +647,11 @@ export const translations = {
       topSecret: 'TOP SECRET // FILE',
       worldView: '세계관',
       aboutTitle: '투계진에 대하여',
-      aboutDesc_1: '투계진은 깊은 산안개에 갇힌 마을입니다.',
-      aboutDesc_2: '삼면이 산이고 한쪽은 강이며, 옛 거리와 폐철도가 골짜기에 얽혀 있습니다.',
-      aboutDesc_3: '낮에는 모든 것이 너무나 평온해 보입니다;',
-      aboutDesc_4: '하지만 밤이 되면, 마을은 완전히 다른 모습으로 변합니다.',
-      aboutDesc_5: '주민들은 절대 이유를 말하지 않고, 단지 경고할 뿐입니다:',
+      aboutDesc_1: '투계진은 세상과 단절된 번화한 마을입니다.',
+      aboutDesc_2: '삼면이 산이고 한쪽은 강이며, 산안개에 싸인 골짜기에는 옛 거리와 폐철도가 교차합니다.',
+      aboutDesc_3: '낮에는 모든 것이 평범합니다;',
+      aboutDesc_4: '하지만 밤이 되면, 마을은 순식간에 다른 모습으로 변합니다.',
+      aboutDesc_5: '주민들은 외지인에게 설명하지 않고, 단지 경고할 뿐입니다:',
       quote: '“규칙을 지키면, 무사할 수 있어.”',
       fig1: 'FIG. 1: THE TEA HOUSE',
       taboo: '금기',
@@ -662,13 +678,13 @@ export const translations = {
     gameplay: {
       title: '게임 플레이',
       pickupLabel: '줍기',
-      card1: { title: '추억 탐색', sub: 'EXPLORATION', desc: '투계진의 거리, 폐당 공장, 역을 탐색하십시오. 마을의 풍경과 풍습에서 숨겨진 진실을 조각해 맞추십시오.' },
+      card1: { title: '추억 탐색', sub: 'EXPLORATION', desc: '대만의 옛 거리를 누비며, 폐당 공장, 오래된 역, 골목 사이를 탐색하십시오.' },
       card2: { title: '사이코메트리', sub: 'THE SIGHT', desc: '오래된 물건을 만져 잔류 기억의 조각을 읽어내고, 은폐된 진실을 복원하십시오.' },
-      card3: { title: '이계 생존', sub: 'SURVIVAL', desc: '달이 변색될 때, 인간으로 의태한 ‘화창(花倀)’과 맞서십시오. 그들의 약점을 이용해 살아남아야 합니다.' },
+      card3: { title: '이계 생존', sub: 'SURVIVAL', desc: '달이 변색될 때, 인간으로 의태한 ‘화창(花倀)’의 추격을 피해 그들의 약점을 이용해 살아남아야 합니다.' },
     },
     monster: {
       title: '실종자 관찰 파일 No.01 — 임청(Lin Ching)',
-      subtitle: '투계진에 흩어진 기억의 조각을 모아 사건의 진상을 복원하고, 상식으로 설명할 수 없는 현상을 추적하십시오……',
+      subtitle: '투계진에 흩어진 기억의 조각을 모아, 잊혀진 이계 생물의 정체를 밝혀내십시오……',
       caseId: 'CASE #001970',
       lockedOverlay: {
         topSecret: 'TOP SECRET',
@@ -680,24 +696,24 @@ export const translations = {
       file: {
         basic: {
            title: '기본 정보',
-           content: '13세 소녀. 밝은 성격이며 여동생을 아낌. 파란색 꽃무늬 원피스를 즐겨 입음. 어릴 적부터 무술을 배움.'
+           content: '13세 소녀. 밝고 활발하며 여동생을 아낌. 파란색 꽃무늬 원피스를 즐겨 입음. 어릴 적부터 무술을 배움.'
         },
         items: {
           title: '잔류 추정 물품',
           list: [
             '인형 (오른쪽 눈 표면 반사 이상)',
-            '승차권 (아동용, 연도 불명)',
+            '아동용 승차권 (연도 불명)',
             '사진 조각 (아이 두 명의 단체 사진, 뒷면 글씨 긁혀 있음)'
           ],
           note: '(위 물품들은 사건 현장 주변에서 빈번히 출현. 출처 조사 중)'
         },
         event: {
           title: '사건 개요',
-          content: '여름방학 외출 중 여동생이 일시 실종되었으나 다음 날 무사히 발견됨. 같은 날 오후, 임청이 홀로 ████에 가서 기도를 올렸다는 목격담이 있음(기록 후 말소됨). 심야에 창밖의 이상한 고양이 울음소리를 확인하러 나감——이것이 마지막으로 확인된 목격 정보임.'
+          content: '여름방학 때 여동생이 실종됨. 당일 오후, 임청이 홀로 ████에 가서 기도를 올렸다는 목격담이 있음(기록 후 말소됨). 여동생은 다음 날 무사히 발견됨. 발견 당일 밤, 임청은 창밖의 이상한 고양이 울음소리를 확인하러 나감——이것이 마지막으로 확인된 목격 정보임.'
         },
         observation: {
           title: '관찰 일지 (발췌)',
-          intro: '야간 순찰 기록 (초록):\n사건 발생 3~21일 사이, 구 철도, 폐당 공장 입구 및 골목 그림자 등에서 대상의 신장, 동작과 흡사한 실루엣이 다수 관측됨.',
+          intro: '야간 순찰 기록:\n사건 발생 3~21일 사이, 구 철도, 폐당 공장 입구 및 골목 그림자 등에서 대상의 신장, 동작과 흡사한 실루엣이 다수 관측됨.',
           quotes: [
             '“그 아이 같지만, 움직임이 기억과 조금 다르다.”',
             '“그림자가 머리를 드는 타이밍이 몸보다 반 박자 빠르다.”',
@@ -724,6 +740,7 @@ export const translations = {
           director: '발기인 Game Director',
           writer: '메인 작가 Writer',
           coWriter: '협력 작가 Co-Writer',
+          marketing: '마케팅 / 퍼블리싱',
           gameDesign: '게임 기획 Game Design',
           artist: '아트 디자인 Artist',
           supporter: '아트 지원 Supporter',
@@ -731,6 +748,9 @@ export const translations = {
           programmer: '프로그래머 Programmer',
           techSupporter: '기술 지원 Tech Support',
           sound: '음악/효과음 Music/Sound'
+        },
+        names: {
+            marketing: 'Andy, Chichi, Little Black'
         }
       },
       privacy: '개인정보 처리방침',

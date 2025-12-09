@@ -62,6 +62,10 @@ const Footer: React.FC = () => {
                    <span className="text-moon-silver/90 font-bold block mb-1">{t.footer.credits.roles.coWriter}</span>
                    晉子、西西
                 </p>
+                <p className="text-mist-grey/60 text-xs md:text-sm font-sans tracking-wide">
+                   <span className="text-moon-silver/90 font-bold block mb-1">{t.footer.credits.roles.marketing}</span>
+                   {t.footer.credits.names?.marketing}
+                </p>
              </div>
            </div>
 

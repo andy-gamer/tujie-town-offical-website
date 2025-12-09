@@ -52,7 +52,7 @@ const Header: React.FC = () => {
     { code: 'ko', label: '한국어' },
   ];
 
-  const steamUrl = "https://store.steampowered.com/app/4209230/?utm_source=officialsite&utm_campaign=tujietown";
+  const steamUrl = "https://store.steampowered.com/app/4209230/_Twjie_Town/?utm_source=website&utm_medium=official&utm_campaign=wishlist";
 
   // Stabilized mobile padding (py-3 always) to prevent jitter. Transition only on Desktop.
   const headerPadding = "py-3 md:transition-[padding] md:duration-500 " + (showLogo || mobileMenuOpen ? 'md:py-4' : 'md:py-6');

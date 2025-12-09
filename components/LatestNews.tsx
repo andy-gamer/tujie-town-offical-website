@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ASSETS } from '../constants';
@@ -32,7 +31,7 @@ const LatestNews = () => {
       onClick={() => setSelectedNews(null)}
     >
       <div 
-        className="relative w-full h-full md:h-auto md:max-w-2xl md:max-h-[90vh] bg-[#1D1F21] border border-mist-grey/30 shadow-2xl flex flex-col rounded-none" 
+        className="relative w-full h-[100dvh] md:h-auto md:max-w-2xl md:max-h-[90vh] bg-[#1D1F21] border border-mist-grey/30 shadow-2xl flex flex-col rounded-none overflow-hidden" 
         onClick={e => e.stopPropagation()}
       >
           {/* Paper Texture */}
@@ -45,7 +44,7 @@ const LatestNews = () => {
               </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12 relative z-10 pt-16 md:pt-12">
+          <div className="flex-1 overflow-y-auto custom-scrollbar p-6 md:p-12 relative z-10 pt-16 md:pt-12 overscroll-contain">
               <div className="flex items-center gap-4 mb-6 pt-2">
                 <span className="bg-lantern-red text-white text-xs font-bold px-2 py-1 tracking-widest">{selectedNews?.category}</span>
                 <span className="text-mist-grey/60 font-mono text-sm">{selectedNews?.date}</span>
